@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "p1",
+    "title": "Мисливська",
+    "description": "Багато м'яса",
+    "dimension": "35см/200гр",
+    "price": 100,
+    "photo": "/pizzaPhoto/pizza.png"
+  },
+  {
+    "_id": "p2",
+    "title": "Барбекю",
+    "description": "Теж багато м'яса",
+    "dimension": "35см/200гр",
+    "price": 105,
+    "photo": "/pizzaPhoto/pizza.png"
+  }
+]

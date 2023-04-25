@@ -1,0 +1,18 @@
+[
+  {
+    "_id": "h1",
+    "title": "Hot-Dog 1",
+    "description": "Багато м'яса",
+    "dimension": "35см/200гр",
+    "price": 100,
+    "photo": "/pizzaPhoto/pizza.png"
+  },
+  {
+    "_id": "h2",
+    "title": "Hot-Dog 2",
+    "description": "Теж багато м'яса",
+    "dimension": "35см/200гр",
+    "price": 105,
+    "photo": "/pizzaPhoto/pizza.png"
+  }
+]
