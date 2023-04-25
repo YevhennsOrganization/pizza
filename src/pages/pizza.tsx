@@ -1,14 +1,13 @@
-// import GoodsList from "@/components/goodsList/GoodsList";
-import PizzaList from "@/components/goodsList/PizzaList";
-import pizza from "../data/pizza.json";
+import PizzaList from '@/components/goodsList/PizzaList';
+import pizza from '../data/pizza.json';
+import Heading from '@/components/heading/Heading';
 
 const Pizza = () => {
   return (
     <>
       <main>
-        <div>Pizza</div>
+        <Heading title={'Піци'} />
         <PizzaList pizza={pizza} />
-        {/* <GoodsList pizza={pizza} /> */}
       </main>
     </>
   );

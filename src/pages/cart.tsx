@@ -1,8 +1,10 @@
+import Heading from '@/components/heading/Heading';
+
 const Cart = () => {
   return (
     <>
       <main>
-        <div>Cart</div>
+        <Heading title={'Корзина'} />
       </main>
     </>
   );

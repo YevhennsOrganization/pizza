@@ -1,11 +1,12 @@
-import HotDogList from "@/components/goodsList/HotDogList";
-import hotDog from "../data/hotDog.json";
+import HotDogList from '@/components/goodsList/HotDogList';
+import Heading from '@/components/heading/Heading';
+import hotDog from '../data/hotDog.json';
 
 const HotDog = () => {
   return (
     <>
       <main>
-        <div>HotDog</div>
+        <Heading title={'Хот-доги'} />
         <HotDogList hotDog={hotDog} />
       </main>
     </>
