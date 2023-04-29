@@ -17,7 +17,7 @@
   },
   {
     "_id": "h3",
-    "title": "Hot-Dog 1",
+    "title": "Hot-Dog 3",
     "description": "Багато м'яса",
     "dimension": "35см/200гр",
     "price": 100,
@@ -25,7 +25,7 @@
   },
   {
     "_id": "h4",
-    "title": "Hot-Dog 2",
+    "title": "Hot-Dog 4",
     "description": "Теж багато м'яса",
     "dimension": "35см/200гр",
     "price": 105,
