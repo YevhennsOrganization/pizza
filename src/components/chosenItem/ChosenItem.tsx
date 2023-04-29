@@ -8,6 +8,8 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { nanoid } from 'nanoid';
 import css from './ChosenItem.module.css';
+import { useDispatch } from 'react-redux';
+import { addItem } from '@/redux/cartSlice';
 
 type props = {
   open: boolean;
@@ -27,9 +29,8 @@ const ChosenItem: React.FC<props> = ({ open, handleClose, currentItem }) => {
 
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(price);
-  const [currentOrder] = useState(() => {
-    return JSON.parse(`${window.localStorage.getItem('cart')}`) || [];
-  });
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setTotalPrice(price * quantity);
@@ -51,8 +52,7 @@ const ChosenItem: React.FC<props> = ({ open, handleClose, currentItem }) => {
       quantity: quantity,
       totalPrice: totalPrice,
     };
-    const items = [...currentOrder, cartItem];
-    window.localStorage.setItem('cart', JSON.stringify(items));
+    dispatch(addItem(cartItem));
     handleClose();
   };
 
