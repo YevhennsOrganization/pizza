@@ -5,7 +5,7 @@
     "description": "Багато м'яса",
     "dimension": "35см/200гр",
     "price": 100,
-    "photo": "/pizzaPhoto/pizza.png"
+    "photo": "/hotDogPhoto/hotDog.png"
   },
   {
     "_id": "h2",
@@ -13,6 +13,22 @@
     "description": "Теж багато м'яса",
     "dimension": "35см/200гр",
     "price": 105,
-    "photo": "/pizzaPhoto/pizza.png"
+    "photo": "/hotDogPhoto/hotDog.png"
+  },
+  {
+    "_id": "h3",
+    "title": "Hot-Dog 1",
+    "description": "Багато м'яса",
+    "dimension": "35см/200гр",
+    "price": 100,
+    "photo": "/hotDogPhoto/hotDog.png"
+  },
+  {
+    "_id": "h4",
+    "title": "Hot-Dog 2",
+    "description": "Теж багато м'яса",
+    "dimension": "35см/200гр",
+    "price": 105,
+    "photo": "/hotDogPhoto/hotDog.png"
   }
 ]

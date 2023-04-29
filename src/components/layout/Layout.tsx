@@ -1,7 +1,11 @@
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
 
-const Layout = ({ children }: any) => {
+type Props = {
+  children: JSX.Element;
+};
+
+const Layout = ({ children }: Props) => {
   return (
     <>
       <Header />

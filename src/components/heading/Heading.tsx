@@ -1,5 +1,9 @@
-const Heading = ({ title }) => {
-  return <h1>{title}</h1>;
+type TypeHeading = {
+  heading: string;
+};
+
+const Heading = ({ heading }: TypeHeading) => {
+  return <h1>{heading}</h1>;
 };
 
 export default Heading;

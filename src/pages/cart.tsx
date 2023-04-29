@@ -1,10 +1,10 @@
 import Heading from '@/components/heading/Heading';
 
-const Cart = () => {
+const Cart: React.FC = () => {
   return (
     <>
       <main>
-        <Heading title={'Корзина'} />
+        <Heading heading={'Кошик'} />
       </main>
     </>
   );

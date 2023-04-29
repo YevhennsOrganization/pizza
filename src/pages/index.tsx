@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 
-export const Home = () => {
+export const Home: React.FC = () => {
   return (
     <>
       <Head>
@@ -14,7 +14,7 @@ export const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Heading title={'Новинки'} />
+        <Heading heading={'Новинки'} />
       </main>
     </>
   );
