@@ -6,26 +6,35 @@ import Textarea from '@mui/joy/Textarea';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearAll, getFilledCart } from '@/redux/cartSlice';
+import { addInfo, getCustomerInfo, getFilledCart } from '@/redux/cartSlice';
 import css from './CartForm.module.css';
 
 type TypeData = {
-  comment: string;
+  openModal: string;
   delivery: boolean;
   name: string;
   number: string;
+  address?: string;
+  comment?: string;
 };
-const CartForm = () => {
+
+type props = {
+  openModal: () => void;
+};
+
+const CartForm = ({ openModal }: props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<TypeData>();
+    watch,
+  } = useForm<TypeData>({ mode: 'onChange' });
 
   const [totalPayment, setTotalPayment] = useState(0);
 
   const payment = useSelector(getFilledCart);
+  const info = useSelector(getCustomerInfo);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -36,12 +45,20 @@ const CartForm = () => {
   }, [payment]);
 
   const onSubmit: SubmitHandler<TypeData> = data => {
-    console.log(data, payment, `Усього - ${totalPayment} грн`);
-    dispatch(clearAll());
+    openModal();
+    const customerInfo = {
+      address: data.address,
+      comment: data.comment,
+      delivery: data.delivery,
+      name: data.name,
+      number: data.number,
+      sum: totalPayment,
+    };
+    dispatch(addInfo(customerInfo));
     reset();
   };
 
-  console.log(errors);
+  const delivery = watch('delivery');
 
   return (
     <>
@@ -70,6 +87,21 @@ const CartForm = () => {
           <input type="checkbox" id="horns" {...register('delivery')} />
           <label htmlFor="horns">Доставка</label>
         </div>
+
+        {delivery && (
+          <>
+            <TextField
+              {...register('address', { required: "Це обов'язкове поле!" })}
+              id="outlined-basic"
+              label="Введіть адресу"
+              variant="outlined"
+            />
+            {errors?.address && (
+              <div style={{ color: 'red' }}>{errors.address?.message}</div>
+            )}
+          </>
+        )}
+
         <FormControl>
           <FormLabel>Коментар</FormLabel>
           <Textarea

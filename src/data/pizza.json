@@ -20,7 +20,7 @@
     "title": "Карбонара",
     "description": "Багато м'яса",
     "dimension": "35см/200гр",
-    "price": 100,
+    "price": 110,
     "photo": "/pizzaPhoto/pizza.png"
   },
   {
@@ -28,7 +28,7 @@
     "title": "4 сири",
     "description": "Теж багато м'яса",
     "dimension": "35см/200гр",
-    "price": 105,
+    "price": 125,
     "photo": "/pizzaPhoto/pizza.png"
   }
 ]

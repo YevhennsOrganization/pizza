@@ -1,12 +1,22 @@
+import { useState } from 'react';
 import Heading from '@/components/heading/Heading';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearAll, getFilledCart, deleteItem } from '@/redux/cartSlice';
+import {
+  clearAll,
+  getFilledCart,
+  deleteItem,
+  deleteAllItems,
+} from '@/redux/cartSlice';
 import CartForm from '@/components/cartForm/CartForm';
 import CartListItem from '@/components/cartListItem/CartListItem';
 import Button from '@mui/material/Button';
+import Image from 'next/image';
+import FinalModal from '@/components/finalModal/FinalModal';
 
 const Cart: React.FC = () => {
+  const [open, setOpen] = useState(false as boolean);
+
   const dispatch = useDispatch();
   const filledCart = useSelector(getFilledCart);
 
@@ -18,11 +28,19 @@ const Cart: React.FC = () => {
     dispatch(clearAll());
   };
 
+  const openModal = () => {
+    setOpen(!open);
+  };
+  const finalAction = () => {
+    dispatch(deleteAllItems());
+    setOpen(!open);
+  };
+
   return (
     <>
       <main>
         <Heading heading={'Кошик'} />
-        {filledCart.length > 0 && (
+        {filledCart.length > 0 ? (
           <>
             <ul>
               {filledCart.map(({ id, photo, title, quantity, totalPrice }) => {
@@ -39,12 +57,18 @@ const Cart: React.FC = () => {
                 );
               })}
             </ul>
+            <CartForm openModal={openModal} />
+            <Button onClick={deleteAll} variant="contained">
+              Очистити кошик
+            </Button>
+          </>
+        ) : (
+          <>
+            <Image src={'/empty.png'} alt="empty" width={236} height={257} />
+            <p>Кошик пустий!</p>
           </>
         )}
-        <CartForm />
-        <Button onClick={deleteAll} variant="contained">
-          Очистити кошик
-        </Button>
+        {open && <FinalModal open={open} finalAction={finalAction} />}
       </main>
     </>
   );
