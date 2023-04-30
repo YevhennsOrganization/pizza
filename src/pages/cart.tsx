@@ -10,7 +10,7 @@ const Cart: React.FC = () => {
   const dispatch = useDispatch();
   const filledCart = useSelector(getFilledCart);
 
-  const deleteCartItem = id => {
+  const deleteCartItem = (id: string) => {
     dispatch(deleteItem(id));
   };
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Textarea from '@mui/joy/Textarea';
@@ -9,13 +9,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { clearAll, getFilledCart } from '@/redux/cartSlice';
 import css from './CartForm.module.css';
 
+type TypeData = {
+  comment: string;
+  delivery: boolean;
+  name: string;
+  number: string;
+};
 const CartForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm();
+  } = useForm<TypeData>();
 
   const [totalPayment, setTotalPayment] = useState(0);
 
@@ -24,16 +30,18 @@ const CartForm = () => {
 
   useEffect(() => {
     const result = payment
-      .map((element: { totalPrice: any; }) => element.totalPrice)
-      .reduce((acc, val) => acc + val, 0);
+      .map((element: { totalPrice: number }) => element.totalPrice)
+      .reduce((acc: number, val: number) => acc + val, 0);
     setTotalPayment(result);
   }, [payment]);
 
-  const onSubmit = (data: any) => {
+  const onSubmit: SubmitHandler<TypeData> = data => {
     console.log(data, payment, `Усього - ${totalPayment} грн`);
     dispatch(clearAll());
     reset();
   };
+
+  console.log(errors);
 
   return (
     <>
@@ -44,16 +52,22 @@ const CartForm = () => {
           label="Ім'я"
           variant="outlined"
         />
-        <div style={{ color: 'red' }}>{errors.name?.message}</div>
+        {errors?.name && (
+          <div style={{ color: 'red' }}>{errors.name.message}</div>
+        )}
+
         <TextField
           {...register('number', { required: "Це обов'язкове поле!" })}
           id="outlined-basic"
           label="Номер телефону"
           variant="outlined"
         />
-        <div style={{ color: 'red' }}>{errors.number?.message}</div>
+        {errors?.number && (
+          <div style={{ color: 'red' }}>{errors.number?.message}</div>
+        )}
+
         <div>
-          <input type="checkbox" id="horns" {...register('delivery1')} />
+          <input type="checkbox" id="horns" {...register('delivery')} />
           <label htmlFor="horns">Доставка</label>
         </div>
         <FormControl>
