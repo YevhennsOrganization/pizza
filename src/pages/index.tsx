@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Heading from '@/components/heading/Heading';
+import { Container } from '@/components/container/Container';
+import { Section } from '@/components/section/Section';
 
 export const Home: React.FC = () => {
   return (
@@ -10,9 +12,11 @@ export const Home: React.FC = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <Heading heading={'Новинки'} />
-      </main>
+      <Section>
+        <Container>
+          <Heading heading={'Новинки'} />
+        </Container>
+      </Section>
     </>
   );
 };

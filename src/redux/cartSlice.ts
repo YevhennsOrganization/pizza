@@ -31,9 +31,6 @@ const cartSlice = createSlice({
     addItem(state, action) {
       state.filledcart = [...state.filledcart, action.payload];
     },
-    clearAll(state) {
-      state.filledcart = [];
-    },
     deleteItem(state, action) {
       state.filledcart = state.filledcart.filter(
         item => item.id !== action.payload
@@ -57,7 +54,6 @@ export const getCustomerInfo = (state: { cart: { customerInfo: TypeInfo } }) =>
   state.cart.customerInfo;
 
 export const { addItem } = cartSlice.actions;
-export const { clearAll } = cartSlice.actions;
 export const { deleteItem } = cartSlice.actions;
 
 export const { addInfo } = cartSlice.actions;

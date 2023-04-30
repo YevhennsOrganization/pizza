@@ -3,6 +3,8 @@ import pizza from '../data/pizza.json';
 import PizzaList from '@/components/goodsList/PizzaList';
 import Heading from '@/components/heading/Heading';
 import ChosenPizza from '@/components/chosenItem/ChosenPizza';
+import { Container } from '@/components/container/Container';
+import { Section } from '@/components/section/Section';
 
 type TypeChosenItem = {
   _id: string;
@@ -27,8 +29,8 @@ const Pizza = () => {
   };
 
   return (
-    <>
-      <main>
+    <Section>
+      <Container>
         <Heading heading={'Піци'} />
         <PizzaList data={pizza} getCurrentItem={getCurrentPizza} />
         {open && (
@@ -38,8 +40,8 @@ const Pizza = () => {
             currentItem={currentPizza}
           />
         )}
-      </main>
-    </>
+      </Container>
+    </Section>
   );
 };
 

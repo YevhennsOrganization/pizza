@@ -1,14 +1,13 @@
-import Link from 'next/link';
-import css from './Navigation.module.css';
+import { Nav, ScLink } from './Navigation.styled';
 
 const Navigation = () => {
   return (
-    <nav className={css.nav}>
-      <Link href={'/'}>Новинки</Link>
-      <Link href={'/pizza'}>Піци</Link>
-      <Link href={'/hotdog'}>Хот-доги</Link>
-      <Link href={'/drinks'}>Напої</Link>
-    </nav>
+    <Nav>
+      <ScLink href={'/'}>Новинки</ScLink>
+      <ScLink href={'/pizza'}>Піци</ScLink>
+      <ScLink href={'/hotdog'}>Хот-доги</ScLink>
+      <ScLink href={'/drinks'}>Напої</ScLink>
+    </Nav>
   );
 };
 

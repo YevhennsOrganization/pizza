@@ -1,9 +1,11 @@
+import { MainTitle } from './Heading.styled';
+
 type TypeHeading = {
   heading: string;
 };
 
 const Heading = ({ heading }: TypeHeading) => {
-  return <h1>{heading}</h1>;
+  return <MainTitle>{heading}</MainTitle>;
 };
 
 export default Heading;

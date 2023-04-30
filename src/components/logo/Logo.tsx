@@ -5,7 +5,7 @@ import css from './Logo.module.css';
 const Logo = () => {
   return (
     <Link href={'/'} className={css.logo}>
-      <Image src={'/logo.png'} alt="logo" width={96} height={96} />
+      <Image src={'/logo.png'} alt="logo" width={50} height={50} />
       <p>XATA_MAGNATA</p>
     </Link>
   );

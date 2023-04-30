@@ -3,6 +3,8 @@ import HotDogList from '@/components/goodsList/HotDogList';
 import Heading from '@/components/heading/Heading';
 import hotDog from '../data/hotDog.json';
 import ChosenHotDog from '@/components/chosenItem/ChosenHotDog';
+import { Container } from '@/components/container/Container';
+import { Section } from '@/components/section/Section';
 
 type TypeChosenItem = {
   _id: string;
@@ -27,8 +29,8 @@ const HotDog: React.FC = () => {
   };
 
   return (
-    <>
-      <main>
+    <Section>
+      <Container>
         <Heading heading={'Хот-доги'} />
         <HotDogList data={hotDog} getCurrentItem={getCurrentHotDog} />
         {open && (
@@ -38,8 +40,8 @@ const HotDog: React.FC = () => {
             currentItem={currentHotDog}
           />
         )}
-      </main>
-    </>
+      </Container>
+    </Section>
   );
 };
 

@@ -3,6 +3,8 @@ import drinks from '../data/drinks.json';
 import DrinksList from '@/components/goodsList/DrinksList';
 import Heading from '@/components/heading/Heading';
 import ChosenDrink from '@/components/chosenItem/ChosenDrink';
+import { Container } from '@/components/container/Container';
+import { Section } from '@/components/section/Section';
 
 type TypeChosenItem = {
   _id: string;
@@ -27,8 +29,8 @@ const Drinks = () => {
   };
 
   return (
-    <>
-      <main>
+    <Section>
+      <Container>
         <Heading heading={'Напої'} />
         <DrinksList data={drinks} getCurrentItem={getCurrentDrink} />
         {open && (
@@ -38,8 +40,8 @@ const Drinks = () => {
             currentItem={currentDrink}
           />
         )}
-      </main>
-    </>
+      </Container>
+    </Section>
   );
 };
 
