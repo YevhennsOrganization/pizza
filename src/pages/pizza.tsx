@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import PizzaList from '@/components/goodsList/PizzaList';
 import pizza from '../data/pizza.json';
+import PizzaList from '@/components/goodsList/PizzaList';
 import Heading from '@/components/heading/Heading';
 import ChosenPizza from '@/components/chosenItem/ChosenPizza';
 

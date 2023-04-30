@@ -1,9 +1,10 @@
 import Heading from '@/components/heading/Heading';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilledCart, deleteItem } from '@/redux/cartSlice';
+import { clearAll, getFilledCart, deleteItem } from '@/redux/cartSlice';
 import CartForm from '@/components/cartForm/CartForm';
 import CartListItem from '@/components/cartListItem/CartListItem';
+import Button from '@mui/material/Button';
 
 const Cart: React.FC = () => {
   const dispatch = useDispatch();
@@ -11,6 +12,10 @@ const Cart: React.FC = () => {
 
   const deleteCartItem = id => {
     dispatch(deleteItem(id));
+  };
+
+  const deleteAll = () => {
+    dispatch(clearAll());
   };
 
   return (
@@ -34,9 +39,12 @@ const Cart: React.FC = () => {
                 );
               })}
             </ul>
-            <CartForm />
           </>
         )}
+        <CartForm />
+        <Button onClick={deleteAll} variant="contained">
+          Очистити кошик
+        </Button>
       </main>
     </>
   );
