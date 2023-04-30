@@ -24,12 +24,12 @@ const CartForm = () => {
 
   useEffect(() => {
     const result = payment
-      .map(element => element.totalPrice)
+      .map((element: { totalPrice: any; }) => element.totalPrice)
       .reduce((acc, val) => acc + val, 0);
     setTotalPayment(result);
   }, [payment]);
 
-  const onSubmit = data => {
+  const onSubmit = (data: any) => {
     console.log(data, payment, `Усього - ${totalPayment} грн`);
     dispatch(clearAll());
     reset();
