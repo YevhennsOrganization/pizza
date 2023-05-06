@@ -1,0 +1,13 @@
+.navList {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.navLink {
+  padding: 10px;
+  transition: all 250ms linear;
+  display: flex;
+}
+.navLink:hover {
+  transform: scale(1.2);
+}

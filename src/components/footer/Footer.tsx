@@ -2,34 +2,40 @@ import Stack from '@mui/material/Stack';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import * as SC from '../container/Container';
-import { ContactsWrapper, ScFooter, SocialLink } from './Footer.styled';
+import css from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <ScFooter>
+    <footer className={css.footer}>
       <SC.Container>
-        <ContactsWrapper>
-          <address>вул.Альвінського 1</address>
+        <div className={css.contactsWrapper}>
+          <address>
+            м.Дніпро
+            <br />
+            вул.Альвінського 1
+          </address>
           <Stack direction="row" spacing={1}>
-            <SocialLink
+            <a
+              className={css.socialLink}
               href="https://www.facebook.com/profile.php?id=100090698343559"
               target="_blank"
               rel="noreferrer noopener"
             >
               <FacebookIcon />
-            </SocialLink>
-            <SocialLink
+            </a>
+            <a
+              className={css.socialLink}
               href="https://www.instagram.com/xata_magnata/"
               target="_blank"
               rel="noreferrer noopener"
             >
               <InstagramIcon />
-            </SocialLink>
+            </a>
           </Stack>
-        </ContactsWrapper>
+        </div>
         <p>&copy; 2023 Компанія Хата-Магната. Всі права захищені.</p>
       </SC.Container>
-    </ScFooter>
+    </footer>
   );
 };
 

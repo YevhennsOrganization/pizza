@@ -7,4 +7,12 @@
   border: 1px solid black;
   width: 200px;
   cursor: pointer;
+  transition: all 250ms linear;
+  background-color: #fff;
+  color: black;
+  padding: 10px;
+  border-radius: 10px;
+}
+.listItem:hover {
+  scale: 1.1;
 }

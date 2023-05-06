@@ -3,22 +3,25 @@ import Logo from '../logo/Logo';
 import Navigation from '../navigation/Navigation';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Container } from '../container/Container';
-import { ScHeader, HeaderItem } from './Header.styled';
+import css from './Header.module.css';
 
 const Header = () => {
   return (
-    <ScHeader>
+    <header className={css.header}>
       <Container>
-        <HeaderItem>
+        <div className={css.headerItem}>
           <Logo />
-          <a href="tel:+3805635435464">+380546132165</a>
+          <a href="tel:+380937415167">093 741 51 67</a>
           <Link href={'/cart'}>
-            <AddShoppingCartIcon color="primary" />
+            <AddShoppingCartIcon
+              sx={{ color: 'white' }}
+              className={css.cartIcon}
+            />
           </Link>
-        </HeaderItem>
+        </div>
         <Navigation />
       </Container>
-    </ScHeader>
+    </header>
   );
 };
 

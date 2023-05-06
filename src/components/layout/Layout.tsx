@@ -1,6 +1,6 @@
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
-import { Wrapper, Main } from './Layout.styled';
+import css from './Layout.module.css';
 
 type Props = {
   children: JSX.Element;
@@ -8,11 +8,11 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
   return (
-    <Wrapper>
+    <div className={css.wrapper}>
       <Header />
-      <Main>{children}</Main>
+      <main className={css.main}>{children}</main>
       <Footer />
-    </Wrapper>
+    </div>
   );
 };
 

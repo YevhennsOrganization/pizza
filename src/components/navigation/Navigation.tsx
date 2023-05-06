@@ -1,13 +1,24 @@
-import { Nav, ScLink } from './Navigation.styled';
+
+import * as SC from './Navigation.styled';
 
 const Navigation = () => {
   return (
-    <Nav>
-      <ScLink href={'/'}>Новинки</ScLink>
-      <ScLink href={'/pizza'}>Піци</ScLink>
-      <ScLink href={'/hotdog'}>Хот-доги</ScLink>
-      <ScLink href={'/drinks'}>Напої</ScLink>
-    </Nav>
+    <nav>
+      <SC.NavList>
+        <li>
+          <SC.NavLink href={'/'}>Новинки</SC.NavLink>
+        </li>
+        <li>
+          <SC.NavLink href={'/pizza'}>Піци</SC.NavLink>
+        </li>
+        <li>
+          <SC.NavLink href={'/hotdog'}>Хот-доги</SC.NavLink>
+        </li>
+        <li>
+          <SC.NavLink href={'/drinks'}>Напої</SC.NavLink>
+        </li>
+      </SC.NavList>
+    </nav>
   );
 };
 
