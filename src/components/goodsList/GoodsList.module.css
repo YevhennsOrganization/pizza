@@ -2,6 +2,7 @@
   display: flex;
   gap: 20px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .listItem {
   border: 1px solid black;
