@@ -6,20 +6,12 @@
 .modal {
   position: relative;
   background-color: white;
-  width: 600px;
-  height: 600px;
   padding: 20px;
   border-radius: 20px;
+  color: black;
 }
 .quantitySet {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.closeBtn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 20px;
-  height: 20px;
 }

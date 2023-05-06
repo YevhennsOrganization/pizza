@@ -60,7 +60,21 @@ const ChosenItem: React.FC<props> = ({ open, handleClose, currentItem }) => {
     <div>
       <Modal className={css.modalWrapper} open={open} onClose={handleClose}>
         <div className={css.modal}>
-          <Image src={photo} alt="item photo" width={96} height={96} />
+          <div>
+            <Image src={photo} alt="item photo" width={200} height={200} />
+            <IconButton
+              onClick={handleClose}
+              color="primary"
+              aria-label="close"
+              sx={{
+                position: 'relative',
+                top: '-170px',
+              }}
+            >
+              <CancelIcon sx={{ fontSize: '50px' }} />
+            </IconButton>
+          </div>
+
           <h2>{title}</h2>
           <p>{description}</p>
           <p>{dimension}</p>
@@ -76,19 +90,6 @@ const ChosenItem: React.FC<props> = ({ open, handleClose, currentItem }) => {
             </IconButton>
           </div>
           <p className={css.totalPrice}>Загальна сума: {totalPrice}</p>
-
-          <IconButton
-            onClick={handleClose}
-            color="primary"
-            aria-label="close"
-            sx={{
-              position: 'absolute',
-              top: '20px',
-              right: '20px',
-            }}
-          >
-            <CancelIcon sx={{ fontSize: '50px' }} />
-          </IconButton>
           <Button onClick={addToCart} variant="contained">
             В кошик
           </Button>

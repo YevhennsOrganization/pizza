@@ -6,8 +6,7 @@
 .modal {
   position: relative;
   background-color: white;
-  width: 600px;
-  height: 600px;
+  color: black;
   padding: 20px;
   border-radius: 20px;
 }

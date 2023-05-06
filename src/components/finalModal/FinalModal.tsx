@@ -27,9 +27,9 @@ const FinalModal = ({ open, finalAction }: props) => {
             {filledCart.map(({ title, quantity, totalPrice }) => {
               return (
                 <li key={nanoid()}>
-                  <p>{title}</p>
-                  <p>{quantity}</p>
-                  <p>{totalPrice}</p>
+                  <p>Назва:{title}</p>
+                  <p>Кількість: {quantity}</p>
+                  <p>Ціна: {totalPrice}</p>
                 </li>
               );
             })}
@@ -65,7 +65,14 @@ const FinalModal = ({ open, finalAction }: props) => {
               <p>Загальна сума {sum}</p>
             </li>
           </ul>
-          <Button onClick={finalAction} variant="contained">
+          <Button
+            onClick={finalAction}
+            variant="contained"
+            sx={{
+              display: 'flex',
+              mx: 'auto',
+            }}
+          >
             OK
           </Button>
         </div>
