@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -9,27 +9,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addInfo, getCustomerInfo, getFilledCart } from '@/redux/cartSlice';
 import css from './CartForm.module.css';
 
-type TypeData = {
-  openModal: string;
-  delivery: boolean;
-  name: string;
-  number: string;
-  address?: string;
-  comment?: string;
-};
-
-type props = {
-  openModal: () => void;
-};
-
-const CartForm = ({ openModal }: props) => {
+const CartForm: React.FC<TOpenModal> = ({ openModal }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
     watch,
-  } = useForm<TypeData>({ mode: 'onChange' });
+  } = useForm<TFinalForm>({ mode: 'onChange' });
 
   const [totalPayment, setTotalPayment] = useState(0);
 
@@ -44,7 +31,7 @@ const CartForm = ({ openModal }: props) => {
     setTotalPayment(result);
   }, [payment]);
 
-  const onSubmit: SubmitHandler<TypeData> = data => {
+  const onSubmit: SubmitHandler<TFinalForm> = data => {
     openModal();
     const customerInfo = {
       address: data.address,

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
@@ -11,20 +11,11 @@ import css from './ChosenItem.module.css';
 import { useDispatch } from 'react-redux';
 import { addItem } from '@/redux/cartSlice';
 
-type props = {
-  open: boolean;
-  handleClose: () => void;
-  currentItem: {
-    _id: string;
-    title: string;
-    description: string;
-    dimension: string;
-    price: number;
-    photo: string;
-  };
-};
-
-const ChosenItem: React.FC<props> = ({ open, handleClose, currentItem }) => {
+const ChosenItem: React.FC<TChosenItem> = ({
+  open,
+  handleClose,
+  currentItem,
+}) => {
   const { title, description, dimension, price, photo } = currentItem;
 
   const [quantity, setQuantity] = useState(1);

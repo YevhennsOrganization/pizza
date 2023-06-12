@@ -1,21 +1,20 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Heading from '@/components/heading/Heading';
 import { nanoid } from 'nanoid';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getFilledCart, deleteItem, deleteAllItems } from '@/redux/cartSlice';
 import CartForm from '@/components/cartForm/CartForm';
 import CartListItem from '@/components/cartListItem/CartListItem';
-import Button from '@mui/material/Button';
 import Image from 'next/image';
 import FinalModal from '@/components/finalModal/FinalModal';
 import { Container } from '@/components/container/Container';
 import { Section } from '@/components/section/Section';
 
 const Cart: React.FC = () => {
-  const [open, setOpen] = useState(false as boolean);
+  const [open, setOpen] = useState(false);
 
-  const dispatch = useDispatch();
-  const filledCart = useSelector(getFilledCart);
+  const dispatch = useAppDispatch();
+  const filledCart = useAppSelector(getFilledCart);
 
   const deleteCartItem = (id: string) => {
     dispatch(deleteItem(id));

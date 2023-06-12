@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import HotDogList from '@/components/goodsList/HotDogList';
 import Heading from '@/components/heading/Heading';
 import hotDog from '../data/hotDog.json';
@@ -6,17 +6,8 @@ import ChosenHotDog from '@/components/chosenItem/ChosenHotDog';
 import { Container } from '@/components/container/Container';
 import { Section } from '@/components/section/Section';
 
-type TypeChosenItem = {
-  _id: string;
-  title: string;
-  description: string;
-  dimension: string;
-  price: number;
-  photo: string;
-};
-
 const HotDog: React.FC = () => {
-  const [currentHotDog, setCurrentHotDog] = useState({} as TypeChosenItem);
+  const [currentHotDog, setCurrentHotDog] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
   const handleClose = () => setOpen(false);
 

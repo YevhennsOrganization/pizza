@@ -1,3 +1,4 @@
+import React from 'react';
 import Link from 'next/link';
 import Logo from '../logo/Logo';
 import Navigation from '../navigation/Navigation';
@@ -5,7 +6,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Container } from '../container/Container';
 import css from './Header.module.css';
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <header className={css.header}>
       <Container>

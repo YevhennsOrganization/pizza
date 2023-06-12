@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import React from 'react';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { nanoid } from 'nanoid';
@@ -6,12 +7,7 @@ import css from './FinalModal.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCustomerInfo, getFilledCart } from '@/redux/cartSlice';
 
-type props = {
-  open: boolean;
-  finalAction: () => void;
-};
-
-const FinalModal = ({ open, finalAction }: props) => {
+const FinalModal: React.FC<TFinalModal> = ({ open, finalAction }) => {
   const filledCart = useSelector(getFilledCart);
   const info = useSelector(getCustomerInfo);
   const dispatch = useDispatch();

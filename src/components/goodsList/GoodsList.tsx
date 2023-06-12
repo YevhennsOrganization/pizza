@@ -1,19 +1,8 @@
+import React from 'react';
 import Image from 'next/image';
 import css from './GoodsList.module.css';
 
-type TypeGoodsList = {
-  data: {
-    _id: string;
-    title: string;
-    description: string;
-    dimension: string;
-    price: number;
-    photo: string;
-  }[];
-  getCurrentItem: (_id: string) => void;
-};
-
-const GoodsList: React.FC<TypeGoodsList> = ({ data, getCurrentItem }) => {
+const GoodsList: React.FC<TGoodsList> = ({ data, getCurrentItem }) => {
   return (
     <ul className={css.list}>
       {data.map(({ _id, title, description, dimension, price, photo }) => {
