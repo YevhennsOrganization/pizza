@@ -52,7 +52,7 @@ const CartForm: React.FC<TOpenModal> = ({ openModal }) => {
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <TextField
           {...register('name', { required: "Це обов'язкове поле!" })}
-          id="outlined-basic"
+          id="customer-name"
           label="Ім'я"
           variant="outlined"
         />
@@ -62,7 +62,7 @@ const CartForm: React.FC<TOpenModal> = ({ openModal }) => {
 
         <TextField
           {...register('number', { required: "Це обов'язкове поле!" })}
-          id="outlined-basic"
+          id="customer-number"
           label="Номер телефону"
           variant="outlined"
         />
@@ -71,15 +71,15 @@ const CartForm: React.FC<TOpenModal> = ({ openModal }) => {
         )}
 
         <div>
-          <input type="checkbox" id="horns" {...register('delivery')} />
-          <label htmlFor="horns">Доставка</label>
+          <input type="checkbox" id="delivery" {...register('delivery')} />
+          <label htmlFor="delivery">Доставка</label>
         </div>
 
         {delivery && (
           <>
             <TextField
               {...register('address', { required: "Це обов'язкове поле!" })}
-              id="outlined-basic"
+              id="address"
               label="Введіть адресу"
               variant="outlined"
             />
@@ -92,6 +92,7 @@ const CartForm: React.FC<TOpenModal> = ({ openModal }) => {
         <FormControl>
           <FormLabel>Коментар</FormLabel>
           <Textarea
+            id="comment"
             placeholder="Введіть коментар"
             minRows={2}
             {...register('comment')}

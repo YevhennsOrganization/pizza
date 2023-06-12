@@ -75,6 +75,6 @@ type TypeInfo = {
   comment?: string;
   delivery: boolean;
   name: string;
-  number: number;
+  number: string;
   sum: number;
 };

@@ -58,7 +58,7 @@ const FinalModal: React.FC<TFinalModal> = ({ open, finalAction }) => {
               </li>
             )}
             <li>
-              <p>Загальна сума {sum}</p>
+              <p>Загальна сума {sum} грн</p>
             </li>
           </ul>
           <Button
