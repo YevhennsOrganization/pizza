@@ -9,6 +9,7 @@ import { Section } from '@/components/section/Section';
 const HotDog: React.FC = () => {
   const [currentHotDog, setCurrentHotDog] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
+  
   const handleClose = () => setOpen(false);
 
   const getCurrentHotDog = (_id: string) => {

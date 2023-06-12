@@ -9,6 +9,7 @@ import { Section } from '@/components/section/Section';
 const Drinks: React.FC = () => {
   const [currentDrink, setCurrentDrink] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
+
   const handleClose = () => setOpen(false);
 
   const getCurrentDrink = (_id: string) => {

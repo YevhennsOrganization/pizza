@@ -8,7 +8,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { nanoid } from 'nanoid';
 import css from './ChosenItem.module.css';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '@/redux/hooks';
 import { addItem } from '@/redux/cartSlice';
 
 const ChosenItem: React.FC<TChosenItem> = ({
@@ -21,7 +21,7 @@ const ChosenItem: React.FC<TChosenItem> = ({
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(price);
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     setTotalPrice(price * quantity);

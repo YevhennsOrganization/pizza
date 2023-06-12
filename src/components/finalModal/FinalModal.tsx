@@ -4,13 +4,12 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { nanoid } from 'nanoid';
 import css from './FinalModal.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppSelector } from '@/redux/hooks';
 import { getCustomerInfo, getFilledCart } from '@/redux/cartSlice';
 
 const FinalModal: React.FC<TFinalModal> = ({ open, finalAction }) => {
-  const filledCart = useSelector(getFilledCart);
-  const info = useSelector(getCustomerInfo);
-  const dispatch = useDispatch();
+  const filledCart = useAppSelector(getFilledCart);
+  const info = useAppSelector(getCustomerInfo);
 
   const { address, comment, delivery, name, number, sum } = info;
 
