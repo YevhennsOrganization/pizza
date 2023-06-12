@@ -1,10 +1,11 @@
+import React from 'react';
 import Stack from '@mui/material/Stack';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import * as SC from '../container/Container';
 import css from './Footer.module.css';
 
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <footer className={css.footer}>
       <SC.Container>

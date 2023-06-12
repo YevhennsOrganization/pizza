@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -9,27 +9,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addInfo, getCustomerInfo, getFilledCart } from '@/redux/cartSlice';
 import css from './CartForm.module.css';
 
-type TypeData = {
-  openModal: string;
-  delivery: boolean;
-  name: string;
-  number: string;
-  address?: string;
-  comment?: string;
-};
-
-type props = {
-  openModal: () => void;
-};
-
-const CartForm = ({ openModal }: props) => {
+const CartForm: React.FC<TOpenModal> = ({ openModal }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
     watch,
-  } = useForm<TypeData>({ mode: 'onChange' });
+  } = useForm<TFinalForm>({ mode: 'onChange' });
 
   const [totalPayment, setTotalPayment] = useState(0);
 
@@ -44,7 +31,7 @@ const CartForm = ({ openModal }: props) => {
     setTotalPayment(result);
   }, [payment]);
 
-  const onSubmit: SubmitHandler<TypeData> = data => {
+  const onSubmit: SubmitHandler<TFinalForm> = data => {
     openModal();
     const customerInfo = {
       address: data.address,
@@ -65,7 +52,7 @@ const CartForm = ({ openModal }: props) => {
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <TextField
           {...register('name', { required: "Це обов'язкове поле!" })}
-          id="outlined-basic"
+          id="customer-name"
           label="Ім'я"
           variant="outlined"
         />
@@ -75,7 +62,7 @@ const CartForm = ({ openModal }: props) => {
 
         <TextField
           {...register('number', { required: "Це обов'язкове поле!" })}
-          id="outlined-basic"
+          id="customer-number"
           label="Номер телефону"
           variant="outlined"
         />
@@ -84,15 +71,15 @@ const CartForm = ({ openModal }: props) => {
         )}
 
         <div>
-          <input type="checkbox" id="horns" {...register('delivery')} />
-          <label htmlFor="horns">Доставка</label>
+          <input type="checkbox" id="delivery" {...register('delivery')} />
+          <label htmlFor="delivery">Доставка</label>
         </div>
 
         {delivery && (
           <>
             <TextField
               {...register('address', { required: "Це обов'язкове поле!" })}
-              id="outlined-basic"
+              id="address"
               label="Введіть адресу"
               variant="outlined"
             />
@@ -105,6 +92,7 @@ const CartForm = ({ openModal }: props) => {
         <FormControl>
           <FormLabel>Коментар</FormLabel>
           <Textarea
+            id="comment"
             placeholder="Введіть коментар"
             minRows={2}
             {...register('comment')}

@@ -1,7 +1,7 @@
-
+import React from 'react';
 import * as SC from './Navigation.styled';
 
-const Navigation = () => {
+const Navigation: React.FC = () => {
   return (
     <nav>
       <SC.NavList>

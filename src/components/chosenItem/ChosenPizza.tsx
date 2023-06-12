@@ -1,19 +1,11 @@
+import React from 'react';
 import ChosenItem from './ChosenItem';
 
-type props = {
-  open: boolean;
-  handleClose: () => void;
-  currentItem: {
-    _id: string;
-    title: string;
-    description: string;
-    dimension: string;
-    price: number;
-    photo: string;
-  };
-};
-
-const ChosenPizza = ({ open, handleClose, currentItem }: props) => {
+const ChosenPizza: React.FC<TChosenItem> = ({
+  open,
+  handleClose,
+  currentItem,
+}) => {
   return ChosenItem({ open, handleClose, currentItem });
 };
 

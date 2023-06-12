@@ -1,22 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-type TypeCart = {
-  id: string;
-  photo: string;
-  quantity: number;
-  title: string;
-  totalPrice: number;
-}[];
-
-type TypeInfo = {
-  address?: string;
-  comment?: string;
-  delivery: boolean;
-  name: string;
-  number: number;
-  sum: number;
-};
-
 const initialState = {
   filledcart: [] as TypeCart,
   customerInfo: {} as TypeInfo,
@@ -28,15 +11,15 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem(state, action) {
+    addItem(state, action: {payload: TypeCartItem}) {
       state.filledcart = [...state.filledcart, action.payload];
     },
-    deleteItem(state, action) {
+    deleteItem(state, action: {payload: string}) {
       state.filledcart = state.filledcart.filter(
         item => item.id !== action.payload
       );
     },
-    addInfo(state, action) {
+    addInfo(state, action: {payload: TypeInfo}) {
       state.customerInfo = action.payload;
     },
     deleteAllItems(state) {
