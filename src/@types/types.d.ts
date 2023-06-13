@@ -12,11 +12,7 @@ type TOpenModal = {
 };
 
 type TCartListItem = {
-  id: string;
-  photo: string;
-  quantity: number;
-  title: string;
-  totalPrice: number;
+  data: TypeCartItem;
   deleteCartItem: (id: string) => void;
 };
 
@@ -41,14 +37,7 @@ type TFinalModal = {
 };
 
 type TGoodsList = {
-  data: {
-    _id: string;
-    title: string;
-    description: string;
-    dimension: string;
-    price: number;
-    photo: string;
-  }[];
+  data: TChosenGood[];
   getCurrentItem: (_id: string) => void;
 };
 

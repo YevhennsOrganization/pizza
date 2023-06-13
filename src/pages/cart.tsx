@@ -44,16 +44,12 @@ const Cart: React.FC = () => {
             <>
               <ul>
                 {filledCart.map(
-                  ({ id, photo, title, quantity, totalPrice }) => {
+                  (data) => {
                     return (
                       <CartListItem
                         deleteCartItem={deleteCartItem}
                         key={nanoid()}
-                        id={id}
-                        photo={photo}
-                        title={title}
-                        quantity={quantity}
-                        totalPrice={totalPrice}
+                        data={data}
                       />
                     );
                   }
