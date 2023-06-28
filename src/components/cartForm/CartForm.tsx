@@ -8,6 +8,7 @@ import FormLabel from '@mui/joy/FormLabel';
 import { useDispatch, useSelector } from 'react-redux';
 import { addInfo, getCustomerInfo, getFilledCart } from '@/redux/cartSlice';
 import css from './CartForm.module.css';
+import { sendOrder } from '@/redux/cartOperations';
 
 const CartForm: React.FC<TOpenModal> = ({ openModal }) => {
   const {
@@ -42,6 +43,7 @@ const CartForm: React.FC<TOpenModal> = ({ openModal }) => {
       sum: totalPayment,
     };
     dispatch(addInfo(customerInfo));
+    dispatch(sendOrder(customerInfo));
     reset();
   };
 

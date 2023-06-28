@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { sendOrder } from './cartOperations';
 
 const initialState = {
   filledcart: [] as TypeCart,
@@ -11,15 +12,15 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem(state, action: {payload: TypeCartItem}) {
+    addItem(state, action: { payload: TypeCartItem }) {
       state.filledcart = [...state.filledcart, action.payload];
     },
-    deleteItem(state, action: {payload: string}) {
+    deleteItem(state, action: { payload: string }) {
       state.filledcart = state.filledcart.filter(
         item => item.id !== action.payload
       );
     },
-    addInfo(state, action: {payload: TypeInfo}) {
+    addInfo(state, action: { payload: TypeInfo }) {
       state.customerInfo = action.payload;
     },
     deleteAllItems(state) {
@@ -27,6 +28,28 @@ const cartSlice = createSlice({
       state.customerInfo = {} as TypeInfo;
     },
   },
+  extraReducers: builder =>
+    builder
+      .addCase(sendOrder.pending, state => {
+        state.isLoading = true;
+        state.error = false;
+      })
+      .addCase(sendOrder.fulfilled, (state, action) => {
+        if (!action.payload) {
+          console.log('error');
+          // toast.error(`Невірний номер посилки!`);
+          state.isLoading = false;
+          console.log('ok');
+          return;
+        }
+        state.isLoading = false;
+      })
+      .addCase(sendOrder.rejected, (state, action) => {
+        console.log('err');
+        // toast.error(`Помилка мережі!`);
+        state.isLoading = false;
+        state.error = action.payload;
+      }),
 });
 
 export const cartReducer = cartSlice.reducer;
