@@ -41,7 +41,7 @@ const cartSlice = createSlice({
           state.isLoading = false;
           console.log('ok');
           return;
-        }
+        }        
         state.isLoading = false;
       })
       .addCase(sendOrder.rejected, (state, action) => {

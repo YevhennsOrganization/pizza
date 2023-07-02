@@ -43,7 +43,8 @@ const CartForm: React.FC<TOpenModal> = ({ openModal }) => {
       sum: totalPayment,
     };
     dispatch(addInfo(customerInfo));
-    dispatch(sendOrder(customerInfo));
+    const reqBody = {customerInfo, payment}
+    dispatch(sendOrder(reqBody));
     reset();
   };
 

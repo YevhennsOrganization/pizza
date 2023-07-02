@@ -60,8 +60,8 @@ type TypeCartItem = {
 type TypeCart = TypeCartItem[];
 
 type TypeInfo = {
-  address?: string;
-  comment?: string;
+  address?: string | undefined;
+  comment?: string | undefined;
   delivery: boolean;
   name: string;
   number: string;
