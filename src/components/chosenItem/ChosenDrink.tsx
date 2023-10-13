@@ -8,10 +8,10 @@ interface Props {
 }
 
 const ChosenDrink: React.FC<Props> = ({
-  open,
-  handleClose,
-  currentItem,
-}) => {
+                                        open,
+                                        handleClose,
+                                        currentItem,
+                                      }) => {
   return ChosenItem({ open, handleClose, currentItem });
 };
 

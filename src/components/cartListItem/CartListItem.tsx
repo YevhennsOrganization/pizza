@@ -11,9 +11,10 @@ type TypeCartItem = {
   title: string;
   totalPrice: number;
 };
+
 interface Props {
-    data: TypeCartItem;
-    deleteCartItem: (id: string) => void;
+  data: TypeCartItem;
+  deleteCartItem: (id: string) => void;
 }
 
 const CartListItem: React.FC<Props> = ({ data, deleteCartItem }) => {
@@ -21,14 +22,14 @@ const CartListItem: React.FC<Props> = ({ data, deleteCartItem }) => {
 
   return (
     <li className={css.cartListItem}>
-      <Image src={photo} alt="item photo" width={50} height={50} />
+      <Image src={photo} alt='item photo' width={50} height={50} />
       <p>{title}</p>
       <p>{quantity}</p>
       <p>{totalPrice} грн</p>
       <IconButton
         onClick={() => deleteCartItem(id)}
-        color="primary"
-        aria-label="delete"
+        color='primary'
+        aria-label='delete'
       >
         <CancelIcon />
       </IconButton>

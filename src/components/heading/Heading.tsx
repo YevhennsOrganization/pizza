@@ -1,12 +1,12 @@
 import React from 'react';
-import { MainTitle } from './Heading.styled';
+import css from './Heading.module.scss';
 
-interface  Props {
-  heading: string;
+interface Props {
+  children: string;
 }
 
-const Heading: React.FC<Props> = ({ heading }) => {
-  return <MainTitle>{heading}</MainTitle>;
+const Heading: React.FC<Props> = ({ children }) => {
+  return <h1 className={css.heading}>{children}</h1>;
 };
 
 export default Heading;

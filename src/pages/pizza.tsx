@@ -22,7 +22,7 @@ const Pizza: React.FC = () => {
   return (
     <Section>
       <Container>
-        <Heading heading={'Піци'} />
+        <Heading>Піци</Heading>
         <PizzaList data={pizza} getCurrentItem={getCurrentPizza} />
         {open && (
           <ChosenPizza

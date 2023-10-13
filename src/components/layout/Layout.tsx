@@ -4,7 +4,7 @@ import Header from '../header/Header';
 import css from './Layout.module.scss';
 
 interface Props {
-    children: JSX.Element;
+  children: JSX.Element;
 }
 
 const Layout: React.FC<Props> = ({ children }) => {

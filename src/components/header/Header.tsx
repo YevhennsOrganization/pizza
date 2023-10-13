@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       <Container>
         <div className={css.headerItem}>
           <Logo />
-          <a href="tel:+380937415167">093 741 51 67</a>
+          <a href='tel:+380937415167'>093 741 51 67</a>
           <Link href={'/cart'}>
             <AddShoppingCartIcon
               sx={{ color: 'white' }}

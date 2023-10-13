@@ -3,6 +3,7 @@
   gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
+
   .listItem {
     border: 1px solid black;
     width: 200px;
@@ -13,6 +14,7 @@
     padding: 10px;
     border-radius: 10px;
   }
+
   .listItem:hover {
     scale: 1.1;
   }

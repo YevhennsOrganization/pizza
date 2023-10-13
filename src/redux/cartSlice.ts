@@ -1,28 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { sendOrder } from './cartOperations';
 
-type CartItem = {
-  id: string;
-  photo: string;
-  quantity: number;
-  title: string;
-  totalPrice: number;
-};
-
-type Cart = CartItem[];
-
-type Info = {
-  address?: string | undefined;
-  comment?: string | undefined;
-  delivery: boolean;
-  name: string;
-  number: string;
-  sum: number;
-};
-
 const initialState = {
-  filledCart: [] as Cart,
-  customerInfo: {} as Info,
+  filledCart: [] as TCart,
+  customerInfo: {} as TInfo,
   error: false as any,
   isLoading: false,
 };
@@ -31,20 +12,20 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem(state, action: { payload: CartItem }) {
+    addItem(state, action: { payload: TCartItem }) {
       state.filledCart = [...state.filledCart, action.payload];
     },
     deleteItem(state, action: { payload: string }) {
       state.filledCart = state.filledCart.filter(
-        item => item.id !== action.payload
+        item => item.id !== action.payload,
       );
     },
-    addInfo(state, action: { payload: Info }) {
+    addInfo(state, action: { payload: TInfo }) {
       state.customerInfo = action.payload;
     },
     deleteAllItems(state) {
       state.filledCart = [];
-      state.customerInfo = {} as Info;
+      state.customerInfo = {} as TInfo;
     },
   },
   extraReducers: builder =>
@@ -60,7 +41,7 @@ const cartSlice = createSlice({
           state.isLoading = false;
           console.log('ok');
           return;
-        }        
+        }
         state.isLoading = false;
       })
       .addCase(sendOrder.rejected, (state, action) => {
@@ -73,9 +54,9 @@ const cartSlice = createSlice({
 
 export const cartReducer = cartSlice.reducer;
 
-export const getFilledCart = (state: { cart: { filledCart: Cart } }) =>
+export const getFilledCart = (state: { cart: { filledCart: TCart } }) =>
   state.cart.filledCart;
-export const getCustomerInfo = (state: { cart: { customerInfo: Info } }) =>
+export const getCustomerInfo = (state: { cart: { customerInfo: TInfo } }) =>
   state.cart.customerInfo;
 
 export const { addItem } = cartSlice.actions;

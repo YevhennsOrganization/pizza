@@ -15,20 +15,20 @@ const Footer: React.FC = () => {
             <br />
             вул.Альвінського 1
           </address>
-          <Stack direction="row" spacing={1}>
+          <Stack direction='row' spacing={1}>
             <a
               className={css.socialLink}
-              href="https://www.facebook.com/profile.php?id=100090698343559"
-              target="_blank"
-              rel="noreferrer noopener"
+              href='https://www.facebook.com/profile.php?id=100090698343559'
+              target='_blank'
+              rel='noreferrer noopener'
             >
               <FacebookIcon />
             </a>
             <a
               className={css.socialLink}
-              href="https://www.instagram.com/xata_magnata/"
-              target="_blank"
-              rel="noreferrer noopener"
+              href='https://www.instagram.com/xata_magnata/'
+              target='_blank'
+              rel='noreferrer noopener'
             >
               <InstagramIcon />
             </a>

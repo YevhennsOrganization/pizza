@@ -1,17 +1,16 @@
-import styled from 'styled-components';
-import Link from 'next/link';
-
-export const NavList = styled.ul`
+.nav {
   display: flex;
   justify-content: center;
   gap: 20px;
-`;
+}
 
-export const NavLink = styled(Link)`
+.link {
   padding: 10px;
   transition: all 250ms linear;
   display: flex;
+
   &:hover {
     transform: scale(1.1);
   }
-`;
+}
+

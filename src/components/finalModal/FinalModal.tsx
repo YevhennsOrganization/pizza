@@ -67,7 +67,7 @@ const FinalModal: React.FC<Props> = ({ open, finalAction }) => {
           </ul>
           <Button
             onClick={finalAction}
-            variant="contained"
+            variant='contained'
             sx={{
               display: 'flex',
               mx: 'auto',
