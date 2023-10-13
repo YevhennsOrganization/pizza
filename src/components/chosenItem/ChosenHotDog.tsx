@@ -1,7 +1,13 @@
 import React from 'react';
 import ChosenItem from './ChosenItem';
 
-const ChosenHotDog: React.FC<TChosenItem> = ({
+interface Props {
+  open: boolean;
+  handleClose: () => void;
+  currentItem: TChosenGood;
+}
+
+const ChosenHotDog: React.FC<Props> = ({
   open,
   handleClose,
   currentItem,

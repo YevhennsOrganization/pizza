@@ -4,7 +4,7 @@ import Logo from '../logo/Logo';
 import Navigation from '../navigation/Navigation';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Container } from '../container/Container';
-import css from './Header.module.css';
+import css from './Header.module.scss';
 
 const Header: React.FC = () => {
   return (

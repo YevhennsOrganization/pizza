@@ -7,10 +7,14 @@ import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import { useDispatch, useSelector } from 'react-redux';
 import { addInfo, getCustomerInfo, getFilledCart } from '@/redux/cartSlice';
-import css from './CartForm.module.css';
+import css from './CartForm.module.scss';
 import { sendOrder } from '@/redux/cartOperations';
 
-const CartForm: React.FC<TOpenModal> = ({ openModal }) => {
+interface Props {
+  openModal: () => void;
+}
+
+const CartForm: React.FC<Props> = ({ openModal }) => {
   const {
     register,
     handleSubmit,

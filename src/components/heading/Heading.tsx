@@ -1,7 +1,11 @@
 import React from 'react';
 import { MainTitle } from './Heading.styled';
 
-const Heading: React.FC<THeading> = ({ heading }) => {
+interface  Props {
+  heading: string;
+}
+
+const Heading: React.FC<Props> = ({ heading }) => {
   return <MainTitle>{heading}</MainTitle>;
 };
 

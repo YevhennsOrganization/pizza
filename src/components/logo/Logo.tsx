@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import css from './Logo.module.css';
+import css from './Logo.module.scss';
 
 const Logo: React.FC = () => {
   return (

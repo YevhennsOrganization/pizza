@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import * as SC from '../container/Container';
-import css from './Footer.module.css';
+import css from './Footer.module.scss';
 
 const Footer: React.FC = () => {
   return (
