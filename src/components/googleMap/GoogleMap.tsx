@@ -1,3 +1,4 @@
-const GoogleMap = () => {};
+const GoogleMap = () => {
+};
 
 export default GoogleMap;

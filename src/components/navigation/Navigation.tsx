@@ -1,23 +1,14 @@
 import React from 'react';
-import * as SC from './Navigation.styled';
+import Link from 'next/link';
+import css from './Navigation.module.scss';
 
 const Navigation: React.FC = () => {
   return (
-    <nav>
-      <SC.NavList>
-        <li>
-          <SC.NavLink href={'/'}>Новинки</SC.NavLink>
-        </li>
-        <li>
-          <SC.NavLink href={'/pizza'}>Піци</SC.NavLink>
-        </li>
-        <li>
-          <SC.NavLink href={'/hotdog'}>Хот-доги</SC.NavLink>
-        </li>
-        <li>
-          <SC.NavLink href={'/drinks'}>Напої</SC.NavLink>
-        </li>
-      </SC.NavList>
+    <nav className={css.nav}>
+      <Link className={css.link} href={'/'}>Новинки</Link>
+      <Link className={css.link} href={'/pizza'}>Піци</Link>
+      <Link className={css.link} href={'/hot-dog'}>Хот-доги</Link>
+      <Link className={css.link} href={'/drinks'}>Напої</Link>
     </nav>
   );
 };

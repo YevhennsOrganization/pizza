@@ -1,9 +1,13 @@
 import React from 'react';
 import Footer from '../footer/Footer';
 import Header from '../header/Header';
-import css from './Layout.module.css';
+import css from './Layout.module.scss';
 
-const Layout: React.FC<TLayout> = ({ children }) => {
+interface Props {
+  children: JSX.Element;
+}
+
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <div className={css.wrapper}>
       <Header />

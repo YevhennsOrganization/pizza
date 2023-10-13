@@ -39,7 +39,7 @@ const Cart: React.FC = () => {
             color: 'black',
           }}
         >
-          <Heading heading={'Кошик'} />
+          <Heading>Кошик</Heading>
           {filledCart.length > 0 ? (
             <>
               <ul>
@@ -52,14 +52,14 @@ const Cart: React.FC = () => {
                         data={data}
                       />
                     );
-                  }
+                  },
                 )}
               </ul>
               <CartForm openModal={openModal} />
             </>
           ) : (
             <>
-              <Image src={'/empty.png'} alt="empty" width={236} height={257} />
+              <Image src={'/empty.png'} alt='empty' width={236} height={257} />
               <p>Кошик порожній!</p>
             </>
           )}

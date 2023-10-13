@@ -1,8 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
-import css from './GoodsList.module.css';
+import css from './GoodsList.module.scss';
 
-const GoodsList: React.FC<TGoodsList> = ({ data, getCurrentItem }) => {
+interface Props {
+  data: TChosenGood[];
+  getCurrentItem: (_id: string) => void;
+}
+
+const GoodsList: React.FC<Props> = ({ data, getCurrentItem }) => {
   return (
     <ul className={css.list}>
       {data.map(({ _id, title, description, dimension, price, photo }) => {

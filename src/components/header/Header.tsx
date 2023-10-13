@@ -4,7 +4,7 @@ import Logo from '../logo/Logo';
 import Navigation from '../navigation/Navigation';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Container } from '../container/Container';
-import css from './Header.module.css';
+import css from './Header.module.scss';
 
 const Header: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const Header: React.FC = () => {
       <Container>
         <div className={css.headerItem}>
           <Logo />
-          <a href="tel:+380937415167">093 741 51 67</a>
+          <a href='tel:+380937415167'>093 741 51 67</a>
           <Link href={'/cart'}>
             <AddShoppingCartIcon
               sx={{ color: 'white' }}

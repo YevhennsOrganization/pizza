@@ -7,11 +7,17 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/Cancel';
 import { nanoid } from 'nanoid';
-import css from './ChosenItem.module.css';
+import css from './ChosenItem.module.scss';
 import { useAppDispatch } from '@/redux/hooks';
 import { addItem } from '@/redux/cartSlice';
 
-const ChosenItem: React.FC<TChosenItem> = ({
+interface Props {
+  open: boolean;
+  handleClose: () => void;
+  currentItem: TChosenGood;
+}
+
+const ChosenItem: React.FC<Props> = ({
   open,
   handleClose,
   currentItem,

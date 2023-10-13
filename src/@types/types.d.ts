@@ -1,21 +1,3 @@
-type TFinalForm = {
-  openModal: string;
-  delivery: boolean;
-  name: string;
-  number: string;
-  address?: string;
-  comment?: string;
-};
-
-type TOpenModal = {
-  openModal: () => void;
-};
-
-type TCartListItem = {
-  data: TypeCartItem;
-  deleteCartItem: (id: string) => void;
-};
-
 type TChosenGood = {
   _id: string;
   title: string;
@@ -25,31 +7,16 @@ type TChosenGood = {
   photo: string;
 };
 
-type TChosenItem = {
-  open: boolean;
-  handleClose: () => void;
-  currentItem: TChosenGood;
+type TInfo = {
+  address?: string | undefined;
+  comment?: string | undefined;
+  delivery: boolean;
+  name: string;
+  number: string;
+  sum: number;
 };
 
-type TFinalModal = {
-  open: boolean;
-  finalAction: () => void;
-};
-
-type TGoodsList = {
-  data: TChosenGood[];
-  getCurrentItem: (_id: string) => void;
-};
-
-type THeading = {
-  heading: string;
-};
-
-type TLayout = {
-  children: JSX.Element;
-};
-
-type TypeCartItem = {
+type TCartItem = {
   id: string;
   photo: string;
   quantity: number;
@@ -57,13 +24,9 @@ type TypeCartItem = {
   totalPrice: number;
 };
 
-type TypeCart = TypeCartItem[];
+type TCart = CartItem[];
 
-type TypeInfo = {
-  address?: string;
-  comment?: string;
-  delivery: boolean;
-  name: string;
-  number: string;
-  sum: number;
-};
+type TSummary = {
+  customerInfo: TInfo
+  payment: TCart;
+}

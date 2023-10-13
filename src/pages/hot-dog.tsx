@@ -9,7 +9,7 @@ import { Section } from '@/components/section/Section';
 const HotDog: React.FC = () => {
   const [currentHotDog, setCurrentHotDog] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
-  
+
   const handleClose = () => setOpen(false);
 
   const getCurrentHotDog = (_id: string) => {
@@ -23,7 +23,7 @@ const HotDog: React.FC = () => {
   return (
     <Section>
       <Container>
-        <Heading heading={'Хот-доги'} />
+        <Heading>Хот-доги</Heading>
         <HotDogList data={hotDog} getCurrentItem={getCurrentHotDog} />
         {open && (
           <ChosenHotDog

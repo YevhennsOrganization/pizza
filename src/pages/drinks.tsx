@@ -23,7 +23,7 @@ const Drinks: React.FC = () => {
   return (
     <Section>
       <Container>
-        <Heading heading={'Напої'} />
+        <Heading>Напої</Heading>
         <DrinksList data={drinks} getCurrentItem={getCurrentDrink} />
         {open && (
           <ChosenDrink

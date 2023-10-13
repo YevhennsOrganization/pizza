@@ -3,11 +3,16 @@ import React from 'react';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { nanoid } from 'nanoid';
-import css from './FinalModal.module.css';
+import css from './FinalModal.module.scss';
 import { useAppSelector } from '@/redux/hooks';
 import { getCustomerInfo, getFilledCart } from '@/redux/cartSlice';
 
-const FinalModal: React.FC<TFinalModal> = ({ open, finalAction }) => {
+interface Props {
+  open: boolean;
+  finalAction: () => void;
+}
+
+const FinalModal: React.FC<Props> = ({ open, finalAction }) => {
   const filledCart = useAppSelector(getFilledCart);
   const info = useAppSelector(getCustomerInfo);
 
@@ -62,7 +67,7 @@ const FinalModal: React.FC<TFinalModal> = ({ open, finalAction }) => {
           </ul>
           <Button
             onClick={finalAction}
-            variant="contained"
+            variant='contained'
             sx={{
               display: 'flex',
               mx: 'auto',

@@ -1,11 +1,17 @@
 import React from 'react';
 import ChosenItem from './ChosenItem';
 
-const ChosenPizza: React.FC<TChosenItem> = ({
-  open,
-  handleClose,
-  currentItem,
-}) => {
+interface Props {
+  open: boolean;
+  handleClose: () => void;
+  currentItem: TChosenGood;
+}
+
+const ChosenPizza: React.FC<Props> = ({
+                                        open,
+                                        handleClose,
+                                        currentItem,
+                                      }) => {
   return ChosenItem({ open, handleClose, currentItem });
 };
 
