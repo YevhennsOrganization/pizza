@@ -5,7 +5,7 @@ export const sendOrder = createAsyncThunk<
   any,
   any,
   {
-    rejectValue: string
+    rejectValue: any
   }
 >('cart/sendOrder', async (order, { rejectWithValue }) => {
   try {

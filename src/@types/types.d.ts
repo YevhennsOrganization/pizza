@@ -6,6 +6,7 @@ type TChosenGood = {
   price: number;
   photo: string;
 };
+
 type TInfo = {
   address?: string | undefined;
   comment?: string | undefined;
@@ -14,6 +15,7 @@ type TInfo = {
   number: string;
   sum: number;
 };
+
 type TCartItem = {
   id: string;
   photo: string;
@@ -21,7 +23,9 @@ type TCartItem = {
   title: string;
   totalPrice: number;
 };
+
 type TCart = CartItem[];
+
 type TSummary = {
   customerInfo: TInfo
   payment: TCart;

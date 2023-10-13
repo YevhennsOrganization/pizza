@@ -5,9 +5,9 @@ import Button from '@mui/material/Button';
 import Textarea from '@mui/joy/Textarea';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
-import { useDispatch, useSelector } from 'react-redux';
 import { addInfo, getFilledCart } from '@/redux/cartSlice';
 import { sendOrder } from '@/redux/cartOperations';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import css from './CartForm.module.scss';
 
 interface Props {
@@ -34,9 +34,9 @@ const CartForm: React.FC<Props> = ({ openModal }) => {
 
   const [totalPayment, setTotalPayment] = useState(0);
 
-  const payment = useSelector(getFilledCart);
+  const payment = useAppSelector(getFilledCart);
   // const info = useSelector(getCustomerInfo);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const result = payment
