@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const sendOrder = createAsyncThunk<
   any,
-  TSummary,
+  any,
   {
     rejectValue: string
   }
