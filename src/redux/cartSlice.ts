@@ -1,9 +1,28 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { sendOrder } from './cartOperations';
 
+type CartItem = {
+  id: string;
+  photo: string;
+  quantity: number;
+  title: string;
+  totalPrice: number;
+};
+
+type Cart = CartItem[];
+
+type Info = {
+  address?: string | undefined;
+  comment?: string | undefined;
+  delivery: boolean;
+  name: string;
+  number: string;
+  sum: number;
+};
+
 const initialState = {
-  filledcart: [] as TypeCart,
-  customerInfo: {} as TypeInfo,
+  filledCart: [] as Cart,
+  customerInfo: {} as Info,
   error: false as any,
   isLoading: false,
 };
@@ -12,20 +31,20 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem(state, action: { payload: TypeCartItem }) {
-      state.filledcart = [...state.filledcart, action.payload];
+    addItem(state, action: { payload: CartItem }) {
+      state.filledCart = [...state.filledCart, action.payload];
     },
     deleteItem(state, action: { payload: string }) {
-      state.filledcart = state.filledcart.filter(
+      state.filledCart = state.filledCart.filter(
         item => item.id !== action.payload
       );
     },
-    addInfo(state, action: { payload: TypeInfo }) {
+    addInfo(state, action: { payload: Info }) {
       state.customerInfo = action.payload;
     },
     deleteAllItems(state) {
-      state.filledcart = [];
-      state.customerInfo = {} as TypeInfo;
+      state.filledCart = [];
+      state.customerInfo = {} as Info;
     },
   },
   extraReducers: builder =>
@@ -54,9 +73,9 @@ const cartSlice = createSlice({
 
 export const cartReducer = cartSlice.reducer;
 
-export const getFilledCart = (state: { cart: { filledcart: TypeCart } }) =>
-  state.cart.filledcart;
-export const getCustomerInfo = (state: { cart: { customerInfo: TypeInfo } }) =>
+export const getFilledCart = (state: { cart: { filledCart: Cart } }) =>
+  state.cart.filledCart;
+export const getCustomerInfo = (state: { cart: { customerInfo: Info } }) =>
   state.cart.customerInfo;
 
 export const { addItem } = cartSlice.actions;

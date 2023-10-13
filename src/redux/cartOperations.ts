@@ -1,18 +1,18 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-// type TypeCart = {
-//   address?: string;
-//   comment?: string;
-//   delivery: boolean;
-//   name: string;
-//   number: string;
-//   sum: number;
-// };
+type Info = {
+  address?: string | undefined;
+  comment?: string | undefined;
+  delivery: boolean;
+  name: string;
+  number: string;
+  sum: number;
+};
 
 export const sendOrder = createAsyncThunk<
   any,
-  TypeInfo,
+  Info,
   { rejectValue: string }
 >('cart/sendOrder', async (order, { rejectWithValue }) => {
   try {

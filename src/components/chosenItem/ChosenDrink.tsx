@@ -11,7 +11,7 @@ const ChosenDrink: React.FC<Props> = ({
   open,
   handleClose,
   currentItem,
-}: TChosenItem) => {
+}) => {
   return ChosenItem({ open, handleClose, currentItem });
 };
 

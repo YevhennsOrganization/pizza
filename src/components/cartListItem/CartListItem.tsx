@@ -4,6 +4,13 @@ import IconButton from '@mui/material/IconButton';
 import CancelIcon from '@mui/icons-material/Cancel';
 import css from './CartListItem.module.scss';
 
+type TypeCartItem = {
+  id: string;
+  photo: string;
+  quantity: number;
+  title: string;
+  totalPrice: number;
+};
 interface Props {
     data: TypeCartItem;
     deleteCartItem: (id: string) => void;

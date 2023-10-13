@@ -13,6 +13,14 @@ import { sendOrder } from '@/redux/cartOperations';
 interface Props {
   openModal: () => void;
 }
+type FinalForm = {
+  openModal: string;
+  delivery: boolean;
+  name: string;
+  number: string;
+  address?: string;
+  comment?: string;
+};
 
 const CartForm: React.FC<Props> = ({ openModal }) => {
   const {
@@ -21,7 +29,7 @@ const CartForm: React.FC<Props> = ({ openModal }) => {
     formState: { errors },
     reset,
     watch,
-  } = useForm<TFinalForm>({ mode: 'onChange' });
+  } = useForm<FinalForm>({ mode: 'onChange' });
 
   const [totalPayment, setTotalPayment] = useState(0);
 
@@ -36,7 +44,7 @@ const CartForm: React.FC<Props> = ({ openModal }) => {
     setTotalPayment(result);
   }, [payment]);
 
-  const onSubmit: SubmitHandler<TFinalForm> = data => {
+  const onSubmit: SubmitHandler<FinalForm> = data => {
     openModal();
     const customerInfo = {
       address: data.address,
