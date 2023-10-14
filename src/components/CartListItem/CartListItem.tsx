@@ -27,6 +27,7 @@ const CartListItem: React.FC<Props> = ({ data, deleteCartItem }) => {
       <p>{quantity}</p>
       <p>{totalPrice} грн</p>
       <IconButton
+        style={{marginLeft: 'auto'}}
         onClick={() => deleteCartItem(id)}
         color='primary'
         aria-label='delete'

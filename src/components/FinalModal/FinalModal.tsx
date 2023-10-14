@@ -42,7 +42,7 @@ const FinalModal: React.FC<Props> = ({ open, finalAction }) => {
             <li>
               <p>Номер телефону: {number}</p>
             </li>
-            {delivery !== false ? (
+            {delivery ? (
               <li>
                 <p>Доставка: Так</p>
               </li>

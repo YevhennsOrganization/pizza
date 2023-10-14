@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
             </a>
           </Stack>
         </div>
-        <p>&copy; 2023 Компанія Хата-Магната. Всі права захищені.</p>
+        <p>&copy; 2023 Компанія PIZZA. Всі права захищені.</p>
       </SC.Container>
     </footer>
   );
