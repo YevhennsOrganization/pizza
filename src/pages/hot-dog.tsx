@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Heading from '@/components/Heading/Heading';
 import hotDog from '../data/hotDog.json';
 import ChosenItem from '@/components/ChosenItem/ChosenItem';
-import { Container } from '@/components/Container/Container';
-import { Section } from '@/components/section/Section';
+import {Container} from '@/components/Container/Container';
+import {Section} from '@/components/section/Section';
 import GoodsList from '@/components/GoodsList/GoodsList';
 
 const HotDog: React.FC = () => {
@@ -24,7 +24,7 @@ const HotDog: React.FC = () => {
     <Section>
       <Container>
         <Heading>Хот-доги</Heading>
-        <GoodsList data={hotDog} getCurrentItem={getCurrentHotDog} />
+        <GoodsList data={hotDog} getCurrentItem={getCurrentHotDog}/>
         {open && (
           <ChosenItem
             open={open}

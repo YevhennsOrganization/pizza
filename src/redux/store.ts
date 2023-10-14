@@ -1,7 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit';
+import {configureStore} from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
-import { persistStore, persistReducer, PERSIST } from 'redux-persist';
-import { cartReducer } from './cartSlice';
+import {persistStore, persistReducer, PERSIST} from 'redux-persist';
+import {cartReducer} from './cartSlice';
 
 const cartPersistConfig = {
   key: 'cart',

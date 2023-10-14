@@ -2,21 +2,21 @@
 import React from 'react';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import { nanoid } from 'nanoid';
+import {nanoid} from 'nanoid';
 import css from './FinalModal.module.scss';
-import { useAppSelector } from '@/redux/hooks';
-import { getCustomerInfo, getFilledCart } from '@/redux/cartSlice';
+import {useAppSelector} from '@/redux/hooks';
+import {getCustomerInfo, getFilledCart} from '@/redux/cartSlice';
 
 interface Props {
   open: boolean;
   finalAction: () => void;
 }
 
-const FinalModal: React.FC<Props> = ({ open, finalAction }) => {
+const FinalModal: React.FC<Props> = ({open, finalAction}) => {
   const filledCart = useAppSelector(getFilledCart);
   const info = useAppSelector(getCustomerInfo);
 
-  const { address, comment, delivery, name, number, sum } = info;
+  const {address, comment, delivery, name, number, sum} = info;
 
   return (
     <div>
@@ -24,7 +24,7 @@ const FinalModal: React.FC<Props> = ({ open, finalAction }) => {
         <div className={css.modal}>
           <p>Інформація про замовлення</p>
           <ul>
-            {filledCart.map(({ title, quantity, totalPrice }) => {
+            {filledCart.map(({title, quantity, totalPrice}) => {
               return (
                 <li key={nanoid()}>
                   <p>Назва:{title}</p>

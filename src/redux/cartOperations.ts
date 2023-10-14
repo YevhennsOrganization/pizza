@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import {createAsyncThunk} from '@reduxjs/toolkit';
 
 export const sendOrder = createAsyncThunk<
   any,
@@ -7,7 +7,7 @@ export const sendOrder = createAsyncThunk<
   {
     rejectValue: any
   }
->('cart/sendOrder', async (order, { rejectWithValue }) => {
+>('cart/sendOrder', async (order, {rejectWithValue}) => {
   try {
     const response = await axios.post(
       'https://xata-magnata-server.onrender.com/',

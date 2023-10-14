@@ -7,17 +7,17 @@ interface Props {
   getCurrentItem: (_id: string) => void;
 }
 
-const GoodsList: React.FC<Props> = ({ data, getCurrentItem }) => {
+const GoodsList: React.FC<Props> = ({data, getCurrentItem}) => {
   return (
     <ul className={css.list}>
-      {data.map(({ _id, title, description, dimension, price, photo }) => {
+      {data.map(({_id, title, description, dimension, price, photo}) => {
         return (
           <li
             key={_id}
             className={css.listItem}
             onClick={() => getCurrentItem(_id)}
           >
-            <Image src={photo} alt="item photo" width={96} height={96} />
+            <Image src={photo} alt="item photo" width={96} height={96}/>
             <h2>{title}</h2>
             <p>{description}</p>
             <p>{dimension}</p>

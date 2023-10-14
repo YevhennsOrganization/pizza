@@ -1,5 +1,5 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { sendOrder } from './cartOperations';
+import {createSlice} from '@reduxjs/toolkit';
+import {sendOrder} from './cartOperations';
 
 const initialState = {
   filledCart: [] as TCart,
@@ -59,8 +59,8 @@ export const getFilledCart = (state: { cart: { filledCart: TCart } }) =>
 export const getCustomerInfo = (state: { cart: { customerInfo: TInfo } }) =>
   state.cart.customerInfo;
 
-export const { addItem } = cartSlice.actions;
-export const { deleteItem } = cartSlice.actions;
+export const {addItem} = cartSlice.actions;
+export const {deleteItem} = cartSlice.actions;
 
-export const { addInfo } = cartSlice.actions;
-export const { deleteAllItems } = cartSlice.actions;
+export const {addInfo} = cartSlice.actions;
+export const {deleteAllItems} = cartSlice.actions;

@@ -7,12 +7,12 @@ interface Props {
   children: JSX.Element;
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout: React.FC<Props> = ({children}) => {
   return (
     <div className={css.wrapper}>
-      <Header />
+      <Header/>
       <main className={css.main}>{children}</main>
-      <Footer />
+      <Footer/>
     </div>
   );
 };

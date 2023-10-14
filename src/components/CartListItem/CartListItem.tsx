@@ -17,12 +17,12 @@ interface Props {
   deleteCartItem: (id: string) => void;
 }
 
-const CartListItem: React.FC<Props> = ({ data, deleteCartItem }) => {
-  const { id, photo, title, quantity, totalPrice } = data;
+const CartListItem: React.FC<Props> = ({data, deleteCartItem}) => {
+  const {id, photo, title, quantity, totalPrice} = data;
 
   return (
     <li className={css.cartListItem}>
-      <Image src={photo} alt='item photo' width={50} height={50} />
+      <Image src={photo} alt='item photo' width={50} height={50}/>
       <p>{title}</p>
       <p>{quantity}</p>
       <p>{totalPrice} грн</p>
@@ -32,7 +32,7 @@ const CartListItem: React.FC<Props> = ({ data, deleteCartItem }) => {
         color='primary'
         aria-label='delete'
       >
-        <CancelIcon />
+        <CancelIcon/>
       </IconButton>
     </li>
   );

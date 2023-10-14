@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         <div className={css.contactsWrapper}>
           <address>
             м.Дніпро
-            <br />
+            <br/>
             вул.Альвінського 1
           </address>
           <Stack direction='row' spacing={1}>
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
               target='_blank'
               rel='noreferrer noopener'
             >
-              <FacebookIcon />
+              <FacebookIcon/>
             </a>
             <a
               className={css.socialLink}
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
               target='_blank'
               rel='noreferrer noopener'
             >
-              <InstagramIcon />
+              <InstagramIcon/>
             </a>
           </Stack>
         </div>
