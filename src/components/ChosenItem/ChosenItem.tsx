@@ -18,10 +18,10 @@ interface Props {
 }
 
 const ChosenItem: React.FC<Props> = ({
-  open,
-  handleClose,
-  currentItem,
-}) => {
+                                       open,
+                                       handleClose,
+                                       currentItem,
+                                     }) => {
   const { title, description, dimension, price, photo } = currentItem;
 
   const [quantity, setQuantity] = useState(1);
@@ -58,11 +58,11 @@ const ChosenItem: React.FC<Props> = ({
       <Modal className={css.modalWrapper} open={open} onClose={handleClose}>
         <div className={css.modal}>
           <div>
-            <Image src={photo} alt="item photo" width={200} height={200} />
+            <Image src={photo} alt='item photo' width={200} height={200} />
             <IconButton
               onClick={handleClose}
-              color="primary"
-              aria-label="close"
+              color='primary'
+              aria-label='close'
               sx={{
                 position: 'relative',
                 top: '-170px',
@@ -71,25 +71,28 @@ const ChosenItem: React.FC<Props> = ({
               <CancelIcon sx={{ fontSize: '50px' }} />
             </IconButton>
           </div>
-
-          <h2>{title}</h2>
-          <p>{description}</p>
-          <p>{dimension}</p>
-          <p>{price} грн</p>
-
           <div className={css.quantitySet}>
-            <IconButton onClick={decrement} color="primary" aria-label="minus">
-              <RemoveCircleOutlineIcon />
-            </IconButton>
-            <p>{quantity}</p>
-            <IconButton onClick={increment} color="primary" aria-label="plus">
-              <AddCircleOutlineIcon />
-            </IconButton>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <p>{dimension}</p>
+            <p>{price} грн</p>
+            <div className={css.buttonSet}>
+              <IconButton onClick={decrement} color='primary' aria-label='minus'>
+                <RemoveCircleOutlineIcon />
+              </IconButton>
+              <p>{quantity}</p>
+              <IconButton onClick={increment} color='primary' aria-label='plus'>
+                <AddCircleOutlineIcon />
+              </IconButton>
+            </div>
+
+            <div className={css.cartBtnWrapper}>
+              <p className={css.totalPrice}>Загальна сума: {totalPrice}</p>
+              <Button onClick={addToCart} variant='contained'>
+                В кошик
+              </Button>
+            </div>
           </div>
-          <p className={css.totalPrice}>Загальна сума: {totalPrice}</p>
-          <Button onClick={addToCart} variant="contained">
-            В кошик
-          </Button>
         </div>
       </Modal>
     </div>

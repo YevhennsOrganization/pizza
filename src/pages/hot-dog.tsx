@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import HotDogList from '@/components/goodsList/HotDogList';
-import Heading from '@/components/heading/Heading';
+import Heading from '@/components/Heading/Heading';
 import hotDog from '../data/hotDog.json';
-import ChosenHotDog from '@/components/chosenItem/ChosenHotDog';
-import { Container } from '@/components/container/Container';
+import ChosenItem from '@/components/ChosenItem/ChosenItem';
+import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/section/Section';
+import GoodsList from '@/components/GoodsList/GoodsList';
 
 const HotDog: React.FC = () => {
   const [currentHotDog, setCurrentHotDog] = useState({} as TChosenGood);
@@ -24,9 +24,9 @@ const HotDog: React.FC = () => {
     <Section>
       <Container>
         <Heading>Хот-доги</Heading>
-        <HotDogList data={hotDog} getCurrentItem={getCurrentHotDog} />
+        <GoodsList data={hotDog} getCurrentItem={getCurrentHotDog} />
         {open && (
-          <ChosenHotDog
+          <ChosenItem
             open={open}
             handleClose={handleClose}
             currentItem={currentHotDog}

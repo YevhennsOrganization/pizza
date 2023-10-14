@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from '../footer/Footer';
-import Header from '../header/Header';
+import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header/Header';
 import css from './Layout.module.scss';
 
 interface Props {

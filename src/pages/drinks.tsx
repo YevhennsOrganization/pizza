@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import drinks from '../data/drinks.json';
-import DrinksList from '@/components/goodsList/DrinksList';
-import Heading from '@/components/heading/Heading';
-import ChosenDrink from '@/components/chosenItem/ChosenDrink';
-import { Container } from '@/components/container/Container';
+import Heading from '@/components/Heading/Heading';
+import ChosenItem from '@/components/ChosenItem/ChosenItem';
+import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/section/Section';
+import GoodsList from '@/components/GoodsList/GoodsList';
 
 const Drinks: React.FC = () => {
   const [currentDrink, setCurrentDrink] = useState({} as TChosenGood);
@@ -24,9 +24,9 @@ const Drinks: React.FC = () => {
     <Section>
       <Container>
         <Heading>Напої</Heading>
-        <DrinksList data={drinks} getCurrentItem={getCurrentDrink} />
+        <GoodsList data={drinks} getCurrentItem={getCurrentDrink} />
         {open && (
-          <ChosenDrink
+          <ChosenItem
             open={open}
             handleClose={handleClose}
             currentItem={currentDrink}
