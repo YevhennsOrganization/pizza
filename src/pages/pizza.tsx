@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import pizza from '../data/pizza.json';
-import PizzaList from '@/components/goodsList/PizzaList';
-import Heading from '@/components/heading/Heading';
-import ChosenPizza from '@/components/chosenItem/ChosenPizza';
-import { Container } from '@/components/container/Container';
+import Heading from '@/components/Heading/Heading';
+import ChosenItem from '@/components/ChosenItem/ChosenItem';
+import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/section/Section';
+import GoodsList from '@/components/GoodsList/GoodsList';
 
 const Pizza: React.FC = () => {
   const [currentPizza, setCurrentPizza] = useState({} as TChosenGood);
@@ -23,9 +23,9 @@ const Pizza: React.FC = () => {
     <Section>
       <Container>
         <Heading>Піци</Heading>
-        <PizzaList data={pizza} getCurrentItem={getCurrentPizza} />
+        <GoodsList data={pizza} getCurrentItem={getCurrentPizza} />
         {open && (
-          <ChosenPizza
+          <ChosenItem
             open={open}
             handleClose={handleClose}
             currentItem={currentPizza}

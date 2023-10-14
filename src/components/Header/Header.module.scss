@@ -24,5 +24,10 @@
   .cartIcon:hover {
     transform: scale(1.2);
   }
+
+  .cartLink {
+    display: flex;
+    gap: 10px;
+  }
 }
 

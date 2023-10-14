@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '@/components/layout/Layout';
+import Layout from '@/components/Layout/Layout';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import { store, persist } from '@/redux/store';

@@ -35,7 +35,6 @@ const CartForm: React.FC<Props> = ({ openModal }) => {
   const [totalPayment, setTotalPayment] = useState(0);
 
   const payment = useAppSelector(getFilledCart);
-  // const info = useSelector(getCustomerInfo);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

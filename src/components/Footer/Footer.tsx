@@ -2,7 +2,7 @@ import React from 'react';
 import Stack from '@mui/material/Stack';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import * as SC from '../container/Container';
+import * as SC from '@/components/Container/Container';
 import css from './Footer.module.scss';
 
 const Footer: React.FC = () => {
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           <Stack direction='row' spacing={1}>
             <a
               className={css.socialLink}
-              href='https://www.facebook.com/profile.php?id=100090698343559'
+              href='https://www.facebook.com'
               target='_blank'
               rel='noreferrer noopener'
             >
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
             </a>
             <a
               className={css.socialLink}
-              href='https://www.instagram.com/xata_magnata/'
+              href='https://www.instagram.com'
               target='_blank'
               rel='noreferrer noopener'
             >

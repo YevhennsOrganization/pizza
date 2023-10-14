@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import Heading from '@/components/heading/Heading';
-import { Container } from '@/components/container/Container';
+import Heading from '@/components/Heading/Heading';
+import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/section/Section';
 
 export const Home: React.FC = () => {

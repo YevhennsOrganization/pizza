@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import Heading from '@/components/heading/Heading';
+import Heading from '@/components/Heading/Heading';
 import { nanoid } from 'nanoid';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getFilledCart, deleteItem, deleteAllItems } from '@/redux/cartSlice';
-import CartForm from '@/components/cartForm/CartForm';
-import CartListItem from '@/components/cartListItem/CartListItem';
+import CartForm from '@/components/CartForm/CartForm';
+import CartListItem from '@/components/CartListItem/CartListItem';
 import Image from 'next/image';
-import FinalModal from '@/components/finalModal/FinalModal';
-import { Container } from '@/components/container/Container';
+import FinalModal from '@/components/FinalModal/FinalModal';
+import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/section/Section';
 
 const Cart: React.FC = () => {
