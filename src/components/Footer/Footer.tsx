@@ -4,11 +4,13 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import * as SC from '@/components/Container/Container';
 import css from './Footer.module.scss';
+import SimpleMap from "@/components/GoogleMaps/GoogleMaps";
 
 const Footer: React.FC = () => {
   return (
     <footer className={css.footer}>
       <SC.Container>
+        <SimpleMap/>
         <div className={css.contactsWrapper}>
           <address>
             м.Дніпро
