@@ -6,39 +6,40 @@ import { Section } from '@/components/section/Section';
 import GoodsList from '@/components/GoodsList/GoodsList';
 import { getItems } from '@/api/getItems';
 
-const Pizza: React.FC = () => {
-  const [currentPizza, setCurrentPizza] = useState({} as TChosenGood);
+const Appetizer: React.FC = () => {
+  const [currentAppetizer, setCurrentAppetizer] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
-  const [pizzasAll, setPizzasAll] = useState<TChosenGood[]>([]);
+  const [appetizersAll, setAppetizersAll] = useState<TChosenGood[]>([]);
 
   const handleClose = () => setOpen(false);
 
-  const getCurrentPizza = (_id: string) => {
-    const chosenPizza = pizzasAll.find(item => item._id === _id);
-    if (chosenPizza) {
-      setCurrentPizza(chosenPizza);
+  const getCurrentAppetizer = (_id: string) => {
+    const chosenAppetizer = appetizersAll.find(item => item._id === _id);
+    if (chosenAppetizer) {
+      setCurrentAppetizer(chosenAppetizer);
       setOpen(true);
     }
   };
 
   useEffect(() => {
-    getItems('pizzas').then(data => setPizzasAll(data));
+    getItems('appetizers').then(data => setAppetizersAll(data));
   }, []);
 
   return (
     <Section>
       <Container>
-        <Heading>Піци</Heading>
-        <GoodsList data={pizzasAll} getCurrentItem={getCurrentPizza} />
+        <Heading>Закуски</Heading>
+        <GoodsList data={appetizersAll} getCurrentItem={getCurrentAppetizer} />
         {open && (
           <ChosenItem
             open={open}
             handleClose={handleClose}
-            currentItem={currentPizza}
+            currentItem={currentAppetizer}
           />
         )}
       </Container>
     </Section>
   );
 };
-export default Pizza;
+
+export default Appetizer;

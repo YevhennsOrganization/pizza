@@ -37,7 +37,6 @@ const cartSlice = createSlice({
       .addCase(sendOrder.fulfilled, (state, action) => {
         if (!action.payload) {
           console.log('error');
-          // toast.error(`Невірний номер посилки!`);
           state.isLoading = false;
           console.log('ok');
           return;
@@ -46,7 +45,6 @@ const cartSlice = createSlice({
       })
       .addCase(sendOrder.rejected, (state, action) => {
         console.log('err');
-        // toast.error(`Помилка мережі!`);
         state.isLoading = false;
         state.error = action.payload;
       }),
