@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
@@ -6,10 +6,10 @@ import Button from '@mui/material/Button';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/Cancel';
-import {nanoid} from 'nanoid';
+import { nanoid } from 'nanoid';
 import css from './ChosenItem.module.scss';
-import {useAppDispatch} from '@/redux/hooks';
-import {addItem} from '@/redux/cartSlice';
+import { useAppDispatch } from '@/redux/hooks';
+import { addItem } from '@/redux/cartSlice';
 
 interface Props {
   open: boolean;
@@ -17,12 +17,8 @@ interface Props {
   currentItem: TChosenGood;
 }
 
-const ChosenItem: React.FC<Props> = ({
-                                       open,
-                                       handleClose,
-                                       currentItem,
-                                     }) => {
-  const {title, description, dimension, price, photo} = currentItem;
+const ChosenItem: React.FC<Props> = ({ open, handleClose, currentItem }) => {
+  const { title, description, dimension, price, photo } = currentItem;
 
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(price);
@@ -57,18 +53,14 @@ const ChosenItem: React.FC<Props> = ({
     <div>
       <Modal className={css.modalWrapper} open={open} onClose={handleClose}>
         <div className={css.modal}>
-          <div>
-            <Image src={photo} alt='item photo' width={200} height={200}/>
+          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+            <Image src={photo} alt="item photo" width={200} height={200} />
             <IconButton
               onClick={handleClose}
-              color='primary'
-              aria-label='close'
-              sx={{
-                position: 'relative',
-                top: '-170px',
-              }}
+              color="primary"
+              aria-label="close"
             >
-              <CancelIcon sx={{fontSize: '50px'}}/>
+              <CancelIcon sx={{ fontSize: '50px' }} />
             </IconButton>
           </div>
           <div className={css.quantitySet}>
@@ -77,18 +69,22 @@ const ChosenItem: React.FC<Props> = ({
             <p>{dimension}</p>
             <p>{price} грн</p>
             <div className={css.buttonSet}>
-              <IconButton onClick={decrement} color='primary' aria-label='minus'>
-                <RemoveCircleOutlineIcon/>
+              <IconButton
+                onClick={decrement}
+                color="primary"
+                aria-label="minus"
+              >
+                <RemoveCircleOutlineIcon />
               </IconButton>
               <p>{quantity}</p>
-              <IconButton onClick={increment} color='primary' aria-label='plus'>
-                <AddCircleOutlineIcon/>
+              <IconButton onClick={increment} color="primary" aria-label="plus">
+                <AddCircleOutlineIcon />
               </IconButton>
             </div>
 
             <div className={css.cartBtnWrapper}>
               <p className={css.totalPrice}>Загальна сума: {totalPrice}</p>
-              <Button onClick={addToCart} variant='contained'>
+              <Button onClick={addToCart} variant="contained">
                 В кошик
               </Button>
             </div>

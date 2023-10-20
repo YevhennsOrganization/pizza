@@ -14,9 +14,9 @@ const Appetizer: React.FC = () => {
   const handleClose = () => setOpen(false);
 
   const getCurrentAppetizer = (_id: string) => {
-    const chosenHotDog = appetizersAll.find(item => item._id === _id);
-    if (chosenHotDog) {
-      setCurrentAppetizer(chosenHotDog);
+    const chosenAppetizer = appetizersAll.find(item => item._id === _id);
+    if (chosenAppetizer) {
+      setCurrentAppetizer(chosenAppetizer);
       setOpen(true);
     }
   };
