@@ -1,29 +1,35 @@
-import React, { useState } from 'react';
-import pizza from '../data/pizza.json';
+import React, { useEffect, useState } from 'react';
 import Heading from '@/components/Heading/Heading';
 import ChosenItem from '@/components/ChosenItem/ChosenItem';
 import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/section/Section';
 import GoodsList from '@/components/GoodsList/GoodsList';
+import { getItems } from '@/api/getItems';
 
 const Pizza: React.FC = () => {
   const [currentPizza, setCurrentPizza] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
+  const [pizzasAll, setPizzasAll] = useState<TChosenGood[]>([]);
+
   const handleClose = () => setOpen(false);
 
   const getCurrentPizza = (_id: string) => {
-    const chosenPizza = pizza.find(item => item._id === _id);
+    const chosenPizza = pizzasAll.find(item => item._id === _id);
     if (chosenPizza) {
       setCurrentPizza(chosenPizza);
       setOpen(true);
     }
   };
 
+  useEffect(() => {
+    getItems('pizzas').then(data => setPizzasAll(data));
+  }, []);
+
   return (
     <Section>
       <Container>
         <Heading>Піци</Heading>
-        <GoodsList data={pizza} getCurrentItem={getCurrentPizza} />
+        <GoodsList data={pizzasAll} getCurrentItem={getCurrentPizza} />
         {open && (
           <ChosenItem
             open={open}
@@ -35,5 +41,4 @@ const Pizza: React.FC = () => {
     </Section>
   );
 };
-
 export default Pizza;
