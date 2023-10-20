@@ -3,36 +3,36 @@ import Stack from '@mui/material/Stack';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import * as SC from '@/components/Container/Container';
+import SimpleMap from '@/components/GoogleMaps/GoogleMaps';
 import css from './Footer.module.scss';
-import SimpleMap from "@/components/GoogleMaps/GoogleMaps";
 
 const Footer: React.FC = () => {
   return (
     <footer className={css.footer}>
       <SC.Container>
-        <SimpleMap/>
+        <SimpleMap />
         <div className={css.contactsWrapper}>
           <address>
             м.Дніпро
-            <br/>
+            <br />
             вул.Альвінського 1
           </address>
-          <Stack direction='row' spacing={1}>
+          <Stack direction="row" spacing={1}>
             <a
               className={css.socialLink}
-              href='https://www.facebook.com'
-              target='_blank'
-              rel='noreferrer noopener'
+              href="https://www.facebook.com"
+              target="_blank"
+              rel="noreferrer noopener"
             >
-              <FacebookIcon/>
+              <FacebookIcon />
             </a>
             <a
               className={css.socialLink}
-              href='https://www.instagram.com'
-              target='_blank'
-              rel='noreferrer noopener'
+              href="https://www.instagram.com"
+              target="_blank"
+              rel="noreferrer noopener"
             >
-              <InstagramIcon/>
+              <InstagramIcon />
             </a>
           </Stack>
         </div>

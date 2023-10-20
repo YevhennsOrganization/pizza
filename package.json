@@ -29,12 +29,12 @@
     "react-hook-form": "^7.43.9",
     "react-redux": "^8.0.5",
     "redux-persist": "^6.0.0",
-    "sass": "^1.69.3",
-    "styled-components": "^5.3.10",
-    "typescript": "5.0.4"
+    "styled-components": "^5.3.10"
   },
   "devDependencies": {
     "@types/google-map-react": "^2.1.8",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "sass": "^1.69.4",
+    "typescript": "^5.2.2"
   }
 }

@@ -1,13 +1,13 @@
 import React from 'react';
-import {Html, Head, Main, NextScript} from 'next/document';
+import { Html, Head, Main, NextScript } from 'next/document';
 
 const Document: React.FC = () => {
   return (
     <Html lang="uk">
-      <Head/>
+      <Head />
       <body>
-      <Main/>
-      <NextScript/>
+        <Main />
+        <NextScript />
       </body>
     </Html>
   );

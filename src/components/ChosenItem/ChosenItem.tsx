@@ -6,10 +6,10 @@ import Button from '@mui/material/Button';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { nanoid } from 'nanoid';
-import css from './ChosenItem.module.scss';
-import { useAppDispatch } from '@/redux/hooks';
 import { addItem } from '@/redux/cartSlice';
+import { nanoid } from 'nanoid';
+import { useAppDispatch } from '@/redux/hooks';
+import css from './ChosenItem.module.scss';
 
 interface Props {
   open: boolean;
@@ -53,7 +53,13 @@ const ChosenItem: React.FC<Props> = ({ open, handleClose, currentItem }) => {
     <div>
       <Modal className={css.modalWrapper} open={open} onClose={handleClose}>
         <div className={css.modal}>
-          <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between' }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'flex-start',
+              justifyContent: 'space-between',
+            }}
+          >
             <Image src={photo} alt="item photo" width={200} height={200} />
             <IconButton
               onClick={handleClose}
