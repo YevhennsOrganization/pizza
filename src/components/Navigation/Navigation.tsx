@@ -7,7 +7,7 @@ const Navigation: React.FC = () => {
     <nav className={css.nav}>
       <Link className={css.link} href={'/'}>Новинки</Link>
       <Link className={css.link} href={'/pizza'}>Піци</Link>
-      <Link className={css.link} href={'/hot-dog'}>Хот-доги</Link>
+      <Link className={css.link} href={'/appetizer'}>Закуски</Link>
       <Link className={css.link} href={'/drinks'}>Напої</Link>
     </nav>
   );
