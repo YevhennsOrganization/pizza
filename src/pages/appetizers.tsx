@@ -7,7 +7,7 @@ import GoodsList from '@/components/GoodsList/GoodsList';
 import { getItems } from '@/api/getItems';
 import Head from 'next/head';
 
-const Appetizer: React.FC = () => {
+const Appetizers: React.FC = () => {
   const [currentAppetizer, setCurrentAppetizer] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
   const [appetizersAll, setAppetizersAll] = useState<TChosenGood[]>([]);
@@ -54,4 +54,4 @@ const Appetizer: React.FC = () => {
   );
 };
 
-export default Appetizer;
+export default Appetizers;

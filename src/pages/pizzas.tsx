@@ -6,13 +6,11 @@ import { Section } from '@/components/Section/Section';
 import GoodsList from '@/components/GoodsList/GoodsList';
 import { getItems } from '@/api/getItems';
 import Head from 'next/head';
-import Loader from '@/components/Loader/Loader';
 
-const Pizza: React.FC = () => {
+const Pizzas: React.FC = () => {
   const [currentPizza, setCurrentPizza] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
   const [pizzasAll, setPizzasAll] = useState<TChosenGood[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleClose = () => setOpen(false);
 
@@ -25,14 +23,7 @@ const Pizza: React.FC = () => {
   };
 
   useEffect(() => {
-    setIsLoading(true);
-    try {
-      getItems('pizzas').then(data => setPizzasAll(data));
-    } catch (error: any) {
-      console.log(error.message);
-    } finally {
-      setIsLoading(false);
-    }
+    getItems('pizzas').then(data => setPizzasAll(data));
   }, []);
 
   return (
@@ -46,11 +37,7 @@ const Pizza: React.FC = () => {
       <Section>
         <Container>
           <Heading>Піци</Heading>
-          {isLoading ? (
-            <Loader />
-          ) : (
-            <GoodsList data={pizzasAll} getCurrentItem={getCurrentPizza} />
-          )}
+          <GoodsList data={pizzasAll} getCurrentItem={getCurrentPizza} />
           {open && (
             <ChosenItem
               open={open}
@@ -63,4 +50,4 @@ const Pizza: React.FC = () => {
     </>
   );
 };
-export default Pizza;
+export default Pizzas;
