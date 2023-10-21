@@ -5,8 +5,8 @@ import Button from '@mui/material/Button';
 import Textarea from '@mui/joy/Textarea';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
-import { addInfo, getFilledCart } from '@/redux/cartSlice';
-import { sendOrder } from '@/redux/cartOperations';
+import { addInfo, getFilledCart } from '@/redux/cart/cartSlice';
+import { sendOrder } from '@/redux/cart/cartOperations';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import css from './CartForm.module.scss';
 
@@ -56,7 +56,7 @@ const CartForm: React.FC<Props> = ({ openModal }) => {
     };
     dispatch(addInfo(customerInfo));
     const reqBody: TSummary = { customerInfo, payment };
-    dispatch(sendOrder(reqBody));
+    dispatch(sendOrder(reqBody))
     reset();
   };
 

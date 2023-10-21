@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/Cancel';
-import { addItem } from '@/redux/cartSlice';
+import { addItem } from '@/redux/cart/cartSlice';
 import { nanoid } from 'nanoid';
 import { useAppDispatch } from '@/redux/hooks';
 import css from './ChosenItem.module.scss';

@@ -36,12 +36,13 @@ const cartSlice = createSlice({
       })
       .addCase(sendOrder.fulfilled, (state, action) => {
         if (!action.payload) {
-          console.log('error');
+          state.error = true;
           state.isLoading = false;
-          console.log('ok');
           return;
         }
-        state.isLoading = false;
+        if (action.payload === 201) {
+          state.isLoading = false;
+        }
       })
       .addCase(sendOrder.rejected, (state, action) => {
         console.log('err');
@@ -56,9 +57,11 @@ export const getFilledCart = (state: { cart: { filledCart: TCart } }) =>
   state.cart.filledCart;
 export const getCustomerInfo = (state: { cart: { customerInfo: TInfo } }) =>
   state.cart.customerInfo;
+export const getIsLoading = (state: { cart: { isLoading: any } }) =>
+  state.cart.isLoading;
 
 export const { addItem } = cartSlice.actions;
 export const { deleteItem } = cartSlice.actions;
 
 export const { addInfo } = cartSlice.actions;
-export const {deleteAllItems} = cartSlice.actions;
+export const { deleteAllItems } = cartSlice.actions;
