@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Heading from '@/components/Heading/Heading';
 import { nanoid } from 'nanoid';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { getFilledCart, deleteItem, deleteAllItems } from '@/redux/cartSlice';
+import { getFilledCart, deleteItem, deleteAllItems } from '@/redux/cart/cartSlice';
 import CartForm from '@/components/CartForm/CartForm';
 import CartListItem from '@/components/CartListItem/CartListItem';
 import Image from 'next/image';

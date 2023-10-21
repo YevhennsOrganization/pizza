@@ -4,7 +4,7 @@ import Logo from '../Logo/Logo';
 import Navigation from '@/components/Navigation/Navigation';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { Container } from '@/components/Container/Container';
-import { getFilledCart } from '@/redux/cartSlice';
+import { getFilledCart } from '@/redux/cart/cartSlice';
 import { useAppSelector } from '@/redux/hooks';
 import css from './Header.module.scss';
 
