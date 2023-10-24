@@ -4,6 +4,7 @@ import ChosenItem from '@/components/ChosenItem/ChosenItem';
 import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/Section/Section';
 import GoodsList from '@/components/GoodsList/GoodsList';
+import Loader from '@/components/Loader/Loader';
 import { getItems } from '@/api/getItems';
 import Head from 'next/head';
 
@@ -11,6 +12,7 @@ const Appetizers: React.FC = () => {
   const [currentAppetizer, setCurrentAppetizer] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
   const [appetizersAll, setAppetizersAll] = useState<TChosenGood[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClose = () => setOpen(false);
 
@@ -23,7 +25,10 @@ const Appetizers: React.FC = () => {
   };
 
   useEffect(() => {
-    getItems('appetizers').then(data => setAppetizersAll(data));
+    setIsLoading(true);
+    getItems('appetizers')
+      .then(data => setAppetizersAll(data))
+      .finally(() => setIsLoading(false));
   }, []);
 
   return (
@@ -37,6 +42,7 @@ const Appetizers: React.FC = () => {
       <Section>
         <Container>
           <Heading>Закуски</Heading>
+          {isLoading && <Loader />}
           <GoodsList
             data={appetizersAll}
             getCurrentItem={getCurrentAppetizer}

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
@@ -38,13 +39,14 @@ const FinalModal: React.FC<Props> = ({ open, finalAction }) => {
                 <br />
                 очікуйте дзвінок від менеджера
               </p>
+              <p>Інформація про замовлення</p>
               <ul>
                 {filledCart.map(({ title, quantity, totalPrice }) => {
                   return (
                     <li key={nanoid()}>
-                      <p>Назва:{title}</p>
+                      <p>Назва: {title}</p>
                       <p>Кількість: {quantity}</p>
-                      <p>Ціна: {totalPrice}</p>
+                      <p>Ціна: {totalPrice} грн.</p>
                     </li>
                   );
                 })}
@@ -52,7 +54,6 @@ const FinalModal: React.FC<Props> = ({ open, finalAction }) => {
               <p>Інформація про замовника</p>
               <ul>
                 <li>
-                  {/* eslint-disable-next-line react/no-unescaped-entities */}
                   <p>Ім'я: {name}</p>
                 </li>
                 <li>
@@ -78,7 +79,7 @@ const FinalModal: React.FC<Props> = ({ open, finalAction }) => {
                   </li>
                 )}
                 <li>
-                  <p>Загальна сума {sum} грн</p>
+                  <p>Загальна сума: {sum} грн.</p>
                 </li>
               </ul>
               <Button
