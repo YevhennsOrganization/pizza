@@ -12,11 +12,7 @@ const Footer: React.FC = () => {
       <SC.Container>
         <SimpleMap />
         <div className={css.contactsWrapper}>
-          <address>
-            м.Дніпро
-            <br />
-            вул.Альвінського 1
-          </address>
+          <address>м.Дніпро</address>
           <Stack direction="row" spacing={1}>
             <a
               className={css.socialLink}

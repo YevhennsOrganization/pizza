@@ -16,6 +16,7 @@ export const Home: React.FC = () => {
       <Section>
         <Container>
           <Heading>Новинки</Heading>
+          <p>Тут може бути Ваша реклама</p>
         </Container>
       </Section>
     </>
