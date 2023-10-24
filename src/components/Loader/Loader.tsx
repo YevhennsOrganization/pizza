@@ -1,6 +1,11 @@
-import { FC, HTMLProps } from 'react';
+import { FC } from 'react';
 
 import css from './Loader.module.scss';
 
-const Loader: FC<HTMLProps<HTMLSpanElement>> = () => <span className={css.loader}></span>;
+const Loader: FC = () => (
+  <>
+    <span className={css.loader} />
+    <p>Прохання зачекати</p>
+  </>
+);
 export default Loader;

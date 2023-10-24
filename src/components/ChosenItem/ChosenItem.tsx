@@ -87,9 +87,9 @@ const ChosenItem: React.FC<Props> = ({ open, handleClose, currentItem }) => {
                 <AddCircleOutlineIcon />
               </IconButton>
             </div>
-
+            <p className={css.totalPrice}>Загальна сума: {totalPrice}</p>
             <div className={css.cartBtnWrapper}>
-              <p className={css.totalPrice}>Загальна сума: {totalPrice}</p>
+              <Button variant="contained">В Улюблені</Button>
               <Button onClick={addToCart} variant="contained">
                 В кошик
               </Button>

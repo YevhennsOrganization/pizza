@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Logo from '../Logo/Logo';
 import Navigation from '@/components/Navigation/Navigation';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Container } from '@/components/Container/Container';
 import { getFilledCart } from '@/redux/cart/cartSlice';
 import { useAppSelector } from '@/redux/hooks';
@@ -24,8 +24,8 @@ const Header: React.FC = () => {
           <Logo />
           <a href="tel:+380930000000">093 000 00 00</a>
           <Link className={css.cartLink} href={'/cart'}>
-            <AddShoppingCartIcon
-              sx={{ color: 'white' }}
+            <ShoppingCartIcon
+              sx={{ color: 'white', fontSize: 50 }}
               className={css.cartIcon}
             />
             <p>{itemsInCart}</p>
