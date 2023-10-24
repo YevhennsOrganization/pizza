@@ -31,7 +31,13 @@ const FinalModal: React.FC<Props> = ({ open, finalAction }) => {
             <Loader />
           ) : (
             <>
-              <p>Інформація про замовлення</p>
+              <p className={css.resultText}>
+                Дякуємо!
+                <br />
+                Ваше замовлення прийняте,
+                <br />
+                очікуйте дзвінок від менеджера
+              </p>
               <ul>
                 {filledCart.map(({ title, quantity, totalPrice }) => {
                   return (
