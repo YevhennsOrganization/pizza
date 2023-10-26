@@ -9,6 +9,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import { addItem } from '@/redux/cart/cartSlice';
 import { nanoid } from 'nanoid';
 import { useAppDispatch } from '@/redux/hooks';
+import { toast } from 'react-toastify';
 import css from './ChosenItem.module.scss';
 
 interface Props {
@@ -46,6 +47,7 @@ const ChosenItem: React.FC<Props> = ({ open, handleClose, currentItem }) => {
       totalPrice: totalPrice,
     };
     dispatch(addItem(cartItem));
+    toast.success('Додано у кошик');
     handleClose();
   };
 

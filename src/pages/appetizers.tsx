@@ -7,6 +7,8 @@ import GoodsList from '@/components/GoodsList/GoodsList';
 import Loader from '@/components/Loader/Loader';
 import { getItems } from '@/api/getItems';
 import Head from 'next/head';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Appetizers: React.FC = () => {
   const [currentAppetizer, setCurrentAppetizer] = useState({} as TChosenGood);
@@ -54,6 +56,7 @@ const Appetizers: React.FC = () => {
               currentItem={currentAppetizer}
             />
           )}
+          <ToastContainer />
         </Container>
       </Section>
     </>
