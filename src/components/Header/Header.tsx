@@ -8,7 +8,7 @@ import { useAppSelector } from '@/redux/hooks';
 
 import css from './Header.module.scss';
 import HeaderNavLink from '../HeaderNavLink/HeaderNavLink';
-import PhoneNumbersSet from '../PhoneNumbersSet/phoneNumbersSet';
+import PhoneNumbersSet from '../PhoneNumbersSet/PhoneNumbersSet';
 
 const Header: FC = () => {
   const [itemsInCart, setItemsInCart] = useState(0);
