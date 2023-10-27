@@ -9,8 +9,12 @@ import css from './Footer.module.scss';
 const Footer: React.FC = () => {
   return (
     <footer className={css.footer}>
+      <div className={css.addresses}>
+        <SC.Container>
+          <SimpleMap />
+        </SC.Container>
+      </div>
       <SC.Container>
-        <SimpleMap />
         <div className={css.contactsWrapper}>
           <address>м.Дніпро</address>
           <Stack direction="row" spacing={1}>

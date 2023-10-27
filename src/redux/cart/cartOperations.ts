@@ -9,7 +9,7 @@ export const sendOrder = createAsyncThunk<
   }
 >('cart/sendOrder', async (order, { rejectWithValue }) => {
   try {
-    const res = await axios.post('https://xata-magnata-server.onrender.com/', {
+    const res = await axios.post('http://130.162.51.139/', {
       body: JSON.stringify(order),
     });
     return res.status;

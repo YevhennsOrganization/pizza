@@ -5,7 +5,7 @@
   flex-wrap: wrap;
 
   .listItem {
-    border: 1px solid black;
+    box-shadow: 4px 4px 14px 0px rgba(59, 50, 50, 0.25);
     width: 200px;
     cursor: pointer;
     transition: all 250ms linear;
@@ -19,4 +19,3 @@
     scale: 1.1;
   }
 }
-

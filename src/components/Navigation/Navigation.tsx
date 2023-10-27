@@ -1,34 +1,43 @@
 import React from 'react';
 import Link from 'next/link';
-import NewspaperIcon from '@mui/icons-material/Newspaper';
-import LocalPizzaIcon from '@mui/icons-material/LocalPizza';
-import LunchDiningIcon from '@mui/icons-material/LunchDining';
-import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import { usePathname } from 'next/navigation';
 import css from './Navigation.module.scss';
+import { cn } from '@/helpers/combineClasses';
 
 const Navigation: React.FC = () => {
+  const pathname = usePathname();
+
   return (
     <nav className={css.nav}>
-      <Link className={css.link} href={'/'}>
-        <NewspaperIcon />
+      <Link
+        className={cn(css.link, pathname === '/' ? css.active : '')}
+        href={'/'}
+      >
         Новинки
       </Link>
-      <Link className={css.link} href={'/pizzas'}>
-        <LocalPizzaIcon />
+      <Link
+        className={cn(css.link, pathname === '/pizzas' ? css.active : '')}
+        href={'/pizzas'}
+      >
         Піци
       </Link>
-      <Link className={css.link} href={'/appetizers'}>
-        <LunchDiningIcon />
+      <Link
+        className={cn(css.link, pathname === '/appetizers' ? css.active : '')}
+        href={'/appetizers'}
+      >
         Закуски
       </Link>
-      <Link className={css.link} href={'/drinks'}>
-        <LocalDrinkIcon />
+      <Link
+        className={cn(css.link, pathname === '/drinks' ? css.active : '')}
+        href={'/drinks'}
+      >
         Напої
       </Link>
-      <Link className={css.link} href={'/favorite'}>
-        <FavoriteIcon />
-        Улюблені
+      <Link
+        className={cn(css.link, pathname === '/favorite' ? css.active : '')}
+        href={'/favorite'}
+      >
+        Улюблене
       </Link>
     </nav>
   );
