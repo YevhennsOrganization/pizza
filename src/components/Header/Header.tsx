@@ -31,7 +31,6 @@ const Header: React.FC = () => {
             <p>{itemsInCart}</p>
           </Link>
         </div>
-        <Navigation />
       </Container>
     </header>
   );

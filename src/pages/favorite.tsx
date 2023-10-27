@@ -16,7 +16,8 @@ const Favorite: React.FC = () => {
       <Section>
         <Container>
           <div>
-            <Heading>Улюблені</Heading>
+            <Heading>Улюблене</Heading>
+            <p>Сторінка в розробці</p>
           </div>
         </Container>
       </Section>

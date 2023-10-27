@@ -2,6 +2,11 @@
   padding-top: 10px;
   padding-bottom: 10px;
 
+  .addresses {
+    border-bottom: 1px solid #989898;
+    padding-bottom: 80px;
+  }
+
   .contactsWrapper {
     display: flex;
     align-items: center;
@@ -18,4 +23,3 @@
     color: #1976d2;
   }
 }
-
