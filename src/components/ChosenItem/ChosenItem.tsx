@@ -48,7 +48,11 @@ const ChosenItem: React.FC<Props> = ({ open, handleClose, currentItem }) => {
       totalPrice: totalPrice,
     };
     dispatch(addItem(cartItem));
-    toast.success('Додано у кошик');
+    toast.success('Додано у кошик', {
+      position: 'top-left',
+      autoClose: 1500,
+      hideProgressBar: true,
+    });
     handleClose();
   };
 
