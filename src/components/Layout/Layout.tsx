@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Header from '../header/Header';
 import Navigation from '../Navigation/Navigation';
 import Addresses from '../addresses/Addresses';
@@ -9,7 +9,7 @@ interface Props {
   children: JSX.Element;
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout: FC<Props> = ({ children }) => {
   return (
     <div className={css.wrapper}>
       <Header />
