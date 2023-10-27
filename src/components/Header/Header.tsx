@@ -24,10 +24,7 @@ const Header: React.FC = () => {
           <Logo />
           <a href="tel:+380930000000">093 000 00 00</a>
           <Link className={css.cartLink} href={'/cart'}>
-            <ShoppingCartIcon
-              sx={{ color: 'white', fontSize: 50 }}
-              className={css.cartIcon}
-            />
+            <ShoppingCartIcon className={css.cartIcon} />
             <p>{itemsInCart}</p>
           </Link>
         </div>
