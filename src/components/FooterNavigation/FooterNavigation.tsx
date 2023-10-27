@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
-import PhoneNumbersSet from '../PhoneNumbersSet/phoneNumbersSet';
 import css from './FooterNavigation.module.scss';
+import PhoneNumbersSet from '../PhoneNumbersSet/PhoneNumbersSet';
 
 const FooterNavigation: FC = () => {
   return (
