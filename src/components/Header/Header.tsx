@@ -19,7 +19,7 @@ const Header: FC = () => {
   }, [items]);
 
   return (
-    <header className={css.header}>
+    <header className={css.wrapper}>
       <Container className={css.headerItem}>
         <Logo />
         <div className={css.headerLinks}>
