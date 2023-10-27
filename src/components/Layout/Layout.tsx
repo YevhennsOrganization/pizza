@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Navigation from '../Navigation/Navigation';
-import Addresses from '../addresses/Addresses';
+import Addresses from '../addressesComponent/Addresses';
 import Header from '../headerComponent/Header';
 import Footer from '../footerComponent/Footer';
 import css from './Layout.module.scss';
