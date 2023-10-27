@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import Header from '../header/Header';
 import Navigation from '../Navigation/Navigation';
 import Addresses from '../addresses/Addresses';
-import Footer from '../footer/Footer';
+import Header from '../headerComponent/Header';
+import Footer from '../footerComponent/Footer';
 import css from './Layout.module.scss';
 
 interface Props {
