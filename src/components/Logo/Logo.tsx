@@ -6,8 +6,7 @@ import css from './Logo.module.scss';
 const Logo: React.FC = () => {
   return (
     <Link href={'/'} className={css.logo}>
-      <Image src={'/mainLogo.png'} alt="logo" width={274} height={95} />
-      <p>PIZZA</p>
+      <Image src={'/mainLogo.svg'} alt="logo" width={274} height={95} />
     </Link>
   );
 };

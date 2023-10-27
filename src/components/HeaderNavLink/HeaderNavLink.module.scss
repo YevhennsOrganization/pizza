@@ -1,0 +1,16 @@
+.navLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 250ms linear;
+    color: var(--main-color);
+    p {
+        font-family: var(--secondary-font);
+    }
+    .navLinkIcon {
+        font-size: 34px;
+    }
+    &:hover {
+        transform: scale(1.1);
+    }
+}

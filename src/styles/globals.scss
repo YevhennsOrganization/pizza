@@ -8,6 +8,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  font-size: 14px;
 }
 
 body {
@@ -25,4 +26,17 @@ ul {
 
 h1 {
   text-align: center;
+}
+
+img {
+  display: block;
+}
+
+:root {
+  --main-font: "Comfortaa", sans-serif;
+  --secondary-font: "Inter", sans-serif;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --main-color: #422f2f;
+  --main-hover-color: #f8f2f0;
 }

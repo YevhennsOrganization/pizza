@@ -6,7 +6,7 @@
   background: linear-gradient(90deg, #f94c25 -0.8%, #ffd465 99.28%);
 
   .link {
-    font-family: "Comfortaa", sans-serif;
+    font-family: var(--main-font);
     font-weight: 600;
     color: #422f2f;
     font-size: 24px;
@@ -16,10 +16,10 @@
     align-items: center;
 
     &:hover {
-      color: #f8f2f0;
+      color: var(--main-hover-color);
     }
   }
   .active {
-    color: #ffffff;
+    color: var(--main-hover-color);
   }
 }

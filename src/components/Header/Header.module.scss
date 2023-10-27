@@ -1,26 +1,23 @@
 .header {
-  padding-top: 10px;
-  padding-bottom: 10px;
-
   .headerItem {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 10px;
   }
-
-  .cartIcon {
-    color: black;
-    font-size: 40px;
-  }
-
-  .cartLink {
+  .headerLinks {
     display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: transform 250ms linear;
+    gap: 70px;
   }
-  .cartLink:hover {
-    transform: scale(1.2);
+  .phoneNumbersSet {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: var(--secondary-font);
+    a {
+      transition: transform 250ms linear;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
 }
