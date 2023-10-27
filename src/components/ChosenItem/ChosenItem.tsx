@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Modal from '@mui/material/Modal';
 import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -11,6 +11,7 @@ import { nanoid } from 'nanoid';
 import { useAppDispatch } from '@/redux/hooks';
 import { toast } from 'react-toastify';
 import css from './ChosenItem.module.scss';
+import Button from '../Button/Button';
 
 interface Props {
   open: boolean;
@@ -91,10 +92,11 @@ const ChosenItem: React.FC<Props> = ({ open, handleClose, currentItem }) => {
             </div>
             <p className={css.totalPrice}>Загальна сума: {totalPrice}</p>
             <div className={css.cartBtnWrapper}>
-              <Button variant="contained">В Улюблені</Button>
-              <Button onClick={addToCart} variant="contained">
+              {/* <Button variant="contained">В Улюблені</Button> */}
+              {/* <Button onClick={addToCart} variant="contained">
                 В кошик
-              </Button>
+              </Button> */}
+              <Button onClick={addToCart} />
             </div>
           </div>
         </div>
