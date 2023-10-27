@@ -1,30 +1,23 @@
-import React from 'react';
-import Stack from '@mui/material/Stack';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import React, { FC } from 'react';
+import { BsFacebook, BsInstagram } from 'react-icons/bs';
 import * as SC from '@/components/Container/Container';
-import SimpleMap from '@/components/GoogleMaps/GoogleMaps';
 import css from './Footer.module.scss';
+import FooterNavigation from '../FooterNavigation/FooterNavigation';
 
-const Footer: React.FC = () => {
+const Footer: FC = () => {
   return (
     <footer className={css.footer}>
-      <div className={css.addresses}>
-        <SC.Container>
-          <SimpleMap />
-        </SC.Container>
-      </div>
       <SC.Container>
+        <FooterNavigation />
         <div className={css.contactsWrapper}>
-          <address>м.Дніпро</address>
-          <Stack direction="row" spacing={1}>
+          <div className={css.socialSet}>
             <a
               className={css.socialLink}
               href="https://www.facebook.com"
               target="_blank"
               rel="noreferrer noopener"
             >
-              <FacebookIcon />
+              <BsFacebook />
             </a>
             <a
               className={css.socialLink}
@@ -32,11 +25,13 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noreferrer noopener"
             >
-              <InstagramIcon />
+              <BsInstagram />
             </a>
-          </Stack>
+          </div>
         </div>
-        <p>&copy; 2023 Компанія PIZZA. Всі права захищені.</p>
+        <p className={css.copyright}>
+          &copy; 2023 “Nostra pizza” LLC, м. Дніпро. Всі права захищено.
+        </p>
       </SC.Container>
     </footer>
   );

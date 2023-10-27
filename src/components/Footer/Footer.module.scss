@@ -1,25 +1,33 @@
 .footer {
-  padding-top: 10px;
-  padding-bottom: 10px;
-
-  .addresses {
-    border-bottom: 1px solid #989898;
-    padding-bottom: 80px;
-  }
-
+  padding-top: 40px;
+  padding-bottom: 40px;
+  color: var(--main-color);
+  border-top: 1px solid #989898;
   .contactsWrapper {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 20px 0;
   }
 
-  .socialLink {
-    color: black;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  .socialSet {
+    display: flex;
+    gap: 12px;
+    margin-left: auto;
   }
 
-  .socialLink:hover {
-    color: #1976d2;
+  .socialLink {
+    display: block;
+    transition: transform 250ms linear;
+    svg {
+      font-size: 30px;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .copyright {
+    text-align: left;
+    font-family: var(--secondary-font);
   }
 }

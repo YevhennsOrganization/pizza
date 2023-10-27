@@ -1,0 +1,17 @@
+.wrapper {
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+    address {
+        font-style: normal;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+    p {
+        font-family: var(--main-font);
+        font-size: 24px;
+        text-align: left;
+    }
+}

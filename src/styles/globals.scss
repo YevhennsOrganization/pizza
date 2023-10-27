@@ -24,11 +24,8 @@ ul {
   list-style: none;
 }
 
-h1 {
-  text-align: center;
-}
-
-img {
+img,
+svg {
   display: block;
 }
 
@@ -39,4 +36,18 @@ img {
   --black-color: #000000;
   --main-color: #422f2f;
   --main-hover-color: #f8f2f0;
+}
+
+h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }

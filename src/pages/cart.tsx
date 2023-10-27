@@ -59,7 +59,7 @@ const Cart: React.FC = () => {
                 <CartForm openModal={openModal} />
               </>
             ) : (
-              <>
+              <div className={css.emptyCart}>
                 <Image
                   src={'/empty.png'}
                   alt="empty"
@@ -67,7 +67,7 @@ const Cart: React.FC = () => {
                   height={257}
                 />
                 <p>Кошик порожній!</p>
-              </>
+              </div>
             )}
             {open && <FinalModal open={open} finalAction={finalAction} />}
           </div>

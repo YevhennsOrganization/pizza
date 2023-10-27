@@ -8,6 +8,7 @@ import { useAppSelector } from '@/redux/hooks';
 
 import css from './Header.module.scss';
 import HeaderNavLink from '../HeaderNavLink/HeaderNavLink';
+import PhoneNumbersSet from '../PhoneNumbersSet/phoneNumbersSet';
 
 const Header: FC = () => {
   const [itemsInCart, setItemsInCart] = useState(0);
@@ -23,10 +24,7 @@ const Header: FC = () => {
       <Container className={css.headerItem}>
         <Logo />
         <div className={css.headerLinks}>
-          <div className={css.phoneNumbersSet}>
-            <a href="tel:+380930000000">093 000 00 00</a>
-            <a href="tel:+380670000000">067 000 00 00</a>
-          </div>
+          <PhoneNumbersSet />
           <HeaderNavLink hrefProp={'#'} Icon={BiUser} text={'Увійти'} />
           <HeaderNavLink
             hrefProp={'/cart'}
