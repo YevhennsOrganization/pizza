@@ -5,10 +5,9 @@ import { BiUser } from 'react-icons/bi';
 import { Container } from '@/components/Container/Container';
 import { getFilledCart } from '@/redux/cart/cartSlice';
 import { useAppSelector } from '@/redux/hooks';
-
-import css from './Header.module.scss';
-import HeaderNavLink from '../HeaderNavLink/HeaderNavLink';
 import PhoneNumbersSet from '../PhoneNumbersSet/PhoneNumbersSet';
+import HeaderNavLink from './HeaderNavLink/HeaderNavLink';
+import css from './Header.module.scss';
 
 const Header: FC = () => {
   const [itemsInCart, setItemsInCart] = useState(0);

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Section } from '../Section/Section';
 import { Container } from '../Container/Container';
-import SimpleMap from '../GoogleMaps/GoogleMaps';
+import SimpleMap from './SimpleMap/SimpleMap';
 import css from './Addresses.module.scss';
 
 const Addresses: FC = () => {

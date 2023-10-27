@@ -1,9 +1,9 @@
 import React from 'react';
-import Footer from '@/components/Footer/Footer';
-import Header from '@/components/Header/Header';
-import css from './Layout.module.scss';
+import Header from '@/components/header/Header';
 import Navigation from '../Navigation/Navigation';
-import Addresses from '../Addresses/Addresses';
+import Addresses from '../addresses/Addresses';
+import Footer from '../footer/Footer';
+import css from './Layout.module.scss';
 
 interface Props {
   children: JSX.Element;

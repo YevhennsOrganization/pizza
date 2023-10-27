@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
 import * as SC from '@/components/Container/Container';
 import css from './Footer.module.scss';
-import FooterNavigation from '../FooterNavigation/FooterNavigation';
+import FooterNavigation from './FooterNavigation/FooterNavigation';
 
 const Footer: FC = () => {
   return (
