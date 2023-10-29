@@ -1,18 +1,53 @@
 .list {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   .listItem {
     box-shadow: 4px 4px 14px 0px rgba(59, 50, 50, 0.25);
-    width: 200px;
+    width: 300px;
     cursor: pointer;
     transition: all 250ms linear;
     background-color: #fff;
     color: black;
-    padding: 10px;
+    padding: 24px;
     border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    img {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 12px;
+    }
+    .favorite {
+      position: absolute;
+      right: 24px;
+      top: 24px;
+      background-color: transparent;
+      border: none;
+    }
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+    h2 {
+      font-family: var(--main-font);
+      font-size: 18px;
+    }
+    p {
+      font-family: var(--secondary-font);
+      color: var(--secondary-text-color);
+    }
+  }
+  .price {
+    font-family: var(--main-font);
+    font-size: 18px;
+    color: var(--black-color);
+    font-weight: 700;
+    margin-top: auto;
   }
 
   .listItem:hover {
