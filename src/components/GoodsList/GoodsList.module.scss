@@ -2,10 +2,17 @@
   display: grid;
   grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  @media only screen and (min-width: 768px) and (max-width: 1280px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .listItem {
     box-shadow: 4px 4px 14px 0px rgba(59, 50, 50, 0.25);
-    width: 300px;
     cursor: pointer;
     transition: all 250ms linear;
     background-color: #fff;
@@ -15,6 +22,9 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    @media screen and (max-width: 768px) {
+      max-width: 350px;
+    }
     img {
       margin-left: auto;
       margin-right: auto;
