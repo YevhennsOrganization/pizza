@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import { AiOutlineHeart } from 'react-icons/ai';
 import css from './GoodsList.module.scss';
 
 interface Props {
@@ -17,15 +18,20 @@ const GoodsList: React.FC<Props> = ({ data, getCurrentItem }) => {
             className={css.listItem}
             onClick={() => getCurrentItem(_id)}
           >
-            <Image src={photo} alt="item photo" width={96} height={96} />
-            <h2>{title}</h2>
-            {description.length > 40 ? (
-              <p>{description.slice(0, 40).concat('...')}</p>
-            ) : (
+            <button type="button" className={css.favorite}>
+              <AiOutlineHeart
+                style={{
+                  fontSize: '34',
+                }}
+              />
+            </button>
+            <Image src={photo} alt="item photo" width={200} height={200} />
+            <div className={css.info}>
+              <h2>{title}</h2>
               <p>{description}</p>
-            )}
-            <p>{dimension}</p>
-            <p>{price} грн</p>
+              <p>{dimension}</p>
+            </div>
+            <p className={css.price}>{price} грн</p>
           </li>
         );
       })}

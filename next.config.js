@@ -9,6 +9,12 @@ const nextConfig = {
         port: '',
         pathname: '/n/fr0trzcie6nl/b/pizza/o/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/dyka4vajb/image/upload/**',
+      },
     ],
   },
 };
