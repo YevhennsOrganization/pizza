@@ -50,7 +50,7 @@ const Appetizers: React.FC = () => {
       <Section>
         <Container>
           <Heading>Закуски</Heading>
-          {isLoading && <Loader />}
+          <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
           <GoodsList
             data={appetizersAll}
             getCurrentItem={getCurrentAppetizer}

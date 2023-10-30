@@ -50,7 +50,7 @@ const Pizzas: React.FC = () => {
       <Section>
         <Container>
           <Heading>Піци</Heading>
-          {isLoading && <Loader />}
+          <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
           <GoodsList data={pizzasAll} getCurrentItem={getCurrentPizza} />
           {open && (
             <ChosenItem

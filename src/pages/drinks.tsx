@@ -56,7 +56,7 @@ const Drinks: FC = () => {
       <Section>
         <Container>
           <Heading>Напої</Heading>
-          {isLoading && <Loader />}
+          <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
           <GoodsList
             data={drinksAll}
             getCurrentItem={getCurrentDrink}

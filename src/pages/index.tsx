@@ -25,7 +25,8 @@ export const Home: FC = () => {
       <Section>
         <Container>
           <Heading>Новинки</Heading>
-          {isLoading ? <Loader /> : <p>Тут може бути Ваша реклама</p>}
+          <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
+          <p>Тут може бути Ваша реклама</p>
         </Container>
       </Section>
     </>
