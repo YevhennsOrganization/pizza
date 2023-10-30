@@ -57,7 +57,7 @@ export const getFilledCart = (state: { cart: { filledCart: TCart } }) =>
   state.cart.filledCart;
 export const getCustomerInfo = (state: { cart: { customerInfo: TInfo } }) =>
   state.cart.customerInfo;
-export const getIsLoading = (state: { cart: { isLoading: any } }) =>
+export const getIsLoading = (state: { cart: { isLoading: boolean } }) =>
   state.cart.isLoading;
 
 export const { addItem } = cartSlice.actions;

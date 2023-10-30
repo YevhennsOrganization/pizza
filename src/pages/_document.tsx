@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
+import { getItems } from '@/api/getItems';
+import { getProducts } from '@/redux/products/productsOperations';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
-const Document: React.FC = () => {
+const Document: FC = () => {
+  // const dispatch = useAppDispatch();
+  // useEffect(() => {
+  //   dispatch(getProducts);
+  // }, [dispatch]);
   return (
     <Html lang="uk">
       <Head>
