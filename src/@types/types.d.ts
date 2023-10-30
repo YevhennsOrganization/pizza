@@ -5,6 +5,8 @@ type TChosenGood = {
   dimension: string;
   price: number;
   photo: string;
+  category: string;
+  promotion: boolean;
 };
 
 type TInfo = {

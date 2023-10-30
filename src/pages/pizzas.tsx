@@ -9,12 +9,18 @@ import { getItems } from '@/api/getItems';
 import Head from 'next/head';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { getIsLoading, getPizzas } from '@/redux/products/productsSlice';
+import { getProducts } from '@/redux/products/productsOperations';
 
 const Pizzas: React.FC = () => {
   const [currentPizza, setCurrentPizza] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
   const [pizzasAll, setPizzasAll] = useState<TChosenGood[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+
+  const pizzas = useAppSelector(getPizzas);
+  const isLoading = useAppSelector(getIsLoading);
+  const dispatch = useAppDispatch();
 
   const handleClose = () => setOpen(false);
 
@@ -27,11 +33,14 @@ const Pizzas: React.FC = () => {
   };
 
   useEffect(() => {
-    setIsLoading(true);
-    getItems('pizzas')
-      .then(data => setPizzasAll(data))
-      .finally(() => setIsLoading(false));
-  }, []);
+    if (pizzasAll.length === 0) {
+      dispatch(getProducts());
+    }
+  }, [dispatch, pizzasAll]);
+
+  useEffect(() => {
+    setPizzasAll(pizzas);
+  }, [pizzas]);
 
   return (
     <>

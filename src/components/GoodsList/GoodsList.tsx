@@ -11,40 +11,40 @@ import { toast } from 'react-toastify';
 interface Props {
   data: TChosenGood[];
   getCurrentItem: (_id: string) => void;
-  getCurrentDrink1: (_id: string) => void;
-  currentItem: TChosenGood;
+  // getCurrentDrink1: (_id: string) => void;
+  // currentItem: TChosenGood;
 }
 
 const GoodsList: FC<Props> = ({
   data,
   getCurrentItem,
-  getCurrentDrink1,
-  currentItem,
+  // getCurrentDrink1,
+  // currentItem,
 }) => {
-  const [currentDrink, setCurrentDrink] = useState({} as TChosenGood);
-  const { title, price, photo } = currentItem;
+  // const [currentDrink, setCurrentDrink] = useState({} as TChosenGood);
+  // const { title, price, photo } = currentItem;
 
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
-  const addToCart = (_id: string) => {
-    getCurrentDrink1(_id);
-    const cartItem = {
-      id: nanoid(),
-      photo: photo,
-      title: title,
-      quantity: 1,
-      totalPrice: price,
-    };
-    dispatch(addItem(cartItem));
-    toast.success('Додано у кошик', {
-      position: 'top-center',
-      autoClose: 1500,
-      hideProgressBar: true,
-    });
-    console.log(photo);
+  // const addToCart = (_id: string) => {
+  //   getCurrentDrink1(_id);
+  //   const cartItem = {
+  //     id: nanoid(),
+  //     photo: photo,
+  //     title: title,
+  //     quantity: 1,
+  //     totalPrice: price,
+  //   };
+  // dispatch(addItem(cartItem));
+  // toast.success('Додано у кошик', {
+  //   position: 'top-center',
+  //   autoClose: 1500,
+  //   hideProgressBar: true,
+  // });
+  // console.log(photo);
 
-    // handleClose();
-  };
+  // handleClose();
+  // };
 
   // console.log(currentItem);
 
@@ -78,7 +78,7 @@ const GoodsList: FC<Props> = ({
             </div>
             <div className={css.footerItem}>
               <p className={css.price}>{price} грн</p>
-              <Button onClick={() => addToCart(_id)} />
+              {/* <Button /> */}
             </div>
           </li>
         );

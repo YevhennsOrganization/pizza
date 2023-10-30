@@ -10,21 +10,34 @@ const cartPersistConfig = {
   // whitelist: ['cart']
 };
 
-const rootReducer = persistReducer(cartPersistConfig, combineReducers({
-  cart: cartReducer,
-  product: productsReducer
-}));
-
 export const store = configureStore({
-  reducer: rootReducer,
+  reducer: {
+    cart: persistReducer(cartPersistConfig, cartReducer),
+    products: productsReducer
+  },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [PERSIST],
       },
-
     }),
 });
+
+// const rootReducer = persistReducer(cartPersistConfig, combineReducers({
+//   cart: cartReducer,
+//   product: productsReducer
+// }));
+
+// export const store = configureStore({
+//   reducer: rootReducer,
+//   middleware: getDefaultMiddleware =>
+//     getDefaultMiddleware({
+//       serializableCheck: {
+//         ignoredActions: [PERSIST],
+//       },
+
+//     }),
+// });
 
 export const persist = persistStore(store);
 
