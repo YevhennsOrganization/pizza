@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { nanoid } from 'nanoid';
 import { AiOutlineHeart } from 'react-icons/ai';
 import Button from '../Button/Button';
-import css from './GoodsList.module.scss';
+import css from './ProductsList.module.scss';
 import { addItem } from '@/redux/cart/cartSlice';
 import { useAppDispatch } from '@/redux/hooks';
 import { toast } from 'react-toastify';
@@ -15,7 +15,7 @@ interface Props {
   // currentItem: TChosenGood;
 }
 
-const GoodsList: FC<Props> = ({
+const ProductsList: FC<Props> = ({
   data,
   getCurrentItem,
   // getCurrentDrink1,
@@ -69,6 +69,7 @@ const GoodsList: FC<Props> = ({
               alt="item photo"
               width={200}
               height={200}
+              priority={true}
               onClick={() => getCurrentItem(_id)}
             />
             <div className={css.info}>
@@ -87,4 +88,4 @@ const GoodsList: FC<Props> = ({
   );
 };
 
-export default GoodsList;
+export default ProductsList;

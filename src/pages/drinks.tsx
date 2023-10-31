@@ -3,7 +3,7 @@ import Heading from '@/components/Heading/Heading';
 import ChosenItem from '@/components/ChosenItem/ChosenItem';
 import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/Section/Section';
-import GoodsList from '@/components/GoodsList/GoodsList';
+import ProductsList from '@/components/ProductsList/ProductsList';
 import Loader from '@/components/Loader/Loader';
 import Head from 'next/head';
 import { ToastContainer } from 'react-toastify';
@@ -57,7 +57,7 @@ const Drinks: FC = () => {
         <Container>
           <Heading>Напої</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
-          <GoodsList
+          <ProductsList
             data={drinksAll}
             getCurrentItem={getCurrentDrink}
             // getCurrentDrink1={getCurrentDrink1}
