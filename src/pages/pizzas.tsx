@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Heading from '@/components/Heading/Heading';
 import ChosenItem from '@/components/ChosenItem/ChosenItem';
 import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/Section/Section';
 import GoodsList from '@/components/GoodsList/GoodsList';
 import Loader from '@/components/Loader/Loader';
-import { getItems } from '@/api/getItems';
 import Head from 'next/head';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,7 +12,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getIsLoading, getPizzas } from '@/redux/products/productsSlice';
 import { getProducts } from '@/redux/products/productsOperations';
 
-const Pizzas: React.FC = () => {
+const Pizzas: FC = () => {
   const [currentPizza, setCurrentPizza] = useState({} as TChosenGood);
   const [open, setOpen] = useState(false);
   const [pizzasAll, setPizzasAll] = useState<TChosenGood[]>([]);
@@ -52,13 +51,13 @@ const Pizzas: React.FC = () => {
           <Heading>Піци</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
           <GoodsList data={pizzasAll} getCurrentItem={getCurrentPizza} />
-          {open && (
+          {/* {open && (
             <ChosenItem
               open={open}
               handleClose={handleClose}
               currentItem={currentPizza}
             />
-          )}
+          )} */}
           <ToastContainer />
         </Container>
       </Section>

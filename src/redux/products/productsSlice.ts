@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getProducts } from './productsOperations';
+import { RootState } from '../store';
 
 const initialState = {
   pizzas: [] as TChosenGood[],
@@ -46,12 +47,7 @@ const productsSlice = createSlice({
 
 export const productsReducer = productsSlice.reducer;
 
-export const getPizzas = (state: { products: { pizzas: TChosenGood[] } }) =>
-  state.products.pizzas;
-export const getAppetizers = (state: {
-  products: { appetizers: TChosenGood[] };
-}) => state.products.appetizers;
-export const getDrinks = (state: { products: { drinks: TChosenGood[] } }) =>
-  state.products.drinks;
-export const getIsLoading = (state: { products: { isLoading: boolean } }) =>
-  state.products.isLoading;
+export const getPizzas = (state: RootState) => state.products.pizzas;
+export const getAppetizers = (state: RootState) => state.products.appetizers;
+export const getDrinks = (state: RootState) => state.products.drinks;
+export const getIsLoading = (state: RootState) => state.products.isLoading;

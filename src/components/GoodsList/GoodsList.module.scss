@@ -13,7 +13,6 @@
 
   .listItem {
     box-shadow: 4px 4px 14px 0px rgba(59, 50, 50, 0.25);
-    transition: all 250ms linear;
     background-color: #fff;
     color: black;
     padding: 24px;
@@ -25,7 +24,6 @@
       max-width: 350px;
     }
     img {
-      cursor: pointer;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 12px;
@@ -63,9 +61,5 @@
     color: var(--black-color);
     font-weight: 700;
     margin-top: auto;
-  }
-
-  .listItem:hover {
-    scale: 1.05;
   }
 }

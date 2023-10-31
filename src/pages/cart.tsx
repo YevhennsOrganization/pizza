@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FC, useState } from 'react';
 import Heading from '@/components/Heading/Heading';
 import { nanoid } from 'nanoid';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
@@ -16,7 +16,7 @@ import { Section } from '@/components/Section/Section';
 import css from '../styles/Cart.module.scss';
 import Head from 'next/head';
 
-const Cart: React.FC = () => {
+const Cart: FC = () => {
   const [open, setOpen] = useState(false);
 
   const dispatch = useAppDispatch();

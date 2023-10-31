@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import Head from 'next/head';
 import Heading from '@/components/Heading/Heading';
 import { Container } from '@/components/Container/Container';

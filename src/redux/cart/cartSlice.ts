@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { sendOrder } from './cartOperations';
+import { RootState } from '../store';
 
 const initialState = {
   filledCart: [] as TCart,
@@ -53,12 +54,9 @@ const cartSlice = createSlice({
 
 export const cartReducer = cartSlice.reducer;
 
-export const getFilledCart = (state: { cart: { filledCart: TCart } }) =>
-  state.cart.filledCart;
-export const getCustomerInfo = (state: { cart: { customerInfo: TInfo } }) =>
-  state.cart.customerInfo;
-export const getIsLoading = (state: { cart: { isLoading: boolean } }) =>
-  state.cart.isLoading;
+export const getFilledCart = (state: RootState) => state.cart.filledCart;
+export const getCustomerInfo = (state: RootState) => state.cart.customerInfo;
+export const getIsLoading = (state: RootState) => state.cart.isLoading;
 
 export const { addItem } = cartSlice.actions;
 export const { deleteItem } = cartSlice.actions;
