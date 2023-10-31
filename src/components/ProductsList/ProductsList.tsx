@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import { nanoid } from 'nanoid';
 import { AiOutlineHeart } from 'react-icons/ai';
@@ -9,25 +9,58 @@ import { useAppDispatch } from '@/redux/hooks';
 import { toast } from 'react-toastify';
 
 interface Props {
-  data: TChosenGood[];
+  data: TChosenProduct[];
   getCurrentItem: (_id: string) => void;
-  // getCurrentDrink1: (_id: string) => void;
-  // currentItem: TChosenGood;
+  currentItem: TChosenProduct;
 }
 
-const ProductsList: FC<Props> = ({
-  data,
-  getCurrentItem,
-  // getCurrentDrink1,
-  // currentItem,
-}) => {
-  // const [currentDrink, setCurrentDrink] = useState({} as TChosenGood);
-  // const { title, price, photo } = currentItem;
+const ProductsList: FC<Props> = ({ data, getCurrentItem, currentItem }) => {
+  const [a, setA] = useState(null);
+  const { title, price, photo } = currentItem;
 
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-  // const addToCart = (_id: string) => {
-  //   getCurrentDrink1(_id);
+  const addToCart = (_id: string) => {
+    getCurrentItem(_id);
+
+    // const cartItem = {
+    //   id: nanoid(),
+    //   photo: photo,
+    //   title: title,
+    //   quantity: 1,
+    //   totalPrice: price,
+    // };
+    // dispatch(addItem(cartItem));
+    // toast.success('Додано у кошик', {
+    //   position: 'top-center',
+    //   autoClose: 1500,
+    //   hideProgressBar: true,
+    // });
+  };
+  console.log(currentItem);
+
+  const addToCart1 = () => {
+    const cartItem = {
+      id: nanoid(),
+      photo: photo,
+      title: title,
+      quantity: 1,
+      totalPrice: price,
+    };
+    dispatch(addItem(cartItem));
+    toast.success('Додано у кошик', {
+      position: 'top-center',
+      autoClose: 1500,
+      hideProgressBar: true,
+    });
+  };
+  const toCart = (_id: string) => {
+    addToCart(_id);
+    addToCart1();
+  };
+  console.log(title);
+
+  // useEffect(() => {
   //   const cartItem = {
   //     id: nanoid(),
   //     photo: photo,
@@ -35,23 +68,14 @@ const ProductsList: FC<Props> = ({
   //     quantity: 1,
   //     totalPrice: price,
   //   };
-  // dispatch(addItem(cartItem));
-  // toast.success('Додано у кошик', {
-  //   position: 'top-center',
-  //   autoClose: 1500,
-  //   hideProgressBar: true,
-  // });
-  // console.log(photo);
+  //   dispatch(addItem(cartItem));
+  //   toast.success('Додано у кошик', {
+  //     position: 'top-center',
+  //     autoClose: 1500,
+  //     hideProgressBar: true,
+  //   });
+  // }, [dispatch, photo, price, title]);
 
-  // handleClose();
-  // };
-
-  // console.log(currentItem);
-
-  // const toCart = (_id: string) => {
-  //   getCurrentDrink1(_id);
-  //   addToCart;
-  // };
   return (
     <ul className={css.list}>
       {data.map(({ _id, title, description, dimension, price, photo }) => {
@@ -70,7 +94,7 @@ const ProductsList: FC<Props> = ({
               width={200}
               height={200}
               priority={true}
-              onClick={() => getCurrentItem(_id)}
+              onClick={() => addToCart(_id)}
             />
             <div className={css.info}>
               <h2>{title}</h2>
@@ -78,8 +102,10 @@ const ProductsList: FC<Props> = ({
               <p>{dimension}</p>
             </div>
             <div className={css.footerItem}>
-              <p className={css.price}>{price} грн</p>
-              {/* <Button /> */}
+              <p className={css.price} onClick={() => toCart(_id)}>
+                {price} грн
+              </p>
+              {/* <Button onClick={} /> */}
             </div>
           </li>
         );

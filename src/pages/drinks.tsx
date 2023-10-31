@@ -13,9 +13,9 @@ import { getDrinks, getIsLoading } from '@/redux/products/productsSlice';
 import { getProducts } from '@/redux/products/productsOperations';
 
 const Drinks: FC = () => {
-  const [currentDrink, setCurrentDrink] = useState({} as TChosenGood);
+  const [currentDrink, setCurrentDrink] = useState({} as TChosenProduct);
   const [open, setOpen] = useState(false);
-  const [drinksAll, setDrinksAll] = useState<TChosenGood[]>([]);
+  const [drinksAll, setDrinksAll] = useState<TChosenProduct[]>([]);
 
   const drinks = useAppSelector(getDrinks);
   const isLoading = useAppSelector(getIsLoading);

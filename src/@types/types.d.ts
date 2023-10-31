@@ -1,4 +1,4 @@
-type TChosenGood = {
+type TChosenProduct = {
   _id: string;
   title: string;
   description: string;
@@ -29,6 +29,6 @@ type TCartItem = {
 type TCart = CartItem[];
 
 type TSummary = {
-  customerInfo: TInfo
+  customerInfo: TInfo;
   payment: TCart;
-}
+};

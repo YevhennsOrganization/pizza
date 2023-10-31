@@ -13,33 +13,24 @@ import { getIsLoading, getPizzas } from '@/redux/products/productsSlice';
 import { getProducts } from '@/redux/products/productsOperations';
 
 const Pizzas: FC = () => {
-  const [currentPizza, setCurrentPizza] = useState({} as TChosenGood);
-  const [open, setOpen] = useState(false);
-  const [pizzasAll, setPizzasAll] = useState<TChosenGood[]>([]);
+  const [currentPizza, setCurrentPizza] = useState({} as TChosenProduct);
 
   const pizzas = useAppSelector(getPizzas);
   const isLoading = useAppSelector(getIsLoading);
   const dispatch = useAppDispatch();
 
-  const handleClose = () => setOpen(false);
-
   const getCurrentPizza = (_id: string) => {
-    const chosenPizza = pizzasAll.find(item => item._id === _id);
+    const chosenPizza = pizzas.find(item => item._id === _id);
     if (chosenPizza) {
       setCurrentPizza(chosenPizza);
-      setOpen(true);
     }
   };
 
   useEffect(() => {
-    if (pizzasAll.length === 0) {
+    if (pizzas.length === 0) {
       dispatch(getProducts());
     }
-  }, [dispatch, pizzasAll]);
-
-  useEffect(() => {
-    setPizzasAll(pizzas);
-  }, [pizzas]);
+  }, [dispatch, pizzas]);
 
   return (
     <>
@@ -50,7 +41,11 @@ const Pizzas: FC = () => {
         <Container>
           <Heading>Піци</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
-          <ProductsList data={pizzasAll} getCurrentItem={getCurrentPizza} />
+          <ProductsList
+            data={pizzas}
+            getCurrentItem={getCurrentPizza}
+            currentItem={currentPizza}
+          />
           {/* {open && (
             <ChosenItem
               open={open}
