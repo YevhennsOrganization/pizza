@@ -116,7 +116,9 @@ const CartForm: FC<Props> = ({ openModal }) => {
 
         <p>До оплати {totalPayment} грн</p>
 
-        <Button variant="contained">Підтвердити</Button>
+        <Button type="submit" variant="contained">
+          Підтвердити
+        </Button>
       </form>
     </>
   );
