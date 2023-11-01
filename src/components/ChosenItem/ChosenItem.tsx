@@ -100,7 +100,7 @@ const ChosenItem: React.FC<Props> = ({ open, handleClose, currentItem }) => {
               {/* <Button onClick={addToCart} variant="contained">
                 В кошик
               </Button> */}
-              <Button onClick={addToCart} />
+              {/* <Button onClick={addToCart} /> */}
             </div>
           </div>
         </div>
