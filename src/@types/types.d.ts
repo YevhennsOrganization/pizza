@@ -1,10 +1,12 @@
-type TChosenGood = {
+type TChosenProduct = {
   _id: string;
   title: string;
   description: string;
   dimension: string;
   price: number;
   photo: string;
+  category: string;
+  promotion: boolean;
 };
 
 type TInfo = {
@@ -27,6 +29,6 @@ type TCartItem = {
 type TCart = CartItem[];
 
 type TSummary = {
-  customerInfo: TInfo
+  customerInfo: TInfo;
   payment: TCart;
-}
+};

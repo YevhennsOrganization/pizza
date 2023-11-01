@@ -1,37 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import Heading from '@/components/Heading/Heading';
-import ChosenItem from '@/components/ChosenItem/ChosenItem';
 import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/Section/Section';
-import GoodsList from '@/components/GoodsList/GoodsList';
+import ProductsList from '@/components/ProductsList/ProductsList';
 import Loader from '@/components/Loader/Loader';
-import { getItems } from '@/api/getItems';
 import Head from 'next/head';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { getIsLoading, getPizzas } from '@/redux/products/productsSlice';
+import { getProducts } from '@/redux/products/productsOperations';
 
-const Pizzas: React.FC = () => {
-  const [currentPizza, setCurrentPizza] = useState({} as TChosenGood);
-  const [open, setOpen] = useState(false);
-  const [pizzasAll, setPizzasAll] = useState<TChosenGood[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleClose = () => setOpen(false);
-
-  const getCurrentPizza = (_id: string) => {
-    const chosenPizza = pizzasAll.find(item => item._id === _id);
-    if (chosenPizza) {
-      setCurrentPizza(chosenPizza);
-      setOpen(true);
-    }
-  };
+const Pizzas: FC = () => {
+  const pizzas = useAppSelector(getPizzas);
+  const isLoading = useAppSelector(getIsLoading);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    setIsLoading(true);
-    getItems('pizzas')
-      .then(data => setPizzasAll(data))
-      .finally(() => setIsLoading(false));
-  }, []);
+    if (pizzas.length === 0) {
+      dispatch(getProducts());
+    }
+  }, [dispatch, pizzas]);
 
   return (
     <>
@@ -40,16 +29,9 @@ const Pizzas: React.FC = () => {
       </Head>
       <Section>
         <Container>
-          <Heading>Піци</Heading>
-          {isLoading && <Loader />}
-          <GoodsList data={pizzasAll} getCurrentItem={getCurrentPizza} />
-          {open && (
-            <ChosenItem
-              open={open}
-              handleClose={handleClose}
-              currentItem={currentPizza}
-            />
-          )}
+          <Heading>Піца</Heading>
+          <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
+          <ProductsList data={pizzas} />
           <ToastContainer />
         </Container>
       </Section>

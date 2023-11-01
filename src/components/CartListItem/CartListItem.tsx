@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Image from 'next/image';
 import IconButton from '@mui/material/IconButton';
 import CancelIcon from '@mui/icons-material/Cancel';
@@ -17,7 +17,7 @@ interface Props {
   deleteCartItem: (id: string) => void;
 }
 
-const CartListItem: React.FC<Props> = ({ data, deleteCartItem }) => {
+const CartListItem: FC<Props> = ({ data, deleteCartItem }) => {
   const { id, photo, title, quantity, totalPrice } = data;
 
   return (

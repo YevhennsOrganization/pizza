@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -23,7 +23,7 @@ type FinalForm = {
   comment?: string;
 };
 
-const CartForm: React.FC<Props> = ({ openModal }) => {
+const CartForm: FC<Props> = ({ openModal }) => {
   const {
     register,
     handleSubmit,
@@ -56,7 +56,7 @@ const CartForm: React.FC<Props> = ({ openModal }) => {
     };
     dispatch(addInfo(customerInfo));
     const reqBody: TSummary = { customerInfo, payment };
-    dispatch(sendOrder(reqBody))
+    dispatch(sendOrder(reqBody));
     reset();
   };
 
@@ -114,9 +114,9 @@ const CartForm: React.FC<Props> = ({ openModal }) => {
           />
         </FormControl>
 
-        <Button type="submit" variant="contained">
-          До оплати {totalPayment} грн
-        </Button>
+        <p>До оплати {totalPayment} грн</p>
+
+        <Button variant="contained">Підтвердити</Button>
       </form>
     </>
   );

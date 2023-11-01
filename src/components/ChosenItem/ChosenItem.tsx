@@ -16,7 +16,7 @@ import Button from '../Button/Button';
 interface Props {
   open: boolean;
   handleClose: () => void;
-  currentItem: TChosenGood;
+  currentItem: TChosenProduct;
 }
 
 const ChosenItem: React.FC<Props> = ({ open, handleClose, currentItem }) => {

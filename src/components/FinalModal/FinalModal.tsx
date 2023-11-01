@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
+import React, { FC } from 'react';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import { nanoid } from 'nanoid';
@@ -17,7 +17,7 @@ interface Props {
   finalAction: () => void;
 }
 
-const FinalModal: React.FC<Props> = ({ open, finalAction }) => {
+const FinalModal: FC<Props> = ({ open, finalAction }) => {
   const filledCart = useAppSelector(getFilledCart);
   const info = useAppSelector(getCustomerInfo);
   const isLoading = useAppSelector(getIsLoading);

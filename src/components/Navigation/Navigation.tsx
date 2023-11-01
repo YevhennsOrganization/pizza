@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import css from './Navigation.module.scss';
 import { cn } from '@/helpers/combineClasses';
+import css from './Navigation.module.scss';
 
 const Navigation: React.FC = () => {
   const pathname = usePathname();
@@ -19,7 +19,7 @@ const Navigation: React.FC = () => {
         className={cn(css.link, pathname === '/pizzas' ? css.active : '')}
         href={'/pizzas'}
       >
-        Піци
+        Піца
       </Link>
       <Link
         className={cn(css.link, pathname === '/appetizers' ? css.active : '')}

@@ -1,37 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import Heading from '@/components/Heading/Heading';
-import ChosenItem from '@/components/ChosenItem/ChosenItem';
 import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/Section/Section';
-import GoodsList from '@/components/GoodsList/GoodsList';
+import ProductsList from '@/components/ProductsList/ProductsList';
 import Loader from '@/components/Loader/Loader';
-import { getItems } from '@/api/getItems';
 import Head from 'next/head';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { getDrinks, getIsLoading } from '@/redux/products/productsSlice';
+import { getProducts } from '@/redux/products/productsOperations';
 
-const Drinks: React.FC = () => {
-  const [currentDrink, setCurrentDrink] = useState({} as TChosenGood);
-  const [open, setOpen] = useState(false);
-  const [drinksAll, setDrinksAll] = useState<TChosenGood[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleClose = () => setOpen(false);
-
-  const getCurrentDrink = (_id: string) => {
-    const chosenDrink = drinksAll.find(item => item._id === _id);
-    if (chosenDrink) {
-      setCurrentDrink(chosenDrink);
-      setOpen(true);
-    }
-  };
+const Drinks: FC = () => {
+  const drinks = useAppSelector(getDrinks);
+  const isLoading = useAppSelector(getIsLoading);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    setIsLoading(true);
-    getItems('drinks')
-      .then(data => setDrinksAll(data))
-      .finally(() => setIsLoading(false));
-  }, []);
+    if (drinks.length === 0) {
+      dispatch(getProducts());
+    }
+  }, [dispatch, drinks]);
 
   return (
     <>
@@ -41,15 +30,8 @@ const Drinks: React.FC = () => {
       <Section>
         <Container>
           <Heading>Напої</Heading>
-          {isLoading && <Loader />}
-          <GoodsList data={drinksAll} getCurrentItem={getCurrentDrink} />
-          {open && (
-            <ChosenItem
-              open={open}
-              handleClose={handleClose}
-              currentItem={currentDrink}
-            />
-          )}
+          <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
+          <ProductsList data={drinks} />
           <ToastContainer />
         </Container>
       </Section>

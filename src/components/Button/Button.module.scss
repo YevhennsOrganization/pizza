@@ -7,7 +7,7 @@
     background: linear-gradient(95deg, #f94c25 4.78%, #ffd465 112.49%);
     border: none;
     align-items: center;
-    transition: all 2500ms linear;
+    transition: all 250ms linear;
     cursor: pointer;
     svg {
         font-size: 16px;
@@ -18,5 +18,9 @@
     }
     &:hover {
         background: linear-gradient(276deg, #eb3535 -3.09%, #ffd163 95.38%);
+    }
+    &:active {
+        background: linear-gradient(95deg, #f94c25 4.78%, #ffd465 112.49%);
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
 }
