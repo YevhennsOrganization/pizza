@@ -1,6 +1,5 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import Heading from '@/components/Heading/Heading';
-import ChosenItem from '@/components/ChosenItem/ChosenItem';
 import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/Section/Section';
 import ProductsList from '@/components/ProductsList/ProductsList';
@@ -13,33 +12,15 @@ import { getAppetizers, getIsLoading } from '@/redux/products/productsSlice';
 import { getProducts } from '@/redux/products/productsOperations';
 
 const Appetizers: FC = () => {
-  const [currentAppetizer, setCurrentAppetizer] = useState({} as TChosenGood);
-  const [open, setOpen] = useState(false);
-  const [appetizersAll, setAppetizersAll] = useState<TChosenGood[]>([]);
-
   const appetizers = useAppSelector(getAppetizers);
   const isLoading = useAppSelector(getIsLoading);
   const dispatch = useAppDispatch();
 
-  const handleClose = () => setOpen(false);
-
-  const getCurrentAppetizer = (_id: string) => {
-    const chosenAppetizer = appetizersAll.find(item => item._id === _id);
-    if (chosenAppetizer) {
-      setCurrentAppetizer(chosenAppetizer);
-      setOpen(true);
-    }
-  };
-
   useEffect(() => {
-    if (appetizersAll.length === 0) {
+    if (appetizers.length === 0) {
       dispatch(getProducts());
     }
-  }, [dispatch, appetizersAll]);
-
-  useEffect(() => {
-    setAppetizersAll(appetizers);
-  }, [appetizers]);
+  }, [dispatch, appetizers]);
 
   return (
     <>
@@ -50,17 +31,7 @@ const Appetizers: FC = () => {
         <Container>
           <Heading>Закуски</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
-          <ProductsList
-            data={appetizersAll}
-            getCurrentItem={getCurrentAppetizer}
-          />
-          {open && (
-            <ChosenItem
-              open={open}
-              handleClose={handleClose}
-              currentItem={currentAppetizer}
-            />
-          )}
+          <ProductsList data={appetizers} />
           <ToastContainer />
         </Container>
       </Section>

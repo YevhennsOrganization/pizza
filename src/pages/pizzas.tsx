@@ -1,6 +1,5 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import Heading from '@/components/Heading/Heading';
-import ChosenItem from '@/components/ChosenItem/ChosenItem';
 import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/Section/Section';
 import ProductsList from '@/components/ProductsList/ProductsList';
@@ -13,18 +12,9 @@ import { getIsLoading, getPizzas } from '@/redux/products/productsSlice';
 import { getProducts } from '@/redux/products/productsOperations';
 
 const Pizzas: FC = () => {
-  const [currentPizza, setCurrentPizza] = useState({} as TChosenProduct);
-
   const pizzas = useAppSelector(getPizzas);
   const isLoading = useAppSelector(getIsLoading);
   const dispatch = useAppDispatch();
-
-  const getCurrentPizza = (_id: string) => {
-    const chosenPizza = pizzas.find(item => item._id === _id);
-    if (chosenPizza) {
-      setCurrentPizza(chosenPizza);
-    }
-  };
 
   useEffect(() => {
     if (pizzas.length === 0) {
@@ -39,20 +29,9 @@ const Pizzas: FC = () => {
       </Head>
       <Section>
         <Container>
-          <Heading>Піци</Heading>
+          <Heading>Піца</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
-          <ProductsList
-            data={pizzas}
-            getCurrentItem={getCurrentPizza}
-            currentItem={currentPizza}
-          />
-          {/* {open && (
-            <ChosenItem
-              open={open}
-              handleClose={handleClose}
-              currentItem={currentPizza}
-            />
-          )} */}
+          <ProductsList data={pizzas} />
           <ToastContainer />
         </Container>
       </Section>

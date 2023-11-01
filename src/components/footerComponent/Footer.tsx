@@ -16,6 +16,7 @@ const Footer: FC = () => {
               href="https://www.facebook.com"
               target="_blank"
               rel="noreferrer noopener"
+              aria-label="facebook"
             >
               <BsFacebook />
             </a>
@@ -24,6 +25,7 @@ const Footer: FC = () => {
               href="https://www.instagram.com"
               target="_blank"
               rel="noreferrer noopener"
+              aria-label="instagram"
             >
               <BsInstagram />
             </a>

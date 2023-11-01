@@ -55,11 +55,16 @@
       color: var(--secondary-text-color);
     }
   }
+  .footerItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+  }
   .price {
     font-family: var(--main-font);
     font-size: 18px;
     color: var(--black-color);
     font-weight: 700;
-    margin-top: auto;
   }
 }

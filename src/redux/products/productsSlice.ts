@@ -3,9 +3,9 @@ import { getProducts } from './productsOperations';
 import { RootState } from '../store';
 
 const initialState = {
-  pizzas: [] as TChosenGood[],
-  appetizers: [] as TChosenGood[],
-  drinks: [] as TChosenGood[],
+  pizzas: [] as TChosenProduct[],
+  appetizers: [] as TChosenProduct[],
+  drinks: [] as TChosenProduct[],
   error: false as any,
   isLoading: false,
 };
@@ -29,7 +29,7 @@ const productsSlice = createSlice({
         if (action.payload) {
           const getByCategory = (category: string) => {
             return action.payload.filter(
-              (item: TChosenGood) => item.category === category
+              (item: TChosenProduct) => item.category === category
             );
           };
           state.pizzas = getByCategory('pizzas');
