@@ -58,7 +58,12 @@ const ProductsListItem: FC<Props> = ({
       <ProductsQuantity getTotalQuantity={getTotalQuantity} />
       <div className={css.footerItem}>
         <p className={css.price}>{totalPrice} грн</p>
-        <Button onClick={() => addToCart(_id)} />
+        <Button
+          type="button"
+          icon
+          text={'В кошик'}
+          onClick={() => addToCart(_id)}
+        />
       </div>
     </li>
   );

@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import Button from '../Button/Button';
 import Textarea from '@mui/joy/Textarea';
 import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
@@ -74,7 +74,6 @@ const CartForm: FC<Props> = ({ openModal }) => {
         {errors?.name && (
           <div style={{ color: 'red' }}>{errors.name.message}</div>
         )}
-
         <TextField
           {...register('number', { required: "Це обов'язкове поле!" })}
           id="customer-number"
@@ -84,12 +83,10 @@ const CartForm: FC<Props> = ({ openModal }) => {
         {errors?.number && (
           <div style={{ color: 'red' }}>{errors.number?.message}</div>
         )}
-
         <div>
           <input type="checkbox" id="delivery" {...register('delivery')} />
           <label htmlFor="delivery">Доставка</label>
         </div>
-
         {delivery && (
           <>
             <TextField
@@ -103,7 +100,6 @@ const CartForm: FC<Props> = ({ openModal }) => {
             )}
           </>
         )}
-
         <FormControl>
           <FormLabel>Коментар</FormLabel>
           <Textarea
@@ -113,12 +109,8 @@ const CartForm: FC<Props> = ({ openModal }) => {
             {...register('comment')}
           />
         </FormControl>
-
         <p>До оплати {totalPayment} грн</p>
-
-        <Button type="submit" variant="contained">
-          Підтвердити
-        </Button>
+        <Button icon={false} text="Підтвердити" />
       </form>
     </>
   );
