@@ -1,16 +1,24 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import css from './ProductsList.module.scss';
 import { addItem } from '@/redux/cart/cartSlice';
 import { useAppDispatch } from '@/redux/hooks';
 import { toast } from 'react-toastify';
-import ProductsListItem from './ProductsListItem/ProductsListItem';
+import ProductsListItem from '../ProductsListItem/ProductsListItem';
 
 interface Props {
   data: TChosenProduct[];
 }
 
 const ProductsList: FC<Props> = ({ data }) => {
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalQuantity, setTotalQuantity] = useState(1);
+
   const dispatch = useAppDispatch();
+
+  const getTotalQuantityAndPrice = (quantity: number, price: number) => {
+    setTotalPrice(price);
+    setTotalQuantity(quantity);
+  };
 
   const addToCart = (_id: string) => {
     const chosenProduct = data.find(item => item._id === _id);
@@ -20,8 +28,8 @@ const ProductsList: FC<Props> = ({ data }) => {
         id: _id,
         photo: photo,
         title: title,
-        quantity: 1,
-        totalPrice: price,
+        quantity: totalQuantity,
+        totalPrice: totalPrice,
       };
       dispatch(addItem(cartItem));
       toast.success('Додано у кошик', {
@@ -36,13 +44,12 @@ const ProductsList: FC<Props> = ({ data }) => {
     <ul className={css.list}>
       {data.map(item => {
         return (
-          <>
-            <ProductsListItem
-              key={item._id}
-              item={item}
-              addToCart={addToCart}
-            />
-          </>
+          <ProductsListItem
+            key={item._id}
+            item={item}
+            addToCart={addToCart}
+            getTotalQuantityAndPrice={getTotalQuantityAndPrice}
+          />
         );
       })}
     </ul>

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Button from '@/components/Button/Button';
 import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
@@ -8,10 +8,27 @@ import css from './ProductsListItem.module.scss';
 interface Props {
   item: TChosenProduct;
   addToCart: (_id: string) => void;
+  getTotalQuantityAndPrice: (quantity: number, price: number) => void;
 }
 
-const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
+const ProductsListItem: FC<Props> = ({
+  item,
+  addToCart,
+  getTotalQuantityAndPrice,
+}) => {
   const { _id, title, description, dimension, price, photo } = item;
+
+  const [totalPrice, setTotalPrice] = useState(price);
+  const [totalQuantity, setTotalQuantity] = useState(1);
+
+  const getTotalQuantity = (quantity: number) => {
+    setTotalPrice(price * quantity);
+    setTotalQuantity(quantity);
+  };
+
+  useEffect(() => {
+    getTotalQuantityAndPrice(totalQuantity, totalPrice);
+  }, [getTotalQuantityAndPrice, totalPrice, totalQuantity]);
 
   return (
     <li className={css.listItem}>
@@ -38,9 +55,9 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
         <p>{description}</p>
         <p>{dimension}</p>
       </div>
-      <ProductsQuantity />
+      <ProductsQuantity getTotalQuantity={getTotalQuantity} />
       <div className={css.footerItem}>
-        <p className={css.price}>{price} грн</p>
+        <p className={css.price}>{totalPrice} грн</p>
         <Button onClick={() => addToCart(_id)} />
       </div>
     </li>

@@ -1,12 +1,14 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import IconButton from '@mui/material/IconButton';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import css from './ProductsQuantity.module.scss';
 
-interface Props {}
+interface Props {
+  getTotalQuantity: (quantity: number) => void;
+}
 
-const ProductsQuantity: FC<Props> = () => {
+const ProductsQuantity: FC<Props> = ({ getTotalQuantity }) => {
   const [quantity, setQuantity] = useState(1);
 
   const increment = () => {
@@ -18,12 +20,16 @@ const ProductsQuantity: FC<Props> = () => {
     }
   };
 
+  useEffect(() => {
+    getTotalQuantity(quantity);
+  }, [getTotalQuantity, quantity]);
+
   return (
     <div className={css.wrapper}>
       <IconButton onClick={decrement} color="primary" aria-label="minus">
         <RemoveCircleOutlineIcon />
       </IconButton>
-      <p>{quantity}</p>
+      <p>{quantity} шт.</p>
       <IconButton onClick={increment} color="primary" aria-label="plus">
         <AddCircleOutlineIcon />
       </IconButton>

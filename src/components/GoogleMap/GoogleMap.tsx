@@ -7,13 +7,13 @@ interface Props {
   lng: number;
 }
 
-const GoogleMaps: FC<Props> = () => (
+const Point: FC<Props> = () => (
   <div>
     <BiMap style={{ color: 'red', fontSize: '32px' }} />
   </div>
 );
 
-export default function SimpleMap() {
+export default function GoogleMaps() {
   const defaultProps = {
     center: {
       lat: 48.4211840588917,
@@ -32,9 +32,9 @@ export default function SimpleMap() {
         defaultZoom={defaultProps.zoom}
         yesIWantToUseGoogleMapApiInternals
       >
-        <GoogleMaps lat={48.407641691999906} lng={35.00017456670064} />
-        <GoogleMaps lat={48.42555310026097} lng={35.022020774202005} />
-        <GoogleMaps lat={48.43342155185263} lng={35.00226293664556} />
+        <Point lat={48.407641691999906} lng={35.00017456670064} />
+        <Point lat={48.42555310026097} lng={35.022020774202005} />
+        <Point lat={48.43342155185263} lng={35.00226293664556} />
       </GoogleMapReact>
     </div>
   );

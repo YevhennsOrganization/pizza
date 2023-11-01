@@ -6,7 +6,7 @@ import { Container } from '@/components/Container/Container';
 import { getFilledCart } from '@/redux/cart/cartSlice';
 import { useAppSelector } from '@/redux/hooks';
 import PhoneNumbersSet from '../PhoneNumbersSet/PhoneNumbersSet';
-import HeaderNavLink from './HeaderNavLink/HeaderNavLink';
+import HeaderNavLink from '../HeaderNavLink/HeaderNavLink';
 import css from './Header.module.scss';
 
 const Header: FC = () => {

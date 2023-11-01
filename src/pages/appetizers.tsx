@@ -2,7 +2,7 @@ import React, { FC, useEffect } from 'react';
 import Heading from '@/components/Heading/Heading';
 import { Container } from '@/components/Container/Container';
 import { Section } from '@/components/Section/Section';
-import ProductsList from '@/components/productsList/ProductsList';
+import ProductsList from '@/components/ProductsList/ProductsList';
 import Loader from '@/components/Loader/Loader';
 import Head from 'next/head';
 import { ToastContainer } from 'react-toastify';
