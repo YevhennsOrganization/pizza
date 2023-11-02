@@ -1,9 +1,22 @@
+@import "../../styles/media.mixin.scss";
+
 .nav {
   display: flex;
   justify-content: center;
   gap: 80px;
   flex-wrap: wrap;
   background: linear-gradient(90deg, #f94c25 -0.8%, #ffd465 99.28%);
+  @include mobile {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow: scroll;
+    gap: 30px;
+  }
+  @include tablet {
+    gap: 40px;
+  }
 
   .link {
     font-family: var(--main-font);
