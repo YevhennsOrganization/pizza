@@ -1,52 +1,25 @@
-import React from 'react';
-import './button.css';
+import React, { FC } from 'react';
+import { RiShoppingBasket2Line } from 'react-icons/ri';
+import css from './Button.module.scss';
 
-interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean;
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string;
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
+interface Props {
+  typeSubmit?: boolean;
+  icon: boolean;
+  text: string;
   onClick?: () => void;
 }
 
-/**
- * Primary UI component for user interaction
- */
-export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  label,
-  ...props
-}: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+const Button: FC<Props> = ({ typeSubmit, icon, text, onClick }) => {
   return (
     <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      {...props}
+      type={typeSubmit ? 'submit' : 'button'}
+      className={css.button}
+      onClick={onClick}
     >
-      {label}
-      <style jsx>{`
-        button {
-          background-color: ${backgroundColor};
-        }
-      `}</style>
+      {icon && <RiShoppingBasket2Line fontSize={'16px'} />}
+      <span>{text}</span>
     </button>
   );
 };
+
+export default Button;
