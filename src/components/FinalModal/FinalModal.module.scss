@@ -1,7 +1,12 @@
+@import "../../styles/media.mixin.scss";
+
 .modalWrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: scroll;
 
   .modal {
     position: relative;
@@ -9,11 +14,14 @@
     color: var(--black-color);
     padding: 20px;
     border-radius: 20px;
+    font-family: var(--secondary-font);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 
   .resultText {
     text-align: center;
-    margin-bottom: 10px;
   }
 
   .quantitySet {

@@ -7,9 +7,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    @media screen and (max-width: 768px) {
-        max-width: 350px;
-    }
+    width: 100%;
+    max-width: 350px;
     img {
         margin-left: auto;
         margin-right: auto;

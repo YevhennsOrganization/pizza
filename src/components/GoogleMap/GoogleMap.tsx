@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
+import GoogleMapReact from 'google-map-react';
 
 import { BiMap } from 'react-icons/bi';
 
-import GoogleMapReact from 'google-map-react';
+import css from './GoogleMap.module.scss';
 
 interface Props {
   lat: number;
@@ -27,7 +28,7 @@ export default function GoogleMaps() {
   const API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   return (
-    <div style={{ height: '300px', width: '600px' }}>
+    <div className={css.wrapper}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: `${API_KEY}` }}
         defaultCenter={defaultProps.center}
