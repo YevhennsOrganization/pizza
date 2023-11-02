@@ -27,9 +27,9 @@ export const Home: FC = () => {
       </Head>
       <Section>
         <Container>
-          <CarouselComponent />
           <Heading>Новинки</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
+          <CarouselComponent />
         </Container>
       </Section>
     </>
