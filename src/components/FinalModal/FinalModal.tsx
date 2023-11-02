@@ -2,9 +2,9 @@
 import React, { FC } from 'react';
 import { nanoid } from 'nanoid';
 
+import Button from '../Button/Button';
 import Loader from '@/components/Loader/Loader';
 import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
 
 import { useAppSelector } from '@/redux/hooks';
 import {
@@ -86,15 +86,11 @@ const FinalModal: FC<Props> = ({ open, finalAction }) => {
                 </li>
               </ul>
               <Button
+                type="button"
+                icon={false}
+                text="Вийти"
                 onClick={finalAction}
-                variant="contained"
-                sx={{
-                  display: 'flex',
-                  mx: 'auto',
-                }}
-              >
-                OK
-              </Button>
+              />
             </>
           )}
         </div>

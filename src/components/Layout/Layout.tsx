@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 
-import Navigation from '../Navigation/Navigation';
 import Addresses from '../Addresses/Addresses';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -16,7 +15,6 @@ const Layout: FC<Props> = ({ children }) => {
     <div className={css.wrapper}>
       <Header />
       <main className={css.main}>
-        <Navigation />
         {children}
         <Addresses />
       </main>
