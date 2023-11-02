@@ -30,7 +30,6 @@ export const Home: FC = () => {
           <CarouselComponent />
           <Heading>Новинки</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
-          <p>Тут може бути Ваша реклама</p>
         </Container>
       </Section>
     </>
