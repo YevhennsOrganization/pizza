@@ -1,11 +1,9 @@
 import React, { FC, useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import { nanoid } from 'nanoid';
 
 import Heading from '@/components/Heading/Heading';
 import CartForm from '@/components/CartForm/CartForm';
-import CartListItem from '@/components/CartListItem/CartListItem';
 import FinalModal from '@/components/FinalModal/FinalModal';
 import Container from '@/components/Container/Container';
 import Section from '@/components/Section/Section';
@@ -18,6 +16,7 @@ import {
 } from '@/redux/cart/cartSlice';
 
 import css from '../styles/Cart.module.scss';
+import CartList from '@/components/CartList/CartList';
 
 const Cart: FC = () => {
   const [open, setOpen] = useState(false);
@@ -48,17 +47,10 @@ const Cart: FC = () => {
             <Heading>Кошик</Heading>
             {filledCart.length > 0 ? (
               <>
-                <ul>
-                  {filledCart.map(data => {
-                    return (
-                      <CartListItem
-                        deleteCartItem={deleteCartItem}
-                        key={nanoid()}
-                        data={data}
-                      />
-                    );
-                  })}
-                </ul>
+                <CartList
+                  filledCart={filledCart}
+                  deleteCartItem={deleteCartItem}
+                />
                 <CartForm openModal={openModal} />
               </>
             ) : (
@@ -68,6 +60,7 @@ const Cart: FC = () => {
                   alt="empty"
                   width={236}
                   height={257}
+                  priority={false}
                 />
                 <p>Кошик порожній!</p>
               </div>
