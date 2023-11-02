@@ -1,12 +1,15 @@
 import React, { FC, useEffect, useState } from 'react';
 import Logo from '../Logo/Logo';
+
 import { RiShoppingBasketLine } from 'react-icons/ri';
 // import { BiUser } from 'react-icons/bi';
-import { Container } from '@/components/Container/Container';
-import { getFilledCart } from '@/redux/cart/cartSlice';
-import { useAppSelector } from '@/redux/hooks';
+import Container from '@/components/Container/Container';
 import PhoneNumbersSet from '../PhoneNumbersSet/PhoneNumbersSet';
 import HeaderNavLink from '../HeaderNavLink/HeaderNavLink';
+
+import { getFilledCart } from '@/redux/cart/cartSlice';
+import { useAppSelector } from '@/redux/hooks';
+
 import css from './Header.module.scss';
 
 const Header: FC = () => {
@@ -20,16 +23,18 @@ const Header: FC = () => {
 
   return (
     <header className={css.wrapper}>
-      <Container className={css.headerItem}>
-        <Logo />
-        <div className={css.headerLinks}>
-          <PhoneNumbersSet />
-          {/* <HeaderNavLink hrefProp={'#'} Icon={BiUser} text={'Увійти'} /> */}
-          <HeaderNavLink
-            hrefProp={'/cart'}
-            Icon={RiShoppingBasketLine}
-            text={itemsInCart}
-          />
+      <Container>
+        <div className={css.headerItem}>
+          <Logo />
+          <div className={css.headerLinks}>
+            <PhoneNumbersSet />
+            {/* <HeaderNavLink hrefProp={'#'} Icon={BiUser} text={'Увійти'} /> */}
+            <HeaderNavLink
+              hrefProp={'/cart'}
+              Icon={RiShoppingBasketLine}
+              text={itemsInCart}
+            />
+          </div>
         </div>
       </Container>
     </header>

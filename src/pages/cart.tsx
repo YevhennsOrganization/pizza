@@ -1,20 +1,23 @@
 import React, { FC, useState } from 'react';
-import Heading from '@/components/Heading/Heading';
+import Head from 'next/head';
+import Image from 'next/image';
 import { nanoid } from 'nanoid';
+
+import Heading from '@/components/Heading/Heading';
+import CartForm from '@/components/CartForm/CartForm';
+import CartListItem from '@/components/CartListItem/CartListItem';
+import FinalModal from '@/components/FinalModal/FinalModal';
+import Container from '@/components/Container/Container';
+import Section from '@/components/Section/Section';
+
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   getFilledCart,
   deleteItem,
   deleteAllItems,
 } from '@/redux/cart/cartSlice';
-import CartForm from '@/components/CartForm/CartForm';
-import CartListItem from '@/components/CartListItem/CartListItem';
-import Image from 'next/image';
-import FinalModal from '@/components/FinalModal/FinalModal';
-import { Container } from '@/components/Container/Container';
-import { Section } from '@/components/Section/Section';
+
 import css from '../styles/Cart.module.scss';
-import Head from 'next/head';
 
 const Cart: FC = () => {
   const [open, setOpen] = useState(false);

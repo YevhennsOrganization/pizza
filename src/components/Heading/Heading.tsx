@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import css from './Heading.module.scss';
 
 interface Props {

@@ -1,16 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { FC } from 'react';
+import { nanoid } from 'nanoid';
+
+import Loader from '@/components/Loader/Loader';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import { nanoid } from 'nanoid';
+
 import { useAppSelector } from '@/redux/hooks';
 import {
   getCustomerInfo,
   getFilledCart,
   getIsLoading,
 } from '@/redux/cart/cartSlice';
+
 import css from './FinalModal.module.scss';
-import Loader from '@/components/Loader/Loader';
 
 interface Props {
   open: boolean;

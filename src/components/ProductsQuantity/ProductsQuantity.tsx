@@ -1,7 +1,9 @@
 import React, { FC, useState, useEffect } from 'react';
+
 import IconButton from '@mui/material/IconButton';
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+
 import css from './ProductsQuantity.module.scss';
 
 interface Props {

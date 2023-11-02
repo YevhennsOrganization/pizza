@@ -1,9 +1,13 @@
 import React, { FC, useState } from 'react';
-import css from './ProductsList.module.scss';
+
+import ProductsListItem from '../ProductsListItem/ProductsListItem';
+
 import { addItem } from '@/redux/cart/cartSlice';
 import { useAppDispatch } from '@/redux/hooks';
+
 import { toast } from 'react-toastify';
-import ProductsListItem from '../ProductsListItem/ProductsListItem';
+
+import css from './ProductsList.module.scss';
 
 interface Props {
   data: TChosenProduct[];

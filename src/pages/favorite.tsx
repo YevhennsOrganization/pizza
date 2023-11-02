@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
-import Heading from '@/components/Heading/Heading';
-import { Container } from '@/components/Container/Container';
-import { Section } from '@/components/Section/Section';
 import Head from 'next/head';
+
+import Heading from '@/components/Heading/Heading';
+import Container from '@/components/Container/Container';
+import Section from '@/components/Section/Section';
 import Loader from '@/components/Loader/Loader';
+
 import { getIsLoading } from '@/redux/products/productsSlice';
 import { useAppSelector } from '@/redux/hooks';
 

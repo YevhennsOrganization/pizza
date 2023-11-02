@@ -1,6 +1,8 @@
 import React, { FC } from 'react';
-import GoogleMapReact from 'google-map-react';
+
 import { BiMap } from 'react-icons/bi';
+
+import GoogleMapReact from 'google-map-react';
 
 interface Props {
   lat: number;

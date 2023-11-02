@@ -1,8 +1,11 @@
 import React, { FC, useState, useEffect } from 'react';
 import Image from 'next/image';
+
 import Button from '@/components/Button/Button';
 import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
+
 import { AiOutlineHeart } from 'react-icons/ai';
+
 import css from './ProductsListItem.module.scss';
 
 interface Props {

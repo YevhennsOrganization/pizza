@@ -1,13 +1,15 @@
 import React, { FC } from 'react';
+
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
-import * as SC from '@/components/Container/Container';
-import css from './Footer.module.scss';
+import Container from '@/components/Container/Container';
 import FooterNavigation from '../FooterNavigation/FooterNavigation';
+
+import css from './Footer.module.scss';
 
 const Footer: FC = () => {
   return (
     <footer className={css.footer}>
-      <SC.Container>
+      <Container>
         <FooterNavigation />
         <div className={css.contactsWrapper}>
           <div className={css.socialSet}>
@@ -34,7 +36,7 @@ const Footer: FC = () => {
         <p className={css.copyright}>
           &copy; 2023 “Nostra pizza” LLC, м. Дніпро. Всі права захищено.
         </p>
-      </SC.Container>
+      </Container>
     </footer>
   );
 };
