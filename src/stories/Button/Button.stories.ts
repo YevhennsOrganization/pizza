@@ -14,7 +14,6 @@ const meta = {
       description: 'Текст кнопки',
     },
     typeSubmit: {
-      control: 'boolean',
       description: 'Тип кнопки',
       defaultValue: true,
     },
@@ -40,5 +39,8 @@ export const Secondary: Story = {
     text: 'Кнопка',
     icon: false,
     typeSubmit: false,
+    onClick() {
+      alert('Працює');
+    },
   },
 };
