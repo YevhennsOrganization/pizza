@@ -2,4 +2,7 @@
     display: flex;
     align-items: center;
     margin-top: auto;
+    p {
+        font-family: var(--secondary-font);
+    }
 }
