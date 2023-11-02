@@ -4,7 +4,7 @@ import css from './Button.module.scss';
 
 interface Props {
   typeSubmit?: boolean;
-  icon: boolean;
+  icon?: boolean;
   text: string;
   onClick?: () => void;
 }
