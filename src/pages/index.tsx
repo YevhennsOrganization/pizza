@@ -9,6 +9,7 @@ import Loader from '@/components/Loader/Loader';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getProducts } from '@/redux/products/productsOperations';
 import { getIsLoading } from '@/redux/products/productsSlice';
+import CarouselComponent from '@/components/CarouselComponent/CarouselComponent';
 
 export const Home: FC = () => {
   const dispatch = useAppDispatch();
@@ -26,6 +27,7 @@ export const Home: FC = () => {
       </Head>
       <Section>
         <Container>
+          <CarouselComponent />
           <Heading>Новинки</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
           <p>Тут може бути Ваша реклама</p>
