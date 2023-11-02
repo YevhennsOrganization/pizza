@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
 import ProductsListItem from '../ProductsListItem/ProductsListItem';
 
@@ -14,20 +14,16 @@ interface Props {
 }
 
 const ProductsList: FC<Props> = ({ data }) => {
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [totalQuantity, setTotalQuantity] = useState(1);
-
   const dispatch = useAppDispatch();
 
-  const getTotalQuantityAndPrice = (quantity: number, price: number) => {
-    setTotalPrice(price);
-    setTotalQuantity(quantity);
-  };
-
-  const addToCart = (_id: string) => {
+  const addToCart = (
+    _id: string,
+    totalQuantity: number,
+    totalPrice: number
+  ) => {
     const chosenProduct = data.find(item => item._id === _id);
     if (chosenProduct) {
-      const { _id, photo, title, price } = chosenProduct;
+      const { _id, photo, title } = chosenProduct;
       const cartItem = {
         id: _id,
         photo: photo,
@@ -48,12 +44,7 @@ const ProductsList: FC<Props> = ({ data }) => {
     <ul className={css.list}>
       {data.map(item => {
         return (
-          <ProductsListItem
-            key={item._id}
-            item={item}
-            addToCart={addToCart}
-            getTotalQuantityAndPrice={getTotalQuantityAndPrice}
-          />
+          <ProductsListItem key={item._id} item={item} addToCart={addToCart} />
         );
       })}
     </ul>

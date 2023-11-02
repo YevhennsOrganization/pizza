@@ -60,7 +60,7 @@ const Cart: FC = () => {
                   alt="empty"
                   width={236}
                   height={257}
-                  priority={false}
+                  priority={true}
                 />
                 <p>Кошик порожній!</p>
               </div>

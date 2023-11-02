@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import Image from 'next/image';
 
 import Button from '@/components/Button/Button';
@@ -10,28 +10,19 @@ import css from './ProductsListItem.module.scss';
 
 interface Props {
   item: TChosenProduct;
-  addToCart: (_id: string) => void;
-  getTotalQuantityAndPrice: (quantity: number, price: number) => void;
+  addToCart: (_id: string, totalQuantity: number, totalPrice: number) => void;
 }
 
-const ProductsListItem: FC<Props> = ({
-  item,
-  addToCart,
-  getTotalQuantityAndPrice,
-}) => {
+const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
   const { _id, title, description, dimension, price, photo } = item;
 
   const [totalPrice, setTotalPrice] = useState(price);
   const [totalQuantity, setTotalQuantity] = useState(1);
 
   const getTotalQuantity = (quantity: number) => {
-    setTotalPrice(price * quantity);
     setTotalQuantity(quantity);
+    setTotalPrice(price * quantity);
   };
-
-  useEffect(() => {
-    getTotalQuantityAndPrice(totalQuantity, totalPrice);
-  }, [getTotalQuantityAndPrice, totalPrice, totalQuantity]);
 
   return (
     <li className={css.listItem}>
@@ -65,7 +56,7 @@ const ProductsListItem: FC<Props> = ({
           type="button"
           icon
           text={'В кошик'}
-          onClick={() => addToCart(_id)}
+          onClick={() => addToCart(_id, totalQuantity, totalPrice)}
         />
       </div>
     </li>
