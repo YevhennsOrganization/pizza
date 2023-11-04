@@ -1,19 +1,23 @@
 import React, { FC } from 'react';
-import { RiShoppingBasket2Line } from 'react-icons/ri';
 import css from './Button.module.scss';
+import { IconType } from 'react-icons';
 
 interface Props {
-  type?: 'submit' | 'button';
-  icon: boolean;
-  text: string;
+  typeSubmit?: boolean;
+  Icon?: IconType;
+  children: string;
   onClick?: () => void;
 }
 
-const Button: FC<Props> = ({ type = 'submit', icon, text, onClick }) => {
+const Button: FC<Props> = ({ typeSubmit = true, Icon, children, onClick }) => {
   return (
-    <button type={type} className={css.button} onClick={onClick}>
-      {icon && <RiShoppingBasket2Line fontSize={'16px'} />}
-      <span>{text}</span>
+    <button
+      type={typeSubmit ? 'submit' : 'button'}
+      className={css.button}
+      onClick={onClick}
+    >
+      {Icon && <Icon />}
+      {children}
     </button>
   );
 };

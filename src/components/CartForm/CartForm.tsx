@@ -9,6 +9,7 @@ import { addInfo, getFilledCart } from '@/redux/cart/cartSlice';
 import { sendOrder } from '@/redux/cart/cartOperations';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import css from './CartForm.module.scss';
+import Input from '../Input/Input';
 
 interface Props {
   openModal: () => void;
@@ -65,24 +66,20 @@ const CartForm: FC<Props> = ({ openModal }) => {
   return (
     <>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-        <TextField
-          {...register('name', { required: "Це обов'язкове поле!" })}
+        <Input
+          placeholder="Введіть м'я"
           id="customer-name"
           label="Ім'я"
-          variant="outlined"
+          error={errors?.name?.message}
+          {...register('name', { required: "Це обов'язкове поле!" })}
         />
-        {errors?.name && (
-          <div style={{ color: 'red' }}>{errors.name.message}</div>
-        )}
-        <TextField
-          {...register('number', { required: "Це обов'язкове поле!" })}
+        <Input
+          placeholder="Введіть номер телефону"
           id="customer-number"
           label="Номер телефону"
-          variant="outlined"
+          error={errors?.name?.message}
+          {...register('number', { required: "Це обов'язкове поле!" })}
         />
-        {errors?.number && (
-          <div style={{ color: 'red' }}>{errors.number?.message}</div>
-        )}
         <div>
           <input type="checkbox" id="delivery" {...register('delivery')} />
           <label htmlFor="delivery">Доставка</label>
@@ -110,7 +107,7 @@ const CartForm: FC<Props> = ({ openModal }) => {
           />
         </FormControl>
         <p>До оплати {totalPayment} грн</p>
-        <Button icon={false} text="Підтвердити" />
+        <Button>{'Підтвердити'}</Button>
       </form>
     </>
   );

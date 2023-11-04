@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import Button from './Button';
+import { RiShoppingBasket2Line } from 'react-icons/ri';
 
 const meta = {
   title: 'UI/Button',
@@ -10,14 +11,14 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    text: {
+    children: {
       description: 'Текст кнопки',
     },
     typeSubmit: {
       description: 'Тип кнопки',
       defaultValue: true,
     },
-    icon: {
+    isIcon: {
       description: 'Наявність іконки',
     },
   },
@@ -28,19 +29,16 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    text: 'Кнопка',
-    icon: true,
+    children: 'Кнопка',
+    isIcon: true,
     typeSubmit: true,
   },
 };
 
 export const Secondary: Story = {
   args: {
-    text: 'Кнопка',
-    icon: false,
+    children: 'Кнопка',
+    isIcon: false,
     typeSubmit: false,
-    onClick() {
-      alert('Працює');
-    },
   },
 };
