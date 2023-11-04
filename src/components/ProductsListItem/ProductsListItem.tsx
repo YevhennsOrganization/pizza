@@ -16,7 +16,7 @@ interface Props {
 }
 
 const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
-  const { _id, title, description, dimension, price, photo } = item;
+  const { _id, title, description, dimension, price, photo, promotion } = item;
 
   const [totalPrice, setTotalPrice] = useState(price);
   const [totalQuantity, setTotalQuantity] = useState(1);
@@ -28,6 +28,7 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
 
   return (
     <li className={css.listItem}>
+      {promotion && <div className={css.promotion}>Акція</div>}
       <button
         type="button"
         className={css.favorite}
