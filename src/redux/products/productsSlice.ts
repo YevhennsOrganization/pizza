@@ -6,6 +6,7 @@ const initialState = {
   pizzas: [] as TChosenProduct[],
   appetizers: [] as TChosenProduct[],
   drinks: [] as TChosenProduct[],
+  promotions: [] as TChosenProduct[],
   error: false as any,
   isLoading: false,
 };
@@ -32,9 +33,15 @@ const productsSlice = createSlice({
               (item: TChosenProduct) => item.category === category
             );
           };
+          const getByPromotion = () => {
+            return action.payload.filter(
+              (item: TChosenProduct) => item.promotion === true
+            );
+          };
           state.pizzas = getByCategory('pizzas');
           state.appetizers = getByCategory('appetizers');
           state.drinks = getByCategory('drinks');
+          state.promotions = getByPromotion();
           state.isLoading = false;
         }
       })
@@ -50,4 +57,5 @@ export const productsReducer = productsSlice.reducer;
 export const getPizzas = (state: RootState) => state.products.pizzas;
 export const getAppetizers = (state: RootState) => state.products.appetizers;
 export const getDrinks = (state: RootState) => state.products.drinks;
+export const getPromotions = (state: RootState) => state.products.promotions;
 export const getIsLoading = (state: RootState) => state.products.isLoading;

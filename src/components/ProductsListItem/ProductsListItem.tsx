@@ -2,11 +2,13 @@ import React, { FC, useState } from 'react';
 import Image from 'next/image';
 
 import Button from '@/components/Button/Button';
+import { RiShoppingBasket2Line } from 'react-icons/ri';
 import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
 
 import { AiOutlineHeart } from 'react-icons/ai';
 
 import css from './ProductsListItem.module.scss';
+// import Button from '@/stories/Button/Button';
 
 interface Props {
   item: TChosenProduct;
@@ -14,7 +16,7 @@ interface Props {
 }
 
 const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
-  const { _id, title, description, dimension, price, photo } = item;
+  const { _id, title, description, dimension, price, photo, promotion } = item;
 
   const [totalPrice, setTotalPrice] = useState(price);
   const [totalQuantity, setTotalQuantity] = useState(1);
@@ -26,6 +28,7 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
 
   return (
     <li className={css.listItem}>
+      {promotion && <div className={css.promotion}>Акція</div>}
       <button
         type="button"
         className={css.favorite}
@@ -53,11 +56,12 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
       <div className={css.footerItem}>
         <p className={css.price}>{totalPrice} грн</p>
         <Button
-          type="button"
-          icon
-          text={'В кошик'}
+          Icon={RiShoppingBasket2Line}
+          typeSubmit={false}
           onClick={() => addToCart(_id, totalQuantity, totalPrice)}
-        />
+        >
+          {'В кошик'}
+        </Button>
       </div>
     </li>
   );

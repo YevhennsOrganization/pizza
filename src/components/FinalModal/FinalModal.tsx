@@ -14,6 +14,7 @@ import {
 } from '@/redux/cart/cartSlice';
 
 import css from './FinalModal.module.scss';
+import { RiShoppingBasket2Line } from 'react-icons/ri';
 
 interface Props {
   open: boolean;
@@ -85,12 +86,9 @@ const FinalModal: FC<Props> = ({ open, finalAction }) => {
                   <p>Загальна сума: {sum} грн.</p>
                 </li>
               </ul>
-              <Button
-                type="button"
-                icon={false}
-                text="Вийти"
-                onClick={finalAction}
-              />
+              <Button typeSubmit={false} onClick={finalAction}>
+                {'Вийти'}
+              </Button>
             </>
           )}
         </div>
