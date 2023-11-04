@@ -5,7 +5,13 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const CarouselComponent = () => {
   return (
-    <Carousel autoPlay infiniteLoop showArrows={true} showThumbs={true}>
+    <Carousel
+      autoPlay
+      infiniteLoop
+      showArrows={true}
+      showThumbs={true}
+      showStatus={false}
+    >
       <div className={css.item}>
         <Image
           src="/carousel/action_1.png"

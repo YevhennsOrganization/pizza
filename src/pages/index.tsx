@@ -14,6 +14,7 @@ import ProductsList from '@/components/ProductsList/ProductsList';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import css from '../styles/Index.module.scss';
 
 export const Home: FC = () => {
   const dispatch = useAppDispatch();
@@ -36,7 +37,7 @@ export const Home: FC = () => {
           <Heading>Новинки</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
           <CarouselComponent />
-          <h2>Найпопулярніші позиції</h2>
+          <h2 className={css.heading}>Найпопулярніші позиції</h2>
           <ProductsList data={promotionProducts} />
           <ToastContainer />
         </Container>
