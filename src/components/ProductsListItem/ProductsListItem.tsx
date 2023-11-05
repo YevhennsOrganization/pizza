@@ -12,7 +12,13 @@ import css from './ProductsListItem.module.scss';
 
 interface Props {
   item: TChosenProduct;
-  addToCart: (_id: string, totalQuantity: number, totalPrice: number) => void;
+  addToCart: (
+    _id: string,
+    totalQuantity: number,
+    promotion: boolean,
+    totalPrice: number,
+    TotalPromPrice: number
+  ) => void;
 }
 
 const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
@@ -36,7 +42,6 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
     setTotalPrice(price * quantity);
     setTotalPromPrice(promPrice * quantity);
   };
-  console.log(promPrice);
 
   return (
     <li className={css.listItem}>
@@ -77,7 +82,9 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
         <Button
           Icon={RiShoppingBasket2Line}
           typeSubmit={false}
-          onClick={() => addToCart(_id, totalQuantity, totalPrice)}
+          onClick={() =>
+            addToCart(_id, totalQuantity, promotion, totalPrice, totalPromPrice)
+          }
         >
           {'В кошик'}
         </Button>

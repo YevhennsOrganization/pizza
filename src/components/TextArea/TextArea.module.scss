@@ -1,10 +1,11 @@
 .fieldset {
     font-family: var(--secondary-font);
     border: none;
-    input {
+    textarea {
         width: 100%;
         padding: 12px;
         border-radius: 5px;
+        resize: none;
     }
     .errorMessage {
         color: red;

@@ -19,7 +19,9 @@ const ProductsList: FC<Props> = ({ data }) => {
   const addToCart = (
     _id: string,
     totalQuantity: number,
-    totalPrice: number
+    promotion: boolean,
+    totalPrice: number,
+    TotalPromPrice: number
   ) => {
     const chosenProduct = data.find(item => item._id === _id);
     if (chosenProduct) {
@@ -31,7 +33,18 @@ const ProductsList: FC<Props> = ({ data }) => {
         quantity: totalQuantity,
         totalPrice: totalPrice,
       };
-      dispatch(addItem(cartItem));
+      const cartPromItem = {
+        id: _id,
+        photo: photo,
+        title: title,
+        quantity: totalQuantity,
+        totalPrice: TotalPromPrice,
+      };
+      if (promotion) {
+        dispatch(addItem(cartPromItem));
+      } else {
+        dispatch(addItem(cartItem));
+      }
       toast.success('Додано у кошик', {
         position: 'top-center',
         autoClose: 1500,

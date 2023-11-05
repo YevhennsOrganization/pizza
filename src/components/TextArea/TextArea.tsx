@@ -1,23 +1,22 @@
 import React, { FC, forwardRef, HTMLProps, PropsWithRef } from 'react';
-import css from './Input.module.scss';
+import css from './TextArea.module.scss';
 
-interface Props extends HTMLProps<HTMLInputElement> {
+interface Props extends HTMLProps<HTMLTextAreaElement> {
   label?: string;
   error?: string;
 }
-
-const Input: FC<PropsWithRef<Props>> = forwardRef(
+const TextArea: FC<PropsWithRef<Props>> = forwardRef(
   ({ label, error, ...props }, ref) => {
     return (
       <fieldset className={css.fieldset}>
         <label>{label}</label>
-        <input autoComplete="true" ref={ref} {...props} />
+        <textarea rows={5} autoComplete="true" ref={ref} {...props} />
         {error && <span className={css.errorMessage}>{error}</span>}
       </fieldset>
     );
   }
 );
 
-Input.displayName = 'Input';
+TextArea.displayName = 'TextArea';
 
-export default Input;
+export default TextArea;

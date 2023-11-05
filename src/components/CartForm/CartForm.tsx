@@ -1,15 +1,13 @@
 import React, { FC, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import TextField from '@mui/material/TextField';
 import Button from '../Button/Button';
-import Textarea from '@mui/joy/Textarea';
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
 import { addInfo, getFilledCart } from '@/redux/cart/cartSlice';
 import { sendOrder } from '@/redux/cart/cartOperations';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import css from './CartForm.module.scss';
 import Input from '../Input/Input';
+import TextArea from '../TextArea/TextArea';
+import Checkbox from '../Checkbox/Checkbox';
 
 interface Props {
   openModal: () => void;
@@ -80,33 +78,37 @@ const CartForm: FC<Props> = ({ openModal }) => {
           error={errors?.name?.message}
           {...register('number', { required: "Це обов'язкове поле!" })}
         />
-        <div>
+        <Checkbox
+          delivery={delivery}
+          id="delivery"
+          {...register('delivery')}
+          label="Доставка"
+        />
+        {/* <div>
           <input type="checkbox" id="delivery" {...register('delivery')} />
-          <label htmlFor="delivery">Доставка</label>
-        </div>
+          <label
+            htmlFor="delivery"
+            style={{ fontFamily: 'var(--secondary-font)' }}
+          >
+            Доставка
+          </label>
+        </div> */}
         {delivery && (
-          <>
-            <TextField
-              {...register('address', { required: "Це обов'язкове поле!" })}
-              id="address"
-              label="Введіть адресу"
-              variant="outlined"
-            />
-            {errors?.address && (
-              <div style={{ color: 'red' }}>{errors.address?.message}</div>
-            )}
-          </>
-        )}
-        <FormControl>
-          <FormLabel>Коментар</FormLabel>
-          <Textarea
-            id="comment"
-            placeholder="Введіть коментар"
-            minRows={2}
-            {...register('comment')}
+          <Input
+            id="address"
+            label="Введіть адресу"
+            placeholder="Введіть адресу"
+            error={errors?.address?.message}
+            {...register('address', { required: "Це обов'язкове поле!" })}
           />
-        </FormControl>
-        <p>До оплати {totalPayment} грн</p>
+        )}
+        <TextArea
+          {...register('comment')}
+          id="comment"
+          placeholder="Введіть коментар"
+          label="Коментар"
+        />
+        <p className={css.totalPayment}>До оплати {totalPayment} грн</p>
         <Button>{'Підтвердити'}</Button>
       </form>
     </>

@@ -1,0 +1,11 @@
+.fieldset {
+    font-family: var(--secondary-font);
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    input {
+        width: 24px;
+        height: 24px;
+    }
+}
