@@ -65,41 +65,36 @@ const CartForm: FC<Props> = ({ openModal }) => {
     <>
       <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <Input
+          {...register('name', { required: "Це обов'язкове поле!" })}
           placeholder="Введіть м'я"
           id="customer-name"
           label="Ім'я"
+          htmlFor="customer-name"
           error={errors?.name?.message}
-          {...register('name', { required: "Це обов'язкове поле!" })}
         />
         <Input
+          {...register('number', { required: "Це обов'язкове поле!" })}
           placeholder="Введіть номер телефону"
           id="customer-number"
           label="Номер телефону"
+          htmlFor="customer-number"
           error={errors?.name?.message}
-          {...register('number', { required: "Це обов'язкове поле!" })}
         />
         <Checkbox
+          {...register('delivery')}
           delivery={delivery}
           id="delivery"
-          {...register('delivery')}
+          htmlFor="delivery"
           label="Доставка"
         />
-        {/* <div>
-          <input type="checkbox" id="delivery" {...register('delivery')} />
-          <label
-            htmlFor="delivery"
-            style={{ fontFamily: 'var(--secondary-font)' }}
-          >
-            Доставка
-          </label>
-        </div> */}
         {delivery && (
           <Input
+            {...register('address', { required: "Це обов'язкове поле!" })}
             id="address"
             label="Введіть адресу"
             placeholder="Введіть адресу"
+            htmlFor="address"
             error={errors?.address?.message}
-            {...register('address', { required: "Це обов'язкове поле!" })}
           />
         )}
         <TextArea
@@ -107,6 +102,7 @@ const CartForm: FC<Props> = ({ openModal }) => {
           id="comment"
           placeholder="Введіть коментар"
           label="Коментар"
+          htmlFor="comment"
         />
         <p className={css.totalPayment}>До оплати {totalPayment} грн</p>
         <Button>{'Підтвердити'}</Button>

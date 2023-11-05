@@ -11,7 +11,7 @@ const Checkbox: FC<PropsWithRef<Props>> = forwardRef(
     return (
       <fieldset className={css.fieldset}>
         <input type="checkbox" ref={ref} {...props} />
-        <label>{label}</label>
+        <label htmlFor={props.htmlFor}>{label}</label>
       </fieldset>
     );
   }

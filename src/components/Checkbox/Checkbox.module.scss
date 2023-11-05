@@ -5,7 +5,12 @@
     align-items: center;
     gap: 12px;
     input {
+        cursor: pointer;
         width: 24px;
         height: 24px;
+        transition: var(--transition);
+        &:hover {
+            box-shadow: var(--box-shadow);
+        }
     }
 }

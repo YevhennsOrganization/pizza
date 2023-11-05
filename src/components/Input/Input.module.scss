@@ -5,6 +5,12 @@
         width: 100%;
         padding: 12px;
         border-radius: 5px;
+        transition: var(--transition);
+        border: 2px solid var(--accent-color);
+        outline: none;
+        &:hover {
+            box-shadow: var(--box-shadow);
+        }
     }
     .errorMessage {
         color: red;
