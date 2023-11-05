@@ -16,10 +16,11 @@ const meta = {
     },
     typeSubmit: {
       description: 'Тип кнопки',
-      defaultValue: true,
     },
-    isIcon: {
-      description: 'Наявність іконки',
+    Icon: {
+      control: { type: 'select' },
+      options: [RiShoppingBasket2Line, ''],
+      description: 'Іконка',
     },
   },
 } satisfies Meta<typeof Button>;
@@ -29,16 +30,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: 'Кнопка',
-    isIcon: true,
+    children: 'Кніпочка',
+    Icon: RiShoppingBasket2Line,
     typeSubmit: true,
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: 'Кнопка',
-    isIcon: false,
+    children: 'Кніпочка',
     typeSubmit: false,
   },
 };

@@ -1,22 +1,22 @@
 import React, { FC } from 'react';
 import css from './Button.module.scss';
-import { RiShoppingBasket2Line } from 'react-icons/ri';
+import { IconType } from 'react-icons';
 
 interface Props {
   typeSubmit?: boolean;
-  isIcon: boolean;
+  Icon?: IconType;
   children: string;
   onClick?: () => void;
 }
 
-const Button: FC<Props> = ({ typeSubmit, isIcon, children, onClick }) => {
+const Button: FC<Props> = ({ typeSubmit = true, Icon, children, onClick }) => {
   return (
     <button
       type={typeSubmit ? 'submit' : 'button'}
       className={css.button}
       onClick={onClick}
     >
-      {isIcon && <RiShoppingBasket2Line />}
+      {Icon && <Icon />}
       {children}
     </button>
   );

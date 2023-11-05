@@ -1,3 +1,5 @@
+@import "./variables.scss";
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -29,17 +31,6 @@ svg {
   display: block;
 }
 
-:root {
-  --main-font: "Comfortaa", sans-serif;
-  --secondary-font: "Inter", sans-serif;
-  --white-color: #ffffff;
-  --black-color: #000000;
-  --main-color: #422f2f;
-  --main-hover-color: #f8f2f0;
-  --secondary-text-color: #989898;
-  --accent-color: #de612b;
-}
-
 h1 {
   position: absolute;
   width: 1px;
@@ -47,7 +38,6 @@ h1 {
   margin: -1px;
   border: 0;
   padding: 0;
-
   white-space: nowrap;
   clip-path: inset(100%);
   clip: rect(0 0 0 0);

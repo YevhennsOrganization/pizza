@@ -14,7 +14,7 @@ const Favorite: FC = () => {
   return (
     <>
       <Head>
-        <title>Pizza - favorite</title>
+        <title>Nostra pizza - Улюблене</title>
       </Head>
       <Section>
         <Container>

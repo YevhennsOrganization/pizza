@@ -7,6 +7,7 @@ type TChosenProduct = {
   photo: string;
   category: string;
   promotion: boolean;
+  promPrice: number;
 };
 
 type TInfo = {
