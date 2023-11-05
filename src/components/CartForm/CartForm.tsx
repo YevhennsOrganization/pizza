@@ -1,15 +1,15 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, HTMLProps, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import Button from '../Button/Button';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { addInfo, getFilledCart } from '@/redux/cart/cartSlice';
 import { sendOrder } from '@/redux/cart/cartOperations';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import css from './CartForm.module.scss';
+import Button from '../Button/Button';
 import Input from '../Input/Input';
 import TextArea from '../TextArea/TextArea';
 import Checkbox from '../Checkbox/Checkbox';
+import css from './CartForm.module.scss';
 
-interface Props {
+interface Props extends HTMLProps<HTMLFormElement> {
   openModal: () => void;
 }
 
@@ -62,52 +62,50 @@ const CartForm: FC<Props> = ({ openModal }) => {
   const delivery = watch('delivery');
 
   return (
-    <>
-      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        {...register('name', { required: "Це обов'язкове поле!" })}
+        placeholder="Введіть м'я"
+        id="customer-name"
+        label="Ім'я"
+        htmlFor="customer-name"
+        error={errors?.name?.message}
+      />
+      <Input
+        {...register('number', { required: "Це обов'язкове поле!" })}
+        placeholder="Введіть номер телефону"
+        id="customer-number"
+        label="Номер телефону"
+        htmlFor="customer-number"
+        error={errors?.name?.message}
+      />
+      <Checkbox
+        {...register('delivery')}
+        delivery={delivery}
+        id="delivery"
+        htmlFor="delivery"
+        label="Доставка"
+      />
+      {delivery && (
         <Input
-          {...register('name', { required: "Це обов'язкове поле!" })}
-          placeholder="Введіть м'я"
-          id="customer-name"
-          label="Ім'я"
-          htmlFor="customer-name"
-          error={errors?.name?.message}
+          {...register('address', { required: "Це обов'язкове поле!" })}
+          id="address"
+          label="Введіть адресу"
+          placeholder="Введіть адресу"
+          htmlFor="address"
+          error={errors?.address?.message}
         />
-        <Input
-          {...register('number', { required: "Це обов'язкове поле!" })}
-          placeholder="Введіть номер телефону"
-          id="customer-number"
-          label="Номер телефону"
-          htmlFor="customer-number"
-          error={errors?.name?.message}
-        />
-        <Checkbox
-          {...register('delivery')}
-          delivery={delivery}
-          id="delivery"
-          htmlFor="delivery"
-          label="Доставка"
-        />
-        {delivery && (
-          <Input
-            {...register('address', { required: "Це обов'язкове поле!" })}
-            id="address"
-            label="Введіть адресу"
-            placeholder="Введіть адресу"
-            htmlFor="address"
-            error={errors?.address?.message}
-          />
-        )}
-        <TextArea
-          {...register('comment')}
-          id="comment"
-          placeholder="Введіть коментар"
-          label="Коментар"
-          htmlFor="comment"
-        />
-        <p className={css.totalPayment}>До оплати {totalPayment} грн</p>
-        <Button>{'Підтвердити'}</Button>
-      </form>
-    </>
+      )}
+      <TextArea
+        {...register('comment')}
+        id="comment"
+        placeholder="Введіть коментар"
+        label="Коментар"
+        htmlFor="comment"
+      />
+      <p className={css.totalPayment}>До оплати {totalPayment} грн</p>
+      <Button>{'Підтвердити'}</Button>
+    </form>
   );
 };
 

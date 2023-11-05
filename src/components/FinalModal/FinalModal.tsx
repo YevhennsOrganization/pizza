@@ -1,20 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { FC } from 'react';
 import { nanoid } from 'nanoid';
-
 import Button from '../Button/Button';
 import Loader from '@/components/Loader/Loader';
 import Modal from '@mui/material/Modal';
-
 import { useAppSelector } from '@/redux/hooks';
 import {
   getCustomerInfo,
   getFilledCart,
   getIsLoading,
 } from '@/redux/cart/cartSlice';
-
 import css from './FinalModal.module.scss';
-import { RiShoppingBasket2Line } from 'react-icons/ri';
 
 interface Props {
   open: boolean;
@@ -45,7 +41,7 @@ const FinalModal: FC<Props> = ({ open, finalAction }) => {
               </p>
               <p>Інформація про замовлення</p>
               <ul>
-                {filledCart.map(({ title, quantity, totalPrice }) => {
+                {filledCart.map(({ id, title, quantity, totalPrice }) => {
                   return (
                     <li key={nanoid()}>
                       <p>Назва: {title}</p>

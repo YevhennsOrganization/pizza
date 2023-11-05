@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import css from './Button.module.scss';
+import React, { FC, HTMLProps } from 'react';
 import { IconType } from 'react-icons';
+import css from './Button.module.scss';
 
-interface Props {
+interface Props extends HTMLProps<HTMLButtonElement> {
   typeSubmit?: boolean;
   Icon?: IconType;
   children: string;

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Carousel } from 'react-responsive-carousel';
-import css from './CarouselComponent.module.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import css from './CarouselComponent.module.scss';
 
 const CarouselComponent = () => {
   return (

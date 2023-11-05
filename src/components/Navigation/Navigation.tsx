@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-
 import { cn } from '@/helpers/combineClasses';
-
 import css from './Navigation.module.scss';
 
-const Navigation: React.FC = () => {
+const Navigation: FC = () => {
   const pathname = usePathname();
 
   return (

@@ -1,12 +1,8 @@
 import React, { FC } from 'react';
-
 import ProductsListItem from '../ProductsListItem/ProductsListItem';
-
 import { addItem } from '@/redux/cart/cartSlice';
 import { useAppDispatch } from '@/redux/hooks';
-
 import { toast } from 'react-toastify';
-
 import css from './ProductsList.module.scss';
 
 interface Props {

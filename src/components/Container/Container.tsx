@@ -1,8 +1,7 @@
-import React, { FC, ReactNode } from 'react';
-
+import React, { FC, ReactNode, HTMLProps } from 'react';
 import css from './Container.module.scss';
 
-interface Props {
+interface Props extends HTMLProps<HTMLDivElement> {
   children: ReactNode;
 }
 

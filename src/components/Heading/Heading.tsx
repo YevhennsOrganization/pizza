@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
-
+import React, { FC, HTMLProps } from 'react';
 import css from './Heading.module.scss';
 
-interface Props {
+interface Props extends HTMLProps<HTMLHeadingElement> {
   children: string;
 }
 
