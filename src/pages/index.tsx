@@ -30,15 +30,19 @@ export const Home: FC = () => {
   return (
     <>
       <Head>
-        <title>Pizza - news</title>
+        <title>Nostra pizza - Новинки</title>
       </Head>
       <Section>
         <Container>
           <Heading>Новинки</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
           <CarouselComponent />
-          <h2 className={css.heading}>Найпопулярніші позиції</h2>
-          <ProductsList data={promotionProducts} />
+          {!isLoading && (
+            <>
+              <h2 className={css.heading}>Найпопулярніші позиції</h2>
+              <ProductsList data={promotionProducts} />
+            </>
+          )}
           <ToastContainer />
         </Container>
       </Section>

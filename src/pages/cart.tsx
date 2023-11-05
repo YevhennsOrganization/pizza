@@ -39,7 +39,7 @@ const Cart: FC = () => {
   return (
     <>
       <Head>
-        <title>Pizza - cart</title>
+        <title>Nostra pizza - Кошик</title>
       </Head>
       <Section>
         <Container>

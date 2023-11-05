@@ -28,7 +28,7 @@ const Pizzas: FC = () => {
   return (
     <>
       <Head>
-        <title>Pizza - pizzas</title>
+        <title>Nostra pizza - Піца</title>
       </Head>
       <Section>
         <Container>

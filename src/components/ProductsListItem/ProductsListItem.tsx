@@ -16,15 +16,27 @@ interface Props {
 }
 
 const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
-  const { _id, title, description, dimension, price, photo, promotion } = item;
+  const {
+    _id,
+    title,
+    description,
+    dimension,
+    price,
+    photo,
+    promotion,
+    promPrice,
+  } = item;
 
   const [totalPrice, setTotalPrice] = useState(price);
+  const [totalPromPrice, setTotalPromPrice] = useState(promPrice);
   const [totalQuantity, setTotalQuantity] = useState(1);
 
   const getTotalQuantity = (quantity: number) => {
     setTotalQuantity(quantity);
     setTotalPrice(price * quantity);
+    setTotalPromPrice(promPrice * quantity);
   };
+  console.log(promPrice);
 
   return (
     <li className={css.listItem}>
@@ -54,7 +66,14 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
       </div>
       <ProductsQuantity getTotalQuantity={getTotalQuantity} />
       <div className={css.footerItem}>
-        <p className={css.price}>{totalPrice} грн</p>
+        {promotion ? (
+          <div className={css.priceWrapper}>
+            <p className={css.oldPrice}>{totalPrice} грн</p>
+            <p className={css.promPrice}>{totalPromPrice} грн</p>
+          </div>
+        ) : (
+          <p className={css.price}>{totalPrice} грн</p>
+        )}
         <Button
           Icon={RiShoppingBasket2Line}
           typeSubmit={false}

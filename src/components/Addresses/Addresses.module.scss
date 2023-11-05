@@ -12,6 +12,9 @@
         display: flex;
         flex-direction: column;
         gap: 24px;
+        @include desktop {
+            width: 50%;
+        }
     }
     p {
         font-family: var(--main-font);
