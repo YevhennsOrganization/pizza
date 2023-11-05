@@ -10,6 +10,7 @@ type TypeCartItem = {
   quantity: number;
   title: string;
   totalPrice: number;
+  promPrice: number;
 };
 
 interface Props {
@@ -19,6 +20,7 @@ interface Props {
 
 const CartListItem: FC<Props> = ({ data, deleteCartItem }) => {
   const { id, photo, title, quantity, totalPrice } = data;
+  console.log(data);
 
   return (
     <li className={css.cartListItem}>
