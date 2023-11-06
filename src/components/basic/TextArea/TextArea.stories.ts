@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import '../../../styles/globals.scss';
 
 import TextArea from './TextArea';
