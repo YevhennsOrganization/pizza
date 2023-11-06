@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
+    "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
@@ -37,7 +37,6 @@
     "@storybook/addon-essentials": "^7.5.2",
     "@storybook/addon-interactions": "^7.5.2",
     "@storybook/addon-links": "^7.5.2",
-    "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/blocks": "^7.5.2",
     "@storybook/nextjs": "^7.5.2",
     "@storybook/react": "^7.5.2",

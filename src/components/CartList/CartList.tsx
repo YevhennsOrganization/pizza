@@ -1,11 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLProps } from 'react';
 import { nanoid } from 'nanoid';
-
 import CartListItem from '../CartListItem/CartListItem';
-
 import css from './CartList.module.scss';
 
-interface Props {
+interface Props extends HTMLProps<HTMLUListElement> {
   filledCart: TCart;
   deleteCartItem: (id: string) => void;
 }

@@ -1,8 +1,6 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
-
 import { IconType } from 'react-icons';
-
 import css from './HeaderNavLink.module.scss';
 
 interface Props {

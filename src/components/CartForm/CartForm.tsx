@@ -1,15 +1,15 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, HTMLProps, useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import Button from '../Button/Button';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { addInfo, getFilledCart } from '@/redux/cart/cartSlice';
 import { sendOrder } from '@/redux/cart/cartOperations';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import css from './CartForm.module.scss';
-import Input from '../Input/Input';
-import TextArea from '../TextArea/TextArea';
-import Checkbox from '../Checkbox/Checkbox';
+import Button from '@/components/basic/Button/Button';
+import Input from '@/components/basic/Input/Input';
+import TextArea from '@/components/basic/TextArea/TextArea';
+import Checkbox from '../basic/Checkbox/Checkbox';
 
-interface Props {
+interface Props extends HTMLProps<HTMLFormElement> {
   openModal: () => void;
 }
 
@@ -62,56 +62,49 @@ const CartForm: FC<Props> = ({ openModal }) => {
   const delivery = watch('delivery');
 
   return (
-    <>
-      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        {...register('name', { required: "Це обов'язкове поле!" })}
+        placeholder="Введіть м'я"
+        id="customer-name"
+        label="Ім'я"
+        htmlFor="customer-name"
+        error={errors?.name?.message}
+      />
+      <Input
+        {...register('number', { required: "Це обов'язкове поле!" })}
+        placeholder="Введіть номер телефону"
+        id="customer-number"
+        label="Номер телефону"
+        htmlFor="customer-number"
+        error={errors?.name?.message}
+      />
+      <Checkbox
+        {...register('delivery')}
+        id="delivery"
+        htmlFor="delivery"
+        label="Доставка"
+      />
+      {delivery && (
         <Input
-          placeholder="Введіть м'я"
-          id="customer-name"
-          label="Ім'я"
-          error={errors?.name?.message}
-          {...register('name', { required: "Це обов'язкове поле!" })}
+          {...register('address', { required: "Це обов'язкове поле!" })}
+          id="address"
+          label="Введіть адресу"
+          placeholder="Введіть адресу"
+          htmlFor="address"
+          error={errors?.address?.message}
         />
-        <Input
-          placeholder="Введіть номер телефону"
-          id="customer-number"
-          label="Номер телефону"
-          error={errors?.name?.message}
-          {...register('number', { required: "Це обов'язкове поле!" })}
-        />
-        <Checkbox
-          delivery={delivery}
-          id="delivery"
-          {...register('delivery')}
-          label="Доставка"
-        />
-        {/* <div>
-          <input type="checkbox" id="delivery" {...register('delivery')} />
-          <label
-            htmlFor="delivery"
-            style={{ fontFamily: 'var(--secondary-font)' }}
-          >
-            Доставка
-          </label>
-        </div> */}
-        {delivery && (
-          <Input
-            id="address"
-            label="Введіть адресу"
-            placeholder="Введіть адресу"
-            error={errors?.address?.message}
-            {...register('address', { required: "Це обов'язкове поле!" })}
-          />
-        )}
-        <TextArea
-          {...register('comment')}
-          id="comment"
-          placeholder="Введіть коментар"
-          label="Коментар"
-        />
-        <p className={css.totalPayment}>До оплати {totalPayment} грн</p>
-        <Button>{'Підтвердити'}</Button>
-      </form>
-    </>
+      )}
+      <TextArea
+        {...register('comment')}
+        id="comment"
+        placeholder="Введіть коментар"
+        label="Коментар"
+        htmlFor="comment"
+      />
+      <p className={css.totalPayment}>До оплати {totalPayment} грн</p>
+      <Button type="submit">{'Підтвердити'}</Button>
+    </form>
   );
 };
 

@@ -1,14 +1,10 @@
 import React, { FC, useState } from 'react';
 import Image from 'next/image';
-
-import Button from '@/components/Button/Button';
 import { RiShoppingBasket2Line } from 'react-icons/ri';
 import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
-
 import { AiOutlineHeart } from 'react-icons/ai';
-
+import Button from '@/components/basic/Button/Button';
 import css from './ProductsListItem.module.scss';
-// import Button from '@/stories/Button/Button';
 
 interface Props {
   item: TChosenProduct;
@@ -80,8 +76,8 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
           <p className={css.price}>{totalPrice} грн</p>
         )}
         <Button
+          type="button"
           Icon={RiShoppingBasket2Line}
-          typeSubmit={false}
           onClick={() =>
             addToCart(_id, totalQuantity, promotion, totalPrice, totalPromPrice)
           }

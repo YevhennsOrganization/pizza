@@ -1,0 +1,19 @@
+.fieldset {
+    font-family: var(--secondary-font);
+    border: none;
+    textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 5px;
+        resize: none;
+        transition: var(--transition);
+        border: 1px solid var(--accent-color);
+        outline: none;
+        &:hover {
+            box-shadow: var(--box-shadow);
+        }
+    }
+    .errorMessage {
+        color: red;
+    }
+}
