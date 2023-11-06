@@ -3,11 +3,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { addInfo, getFilledCart } from '@/redux/cart/cartSlice';
 import { sendOrder } from '@/redux/cart/cartOperations';
-import TextArea from '../TextArea/TextArea';
 import Checkbox from '../Checkbox/Checkbox';
 import css from './CartForm.module.scss';
 import Button from '@/stories/Button/Button';
 import Input from '@/stories/Input/Input';
+import TextArea from '@/stories/TextArea/TextArea';
 
 interface Props extends HTMLProps<HTMLFormElement> {
   openModal: () => void;
