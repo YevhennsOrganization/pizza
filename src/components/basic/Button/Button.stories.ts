@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react';
 import '../../../styles/globals.scss';
 
 import Button from './Button';
@@ -24,7 +24,7 @@ const meta = {
       description: 'Іконка',
     },
   },
-} satisfies Meta<typeof Button>;
+};
 
 export default meta;
 type Story = StoryObj<typeof meta>;
