@@ -3,8 +3,8 @@ import Image from 'next/image';
 import { RiShoppingBasket2Line } from 'react-icons/ri';
 import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
 import { AiOutlineHeart } from 'react-icons/ai';
+import Button from '@/components/basic/Button/Button';
 import css from './ProductsListItem.module.scss';
-import Button from '@/stories/Button/Button';
 
 interface Props {
   item: TChosenProduct;

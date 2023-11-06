@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import Logo from '../Logo/Logo';
 import { RiShoppingBasketLine } from 'react-icons/ri';
 import { BiUser } from 'react-icons/bi';
-import Container from '@/components/Container/Container';
+import Container from '@/components/common/Container/Container';
 import PhoneNumbersSet from '../PhoneNumbersSet/PhoneNumbersSet';
 import HeaderNavLink from '../HeaderNavLink/HeaderNavLink';
 import Navigation from '../Navigation/Navigation';

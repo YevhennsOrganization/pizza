@@ -3,11 +3,10 @@ import css from './Checkbox.module.scss';
 
 interface Props extends HTMLProps<HTMLInputElement> {
   label?: string;
-  delivery: boolean;
 }
 
 const Checkbox: FC<PropsWithRef<Props>> = forwardRef(
-  ({ label, delivery, ...props }, ref) => {
+  ({ label, ...props }, ref) => {
     return (
       <fieldset className={css.fieldset}>
         <input type="checkbox" ref={ref} {...props} />

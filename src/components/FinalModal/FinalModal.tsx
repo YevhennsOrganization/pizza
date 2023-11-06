@@ -1,7 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { FC } from 'react';
 import { nanoid } from 'nanoid';
-import Loader from '@/components/Loader/Loader';
+import Loader from '@/components/common/Loader/Loader';
+import Button from '@/components/basic/Button/Button';
 import Modal from '@mui/material/Modal';
 import { useAppSelector } from '@/redux/hooks';
 import {
@@ -10,7 +11,6 @@ import {
   getIsLoading,
 } from '@/redux/cart/cartSlice';
 import css from './FinalModal.module.scss';
-import Button from '@/stories/Button/Button';
 
 interface Props {
   open: boolean;

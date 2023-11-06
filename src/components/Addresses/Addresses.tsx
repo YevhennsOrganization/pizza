@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import Section from '../Section/Section';
-import Container from '../Container/Container';
+import Section from '../common/Section/Section';
+import Container from '../common/Container/Container';
 import SimpleMap from '../GoogleMap/GoogleMap';
 import css from './Addresses.module.scss';
 

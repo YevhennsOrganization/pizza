@@ -3,11 +3,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { addInfo, getFilledCart } from '@/redux/cart/cartSlice';
 import { sendOrder } from '@/redux/cart/cartOperations';
-import Checkbox from '../Checkbox/Checkbox';
 import css from './CartForm.module.scss';
-import Button from '@/stories/Button/Button';
-import Input from '@/stories/Input/Input';
-import TextArea from '@/stories/TextArea/TextArea';
+import Button from '@/components/basic/Button/Button';
+import Input from '@/components/basic/Input/Input';
+import TextArea from '@/components/basic/TextArea/TextArea';
+import Checkbox from '../basic/Checkbox/Checkbox';
 
 interface Props extends HTMLProps<HTMLFormElement> {
   openModal: () => void;
@@ -81,7 +81,6 @@ const CartForm: FC<Props> = ({ openModal }) => {
       />
       <Checkbox
         {...register('delivery')}
-        delivery={delivery}
         id="delivery"
         htmlFor="delivery"
         label="Доставка"

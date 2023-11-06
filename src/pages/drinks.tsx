@@ -1,10 +1,10 @@
 import React, { FC, useEffect } from 'react';
 import Head from 'next/head';
-import Heading from '@/components/Heading/Heading';
-import Container from '@/components/Container/Container';
-import Section from '@/components/Section/Section';
+import Heading from '@/components/basic/Heading/Heading';
+import Container from '@/components/common/Container/Container';
+import Section from '@/components/common/Section/Section';
 import ProductsList from '@/components/ProductsList/ProductsList';
-import Loader from '@/components/Loader/Loader';
+import Loader from '@/components/common/Loader/Loader';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getDrinks, getIsLoading } from '@/redux/products/productsSlice';
 import { getProducts } from '@/redux/products/productsOperations';

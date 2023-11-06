@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { BsFacebook, BsInstagram } from 'react-icons/bs';
-import Container from '@/components/Container/Container';
+import Container from '@/components/common/Container/Container';
 import FooterNavigation from '../FooterNavigation/FooterNavigation';
 import css from './Footer.module.scss';
 

@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import '../../styles/globals.scss';
+import '../../../styles/globals.scss';
 
-import Input from './Input';
+import Checkbox from './Checkbox';
 
 const meta = {
-  title: 'Input',
-  component: Input,
+  title: 'Checkbox',
+  component: Checkbox,
   parameters: {
     layout: 'centered',
   },
@@ -13,12 +13,6 @@ const meta = {
   argTypes: {
     label: {
       description: 'label',
-    },
-    placeholder: {
-      description: 'placeholder',
-    },
-    error: {
-      description: 'Текст помилки',
     },
   },
 };
@@ -28,7 +22,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    label: "Ім'я",
-    placeholder: "Введіть ім'я",
+    label: 'Доставка',
   },
 };

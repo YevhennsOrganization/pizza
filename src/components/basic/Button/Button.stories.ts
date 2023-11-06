@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import '../../styles/globals.scss';
+import '../../../styles/globals.scss';
 
 import Button from './Button';
 import { RiShoppingBasket2Line } from 'react-icons/ri';
