@@ -3,11 +3,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { addInfo, getFilledCart } from '@/redux/cart/cartSlice';
 import { sendOrder } from '@/redux/cart/cartOperations';
-import Button from '../Button/Button';
-import Input from '../Input/Input';
 import TextArea from '../TextArea/TextArea';
 import Checkbox from '../Checkbox/Checkbox';
 import css from './CartForm.module.scss';
+import Button from '@/stories/Button/Button';
+import Input from '@/stories/Input/Input';
 
 interface Props extends HTMLProps<HTMLFormElement> {
   openModal: () => void;
@@ -104,7 +104,7 @@ const CartForm: FC<Props> = ({ openModal }) => {
         htmlFor="comment"
       />
       <p className={css.totalPayment}>До оплати {totalPayment} грн</p>
-      <Button>{'Підтвердити'}</Button>
+      <Button type="submit">{'Підтвердити'}</Button>
     </form>
   );
 };

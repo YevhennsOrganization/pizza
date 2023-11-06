@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import '../../styles/globals.scss';
 
 import Button from './Button';
 import { RiShoppingBasket2Line } from 'react-icons/ri';
 
 const meta = {
-  title: 'UI/Button',
+  title: 'Button',
   component: Button,
   parameters: {
     layout: 'centered',
@@ -14,7 +15,7 @@ const meta = {
     children: {
       description: 'Текст кнопки',
     },
-    typeSubmit: {
+    type: {
       description: 'Тип кнопки',
     },
     Icon: {
@@ -32,13 +33,13 @@ export const Primary: Story = {
   args: {
     children: 'Кніпочка',
     Icon: RiShoppingBasket2Line,
-    typeSubmit: true,
+    type: 'button',
   },
 };
 
 export const Secondary: Story = {
   args: {
     children: 'Кніпочка',
-    typeSubmit: false,
+    type: 'submit',
   },
 };

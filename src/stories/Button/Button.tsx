@@ -3,19 +3,15 @@ import css from './Button.module.scss';
 import { IconType } from 'react-icons';
 
 interface Props {
-  typeSubmit?: boolean;
+  type: 'submit' | 'button';
   Icon?: IconType;
   children: string;
   onClick?: () => void;
 }
 
-const Button: FC<Props> = ({ typeSubmit = true, Icon, children, onClick }) => {
+const Button: FC<Props> = ({ Icon, children, onClick, type }) => {
   return (
-    <button
-      type={typeSubmit ? 'submit' : 'button'}
-      className={css.button}
-      onClick={onClick}
-    >
+    <button className={css.button} onClick={onClick} type={type}>
       {Icon && <Icon />}
       {children}
     </button>
