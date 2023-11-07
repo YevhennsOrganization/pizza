@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 import Image from 'next/image';
 import { RiShoppingBasket2Line } from 'react-icons/ri';
 import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import Button from '@/components/basic/Button/Button';
 import css from './ProductsListItem.module.scss';
 
@@ -32,11 +32,16 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
   const [totalPrice, setTotalPrice] = useState(price);
   const [totalPromPrice, setTotalPromPrice] = useState(promPrice);
   const [totalQuantity, setTotalQuantity] = useState(1);
+  const [isfavorite, setIsFavorite] = useState(false);
 
   const getTotalQuantity = (quantity: number) => {
     setTotalQuantity(quantity);
     setTotalPrice(price * quantity);
     setTotalPromPrice(promPrice * quantity);
+  };
+
+  const addToFavorites = () => {
+    setIsFavorite(!isfavorite);
   };
 
   return (
@@ -46,12 +51,21 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
         type="button"
         className={css.favorite}
         aria-label="add to favorite"
+        onClick={addToFavorites}
       >
-        <AiOutlineHeart
-          style={{
-            fontSize: '34',
-          }}
-        />
+        {isfavorite ? (
+          <AiFillHeart
+            style={{
+              fontSize: '34',
+            }}
+          />
+        ) : (
+          <AiOutlineHeart
+            style={{
+              fontSize: '34',
+            }}
+          />
+        )}
       </button>
       <Image
         src={photo}
@@ -77,11 +91,11 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
         )}
         <Button
           type="button"
-          Icon={RiShoppingBasket2Line}
           onClick={() =>
             addToCart(_id, totalQuantity, promotion, totalPrice, totalPromPrice)
           }
         >
+          <RiShoppingBasket2Line />
           {'В кошик'}
         </Button>
       </div>

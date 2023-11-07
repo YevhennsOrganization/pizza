@@ -3,18 +3,23 @@ import { getProducts } from './productsOperations';
 import { RootState } from '../store';
 
 const initialState = {
-  pizzas: [] as TChosenProduct[],
-  appetizers: [] as TChosenProduct[],
-  drinks: [] as TChosenProduct[],
-  promotions: [] as TChosenProduct[],
-  error: false as any,
+  pizzas: [] as TChosenProductsArr,
+  appetizers: [] as TChosenProductsArr,
+  drinks: [] as TChosenProductsArr,
+  promotions: [] as TChosenProductsArr,
+  favorite: [] as TFavoritesArr,
+  error: false as boolean | string | unknown,
   isLoading: false,
 };
 
 const productsSlice = createSlice({
   name: 'products',
   initialState,
-  reducers: {},
+  reducers: {
+    addToFavorite(state, action) {
+      state.promotions = [...state.promotions, action.payload];
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(getProducts.pending, state => {
@@ -52,6 +57,7 @@ const productsSlice = createSlice({
       }),
 });
 
+export const { addToFavorite } = productsSlice.actions;
 export const productsReducer = productsSlice.reducer;
 
 export const getPizzas = (state: RootState) => state.products.pizzas;

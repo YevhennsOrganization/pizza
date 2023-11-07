@@ -4,6 +4,7 @@ import Heading from '@/components/basic/Heading/Heading';
 import Container from '@/components/common/Container/Container';
 import Section from '@/components/common/Section/Section';
 import Loader from '@/components/common/Loader/Loader';
+import Empty from '@/components/Empty/Empty';
 import { getIsLoading } from '@/redux/products/productsSlice';
 import { useAppSelector } from '@/redux/hooks';
 
@@ -20,6 +21,7 @@ const Favorite: FC = () => {
             <Heading>Улюблене</Heading>
             <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
             <p>Сторінка в розробці</p>
+            <Empty text={'Тут нічого немає!'} />
           </div>
         </Container>
       </Section>

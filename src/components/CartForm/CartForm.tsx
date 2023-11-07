@@ -13,15 +13,6 @@ interface Props extends HTMLProps<HTMLFormElement> {
   openModal: () => void;
 }
 
-type FinalForm = {
-  openModal: string;
-  delivery: boolean;
-  name: string;
-  number: string;
-  address?: string;
-  comment?: string;
-};
-
 const CartForm: FC<Props> = ({ openModal }) => {
   const {
     register,
@@ -29,7 +20,7 @@ const CartForm: FC<Props> = ({ openModal }) => {
     formState: { errors },
     reset,
     watch,
-  } = useForm<FinalForm>({ mode: 'onChange' });
+  } = useForm<TInfo>({ mode: 'onChange' });
 
   const [totalPayment, setTotalPayment] = useState(0);
 
@@ -43,7 +34,7 @@ const CartForm: FC<Props> = ({ openModal }) => {
     setTotalPayment(result);
   }, [payment]);
 
-  const onSubmit: SubmitHandler<FinalForm> = data => {
+  const onSubmit: SubmitHandler<TInfo> = data => {
     openModal();
     const customerInfo: TInfo = {
       address: data.address,

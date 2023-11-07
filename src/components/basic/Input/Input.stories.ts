@@ -1,15 +1,14 @@
-import type { StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import '../../../styles/globals.scss';
 
 import Input from './Input';
 
-const meta = {
+const meta: Meta<typeof Input> = {
   title: 'Input',
   component: Input,
   parameters: {
     layout: 'centered',
   },
-  tags: ['autodocs'],
   argTypes: {
     label: {
       description: 'label',
@@ -22,8 +21,8 @@ const meta = {
     },
   },
 };
-
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
