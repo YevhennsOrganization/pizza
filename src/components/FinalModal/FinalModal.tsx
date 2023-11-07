@@ -22,7 +22,7 @@ const FinalModal: FC<Props> = ({ open, finalAction }) => {
   const info = useAppSelector(getCustomerInfo);
   const isLoading = useAppSelector(getIsLoading);
 
-  const { address, comment, delivery, name, number, sum } = info;
+  const { sum } = info;
 
   return (
     <div>
@@ -41,47 +41,17 @@ const FinalModal: FC<Props> = ({ open, finalAction }) => {
               </p>
               <p>Інформація про замовлення</p>
               <ul>
-                {filledCart.map(({ id, title, quantity, totalPrice }) => {
+                {filledCart.map(({ title, quantity, totalPrice }) => {
                   return (
                     <li key={nanoid()}>
-                      <p>Назва: {title}</p>
-                      <p>Кількість: {quantity}</p>
-                      <p>Ціна: {totalPrice} грн.</p>
+                      <p>
+                        {title} - {quantity} шт. - {totalPrice} грн.
+                      </p>
                     </li>
                   );
                 })}
               </ul>
-              <p>Інформація про замовника</p>
-              <ul>
-                <li>
-                  <p>Ім'я: {name}</p>
-                </li>
-                <li>
-                  <p>Номер телефону: {number}</p>
-                </li>
-                {delivery ? (
-                  <li>
-                    <p>Доставка: Так</p>
-                  </li>
-                ) : (
-                  <li>
-                    <p>Доставка: Ні</p>
-                  </li>
-                )}
-                {address && (
-                  <li>
-                    <p>Адреса: {address}</p>
-                  </li>
-                )}
-                {comment && (
-                  <li>
-                    <p>Коментар: {comment}</p>
-                  </li>
-                )}
-                <li>
-                  <p>Загальна сума: {sum} грн.</p>
-                </li>
-              </ul>
+              <p>Загальна сума: {sum} грн.</p>
               <Button type="button" onClick={finalAction}>
                 {'Вийти'}
               </Button>
