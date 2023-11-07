@@ -6,6 +6,7 @@ import CartForm from '@/components/CartForm/CartForm';
 import FinalModal from '@/components/FinalModal/FinalModal';
 import Container from '@/components/common/Container/Container';
 import Section from '@/components/common/Section/Section';
+import CartList from '@/components/CartList/CartList';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   getFilledCart,
@@ -13,7 +14,7 @@ import {
   deleteAllItems,
 } from '@/redux/cart/cartSlice';
 import css from '../styles/Cart.module.scss';
-import CartList from '@/components/CartList/CartList';
+import Empty from '@/components/Empty/Empty';
 
 const Cart: FC = () => {
   const [open, setOpen] = useState(false);
@@ -51,16 +52,7 @@ const Cart: FC = () => {
                 <CartForm openModal={openModal} />
               </>
             ) : (
-              <div className={css.emptyCart}>
-                <Image
-                  src={'/empty.png'}
-                  alt="empty"
-                  width={236}
-                  height={257}
-                  priority={true}
-                />
-                <p>Кошик порожній!</p>
-              </div>
+              <Empty text={'Кошик порожній!'} />
             )}
             {open && <FinalModal open={open} finalAction={finalAction} />}
           </div>
