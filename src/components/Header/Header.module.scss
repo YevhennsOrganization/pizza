@@ -1,13 +1,8 @@
-@import "../../styles/media.mixin.scss";
-
 .wrapper {
   .headerItem {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @include mobile {
-      overflow: scroll;
-    }
   }
   .headerLinks {
     display: flex;
