@@ -32,6 +32,9 @@
         border: none;
         transition: all 250ms linear;
         cursor: pointer;
+        svg {
+            color: var(--main-color);
+        }
         &:hover {
             scale: 1.2;
         }

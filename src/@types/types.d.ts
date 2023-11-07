@@ -10,9 +10,13 @@ type TChosenProduct = {
   promPrice: number;
 };
 
+type TChosenProductsArr = TChosenProduct[];
+
+type TFavoritesArr = Pick<TChosenProduct, '_id' | 'category'>[];
+
 type TInfo = {
   address?: string | undefined;
-  comment?: string | undefined;
+  comment?: string;
   delivery: boolean;
   name: string;
   number: string;

@@ -4,16 +4,8 @@ import IconButton from '@mui/material/IconButton';
 import CancelIcon from '@mui/icons-material/Cancel';
 import css from './CartListItem.module.scss';
 
-type TypeCartItem = {
-  id: string;
-  photo: string;
-  quantity: number;
-  title: string;
-  totalPrice: number;
-};
-
 interface Props {
-  data: TypeCartItem;
+  data: TCartItem;
   deleteCartItem: (id: string) => void;
 }
 
@@ -29,7 +21,7 @@ const CartListItem: FC<Props> = ({ data, deleteCartItem }) => {
       <IconButton
         style={{ marginLeft: 'auto' }}
         onClick={() => deleteCartItem(id)}
-        color="primary"
+        color="error"
         aria-label="delete"
       >
         <CancelIcon />
