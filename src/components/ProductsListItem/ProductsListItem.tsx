@@ -5,6 +5,8 @@ import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import Button from '@/components/basic/Button/Button';
 import css from './ProductsListItem.module.scss';
+import { addToFavorite, getFavorites } from '@/redux/products/productsSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 interface Props {
   item: TChosenProduct;
@@ -34,6 +36,9 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
   const [totalQuantity, setTotalQuantity] = useState(1);
   const [isfavorite, setIsFavorite] = useState(false);
 
+  const dispatch = useAppDispatch();
+  const favoriteProducts = useAppSelector(getFavorites);
+
   const getTotalQuantity = (quantity: number) => {
     setTotalQuantity(quantity);
     setTotalPrice(price * quantity);
@@ -42,6 +47,10 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
 
   const addToFavorites = () => {
     setIsFavorite(!isfavorite);
+    const favoriteProduct = {
+      id: _id,
+    };
+    dispatch(addToFavorite(favoriteProduct));
   };
 
   return (

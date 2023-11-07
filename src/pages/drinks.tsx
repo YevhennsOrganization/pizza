@@ -6,15 +6,18 @@ import Section from '@/components/common/Section/Section';
 import ProductsList from '@/components/ProductsList/ProductsList';
 import Loader from '@/components/common/Loader/Loader';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { getDrinks, getIsLoading } from '@/redux/products/productsSlice';
+import { getProductsAll, getIsLoading } from '@/redux/products/productsSlice';
 import { getProducts } from '@/redux/products/productsOperations';
+import { filterByCategory } from '@/helpers/filterByCategory';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Drinks: FC = () => {
-  const drinks = useAppSelector(getDrinks);
+  const products = useAppSelector(getProductsAll);
   const isLoading = useAppSelector(getIsLoading);
   const dispatch = useAppDispatch();
+
+  const drinks = filterByCategory(products, 'drinks');
 
   useEffect(() => {
     if (drinks.length === 0) {
