@@ -6,6 +6,7 @@ import FinalModal from '@/components/FinalModal/FinalModal';
 import Container from '@/components/common/Container/Container';
 import Section from '@/components/common/Section/Section';
 import CartList from '@/components/CartList/CartList';
+import Empty from '@/components/Empty/Empty';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   getFilledCart,
@@ -13,7 +14,6 @@ import {
   deleteAllItems,
 } from '@/redux/cart/cartSlice';
 import css from '../styles/Cart.module.scss';
-import Empty from '@/components/Empty/Empty';
 
 const Cart: FC = () => {
   const [open, setOpen] = useState(false);
