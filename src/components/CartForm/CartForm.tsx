@@ -3,11 +3,11 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { addInfo, getFilledCart } from '@/redux/cart/cartSlice';
 import { sendOrder } from '@/redux/cart/cartOperations';
-import css from './CartForm.module.scss';
 import Button from '@/components/basic/Button/Button';
 import Input from '@/components/basic/Input/Input';
 import TextArea from '@/components/basic/TextArea/TextArea';
 import Checkbox from '../basic/Checkbox/Checkbox';
+import css from './CartForm.module.scss';
 
 interface Props extends HTMLProps<HTMLFormElement> {
   openModal: () => void;
@@ -61,15 +61,28 @@ const CartForm: FC<Props> = ({ openModal }) => {
         label="Ім'я"
         htmlFor="customer-name"
         error={errors?.name?.message}
+        inputMode="text"
+        type="text"
       />
       <Input
-        {...register('number', { required: "Це обов'язкове поле!" })}
+        {...register('number', {
+          required: "Це обов'язкове поле!",
+          minLength: 10,
+          maxLength: {
+            value: 10,
+            message: 'Забагато цифр',
+          },
+        })}
+        pattern="[0-9]{10}"
         placeholder="Введіть номер телефону"
         id="customer-number"
-        label="Номер телефону"
+        label="Номер телефону в форматі: (0991115533)"
         htmlFor="customer-number"
-        error={errors?.name?.message}
+        type="tel"
+        error={errors?.number?.message}
+        inputMode="tel"
       />
+
       <Checkbox
         {...register('delivery')}
         id="delivery"
