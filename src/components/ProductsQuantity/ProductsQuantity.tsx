@@ -15,9 +15,7 @@ const ProductsQuantity: FC<Props> = ({ getTotalQuantity }) => {
     setQuantity(quantity + 1);
   };
   const decrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+    setQuantity(quantity - 1);
   };
 
   useEffect(() => {
@@ -26,7 +24,12 @@ const ProductsQuantity: FC<Props> = ({ getTotalQuantity }) => {
 
   return (
     <div className={css.wrapper}>
-      <IconButton onClick={decrement} color="primary" aria-label="minus">
+      <IconButton
+        onClick={decrement}
+        disabled={quantity === 1}
+        color="primary"
+        aria-label="minus"
+      >
         <RemoveCircleOutlineIcon />
       </IconButton>
       <p>{quantity} шт.</p>

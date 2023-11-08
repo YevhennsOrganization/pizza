@@ -59,7 +59,7 @@ const ProductsListItem: FC<Props> = ({
     if (favoriteProducts.some(item => item._id === _id)) {
       setIsFavorite(false);
       dispatch(removeFromFavoriteAction(_id));
-      toast.success('Видалено з улюблених', {
+      toast.warn('Видалено з улюблених', {
         position: 'top-center',
         autoClose: 1500,
         hideProgressBar: true,
@@ -84,7 +84,11 @@ const ProductsListItem: FC<Props> = ({
         aria-label="add to favorite"
         onClick={addToFavorite}
       >
-        {isFavorite ? <AiFillHeart /> : <AiOutlineHeart />}
+        {isFavorite ? (
+          <AiFillHeart className={css.filled} />
+        ) : (
+          <AiOutlineHeart />
+        )}
       </button>
       <Image
         src={photo}
