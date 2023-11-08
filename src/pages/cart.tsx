@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import Heading from '@/components/basic/Heading/Heading';
 import CartForm from '@/components/CartForm/CartForm';
 import FinalModal from '@/components/FinalModal/FinalModal';
@@ -27,11 +26,11 @@ const Cart: FC = () => {
   };
 
   const openModal = () => {
-    setOpen(!open);
+    setOpen(true);
   };
-  const finalAction = () => {
+  const deleteAllProducts = () => {
     dispatch(deleteAllItems());
-    setOpen(!open);
+    setOpen(false);
   };
 
   return (
@@ -48,13 +47,14 @@ const Cart: FC = () => {
                 <CartList
                   filledCart={filledCart}
                   deleteCartItem={deleteCartItem}
+                  deleteAllProducts={deleteAllProducts}
                 />
                 <CartForm openModal={openModal} />
               </>
             ) : (
               <Empty text={'Кошик порожній!'} />
             )}
-            {open && <FinalModal open={open} finalAction={finalAction} />}
+            {open && <FinalModal open={open} finalAction={deleteAllProducts} />}
           </div>
         </Container>
       </Section>
