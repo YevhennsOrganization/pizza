@@ -4,9 +4,13 @@ import { RiShoppingBasket2Line } from 'react-icons/ri';
 import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import Button from '@/components/basic/Button/Button';
+import {
+  addToFavoriteAction,
+  removeFromFavoriteAction,
+} from '@/redux/products/productsSlice';
+import { useAppDispatch } from '@/redux/hooks';
+import { toast } from 'react-toastify';
 import css from './ProductsListItem.module.scss';
-import { addToFavorite, getFavorites } from '@/redux/products/productsSlice';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
 interface Props {
   item: TChosenProduct;
@@ -17,9 +21,16 @@ interface Props {
     totalPrice: number,
     TotalPromPrice: number
   ) => void;
+  setFavoriteProducts: (_id: string) => boolean;
+  favoriteProducts: TChosenProductsArr;
 }
 
-const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
+const ProductsListItem: FC<Props> = ({
+  item,
+  addToCart,
+  setFavoriteProducts,
+  favoriteProducts,
+}) => {
   const {
     _id,
     title,
@@ -34,10 +45,9 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
   const [totalPrice, setTotalPrice] = useState(price);
   const [totalPromPrice, setTotalPromPrice] = useState(promPrice);
   const [totalQuantity, setTotalQuantity] = useState(1);
-  const [isfavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(setFavoriteProducts(_id));
 
   const dispatch = useAppDispatch();
-  const favoriteProducts = useAppSelector(getFavorites);
 
   const getTotalQuantity = (quantity: number) => {
     setTotalQuantity(quantity);
@@ -45,36 +55,36 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
     setTotalPromPrice(promPrice * quantity);
   };
 
-  const addToFavorites = () => {
-    setIsFavorite(!isfavorite);
-    const favoriteProduct = {
-      id: _id,
-    };
-    dispatch(addToFavorite(favoriteProduct));
+  const addToFavorite = () => {
+    if (favoriteProducts.some(item => item._id === _id)) {
+      setIsFavorite(false);
+      dispatch(removeFromFavoriteAction(_id));
+      toast.success('Видалено з улюблених', {
+        position: 'top-center',
+        autoClose: 1500,
+        hideProgressBar: true,
+      });
+    } else {
+      setIsFavorite(true);
+      dispatch(addToFavoriteAction(item));
+      toast.success('Додано в улюблені', {
+        position: 'top-center',
+        autoClose: 1500,
+        hideProgressBar: true,
+      });
+    }
   };
 
   return (
-    <li className={css.listItem}>
+    <div className={css.listItem}>
       {promotion && <div className={css.promotion}>Акція</div>}
       <button
         type="button"
         className={css.favorite}
         aria-label="add to favorite"
-        onClick={addToFavorites}
+        onClick={addToFavorite}
       >
-        {isfavorite ? (
-          <AiFillHeart
-            style={{
-              fontSize: '34',
-            }}
-          />
-        ) : (
-          <AiOutlineHeart
-            style={{
-              fontSize: '34',
-            }}
-          />
-        )}
+        {isFavorite ? <AiFillHeart /> : <AiOutlineHeart />}
       </button>
       <Image
         src={photo}
@@ -108,7 +118,7 @@ const ProductsListItem: FC<Props> = ({ item, addToCart }) => {
           {'В кошик'}
         </Button>
       </div>
-    </li>
+    </div>
   );
 };
 

@@ -13,7 +13,7 @@ const CartListItem: FC<Props> = ({ data, deleteCartItem }) => {
   const { id, photo, title, quantity, totalPrice } = data;
 
   return (
-    <li className={css.cartListItem}>
+    <div className={css.cartListItem}>
       <Image src={photo} alt="item photo" width={50} height={50} />
       <p>{title}</p>
       <p>{quantity}</p>
@@ -26,7 +26,7 @@ const CartListItem: FC<Props> = ({ data, deleteCartItem }) => {
       >
         <CancelIcon />
       </IconButton>
-    </li>
+    </div>
   );
 };
 

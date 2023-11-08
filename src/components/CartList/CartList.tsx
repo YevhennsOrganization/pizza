@@ -10,7 +10,7 @@ interface Props extends HTMLProps<HTMLUListElement> {
 
 const CartList: FC<Props> = ({ filledCart, deleteCartItem }) => {
   return (
-    <ul className={css.cartList}>
+    <div className={css.cartList}>
       {filledCart.map(data => {
         return (
           <CartListItem
@@ -20,7 +20,7 @@ const CartList: FC<Props> = ({ filledCart, deleteCartItem }) => {
           />
         );
       })}
-    </ul>
+    </div>
   );
 };
 

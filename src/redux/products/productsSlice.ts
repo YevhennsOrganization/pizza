@@ -5,7 +5,7 @@ import { RootState } from '../store';
 const initialState = {
   productsAll: [] as TChosenProductsArr,
   promotions: [] as TChosenProductsArr,
-  favorites: [] as TFavoritesArr,
+  favorites: [] as TChosenProductsArr,
   error: false as boolean | string | unknown,
   isLoading: false,
 };
@@ -14,8 +14,13 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    addToFavorite(state, action) {
+    addToFavoriteAction(state, action) {
       state.favorites = [...state.favorites, action.payload];
+    },
+    removeFromFavoriteAction(state, action) {
+      state.favorites = state.favorites.filter(
+        item => item._id !== action.payload
+      );
     },
   },
   extraReducers: builder =>
@@ -48,7 +53,8 @@ const productsSlice = createSlice({
       }),
 });
 
-export const { addToFavorite } = productsSlice.actions;
+export const { addToFavoriteAction } = productsSlice.actions;
+export const { removeFromFavoriteAction } = productsSlice.actions;
 export const productsReducer = productsSlice.reducer;
 
 export const getProductsAll = (state: RootState) => state.products.productsAll;
