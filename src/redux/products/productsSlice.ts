@@ -3,11 +3,9 @@ import { getProducts } from './productsOperations';
 import { RootState } from '../store';
 
 const initialState = {
-  pizzas: [] as TChosenProductsArr,
-  appetizers: [] as TChosenProductsArr,
-  drinks: [] as TChosenProductsArr,
+  productsAll: [] as TChosenProductsArr,
   promotions: [] as TChosenProductsArr,
-  favorite: [] as TFavoritesArr,
+  favorites: [] as TChosenProductsArr,
   error: false as boolean | string | unknown,
   isLoading: false,
 };
@@ -16,8 +14,13 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    addToFavorite(state, action) {
-      state.promotions = [...state.promotions, action.payload];
+    addToFavoriteAction(state, action) {
+      state.favorites = [...state.favorites, action.payload];
+    },
+    removeFromFavoriteAction(state, action) {
+      state.favorites = state.favorites.filter(
+        item => item._id !== action.payload
+      );
     },
   },
   extraReducers: builder =>
@@ -33,19 +36,12 @@ const productsSlice = createSlice({
           return;
         }
         if (action.payload) {
-          const getByCategory = (category: string) => {
-            return action.payload.filter(
-              (item: TChosenProduct) => item.category === category
-            );
-          };
           const getByPromotion = () => {
             return action.payload.filter(
               (item: TChosenProduct) => item.promotion === true
             );
           };
-          state.pizzas = getByCategory('pizzas');
-          state.appetizers = getByCategory('appetizers');
-          state.drinks = getByCategory('drinks');
+          state.productsAll = action.payload;
           state.promotions = getByPromotion();
           state.isLoading = false;
         }
@@ -57,11 +53,11 @@ const productsSlice = createSlice({
       }),
 });
 
-export const { addToFavorite } = productsSlice.actions;
+export const { addToFavoriteAction } = productsSlice.actions;
+export const { removeFromFavoriteAction } = productsSlice.actions;
 export const productsReducer = productsSlice.reducer;
 
-export const getPizzas = (state: RootState) => state.products.pizzas;
-export const getAppetizers = (state: RootState) => state.products.appetizers;
-export const getDrinks = (state: RootState) => state.products.drinks;
+export const getProductsAll = (state: RootState) => state.products.productsAll;
 export const getPromotions = (state: RootState) => state.products.promotions;
 export const getIsLoading = (state: RootState) => state.products.isLoading;
+export const getFavorites = (state: RootState) => state.products.favorites;

@@ -1,12 +1,12 @@
 import React, { FC, useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 import Heading from '@/components/basic/Heading/Heading';
 import CartForm from '@/components/CartForm/CartForm';
 import FinalModal from '@/components/FinalModal/FinalModal';
 import Container from '@/components/common/Container/Container';
 import Section from '@/components/common/Section/Section';
 import CartList from '@/components/CartList/CartList';
+import Empty from '@/components/Empty/Empty';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
   getFilledCart,
@@ -14,7 +14,6 @@ import {
   deleteAllItems,
 } from '@/redux/cart/cartSlice';
 import css from '../styles/Cart.module.scss';
-import Empty from '@/components/Empty/Empty';
 
 const Cart: FC = () => {
   const [open, setOpen] = useState(false);
@@ -27,11 +26,11 @@ const Cart: FC = () => {
   };
 
   const openModal = () => {
-    setOpen(!open);
+    setOpen(true);
   };
-  const finalAction = () => {
+  const deleteAllProducts = () => {
     dispatch(deleteAllItems());
-    setOpen(!open);
+    setOpen(false);
   };
 
   return (
@@ -48,13 +47,14 @@ const Cart: FC = () => {
                 <CartList
                   filledCart={filledCart}
                   deleteCartItem={deleteCartItem}
+                  deleteAllProducts={deleteAllProducts}
                 />
                 <CartForm openModal={openModal} />
               </>
             ) : (
               <Empty text={'Кошик порожній!'} />
             )}
-            {open && <FinalModal open={open} finalAction={finalAction} />}
+            {open && <FinalModal open={open} finalAction={deleteAllProducts} />}
           </div>
         </Container>
       </Section>

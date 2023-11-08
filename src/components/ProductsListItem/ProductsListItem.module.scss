@@ -34,6 +34,10 @@
         cursor: pointer;
         svg {
             color: var(--main-color);
+            font-size: 34px;
+        }
+        .filled {
+            color: var(--accent-color);
         }
         &:hover {
             scale: 1.2;

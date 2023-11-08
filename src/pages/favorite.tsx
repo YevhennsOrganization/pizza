@@ -5,11 +5,16 @@ import Container from '@/components/common/Container/Container';
 import Section from '@/components/common/Section/Section';
 import Loader from '@/components/common/Loader/Loader';
 import Empty from '@/components/Empty/Empty';
-import { getIsLoading } from '@/redux/products/productsSlice';
+import { getFavorites, getIsLoading } from '@/redux/products/productsSlice';
 import { useAppSelector } from '@/redux/hooks';
+import ProductsList from '@/components/ProductsList/ProductsList';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Favorite: FC = () => {
   const isLoading = useAppSelector(getIsLoading);
+  const favoriteProducts = useAppSelector(getFavorites);
+
   return (
     <>
       <Head>
@@ -17,12 +22,14 @@ const Favorite: FC = () => {
       </Head>
       <Section>
         <Container>
-          <div>
-            <Heading>Улюблене</Heading>
-            <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
-            <p>Сторінка в розробці</p>
+          <Heading>Улюблене</Heading>
+          <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
+          {favoriteProducts.length > 0 ? (
+            <ProductsList data={favoriteProducts} />
+          ) : (
             <Empty text={'Тут нічого немає!'} />
-          </div>
+          )}
+          <ToastContainer />
         </Container>
       </Section>
     </>

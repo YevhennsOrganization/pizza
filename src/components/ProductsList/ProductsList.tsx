@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 import ProductsListItem from '../ProductsListItem/ProductsListItem';
 import { addItem } from '@/redux/cart/cartSlice';
-import { useAppDispatch } from '@/redux/hooks';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { getFavorites } from '@/redux/products/productsSlice';
 import { toast } from 'react-toastify';
 import css from './ProductsList.module.scss';
 
@@ -11,6 +12,7 @@ interface Props {
 
 const ProductsList: FC<Props> = ({ data }) => {
   const dispatch = useAppDispatch();
+  const favoriteProducts = useAppSelector(getFavorites);
 
   const addToCart = (
     _id: string,
@@ -49,14 +51,28 @@ const ProductsList: FC<Props> = ({ data }) => {
     }
   };
 
+  const setFavoriteProducts = (_id: string) => {
+    if (favoriteProducts.some(item => item._id === _id)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
-    <ul className={css.list}>
+    <div className={css.list}>
       {data.map(item => {
         return (
-          <ProductsListItem key={item._id} item={item} addToCart={addToCart} />
+          <ProductsListItem
+            key={item._id}
+            item={item}
+            addToCart={addToCart}
+            setFavoriteProducts={setFavoriteProducts}
+            favoriteProducts={favoriteProducts}
+          />
         );
       })}
-    </ul>
+    </div>
   );
 };
 
