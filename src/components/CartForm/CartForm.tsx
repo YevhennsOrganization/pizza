@@ -76,7 +76,7 @@ const CartForm: FC<Props> = ({ openModal }) => {
         pattern="[0-9]{10}"
         placeholder="Введіть номер телефону"
         id="customer-number"
-        label="Номер телефону в форматі: (0991115533)"
+        label="Номер телефону в форматі: 0991115533"
         htmlFor="customer-number"
         type="tel"
         error={errors?.number?.message}
