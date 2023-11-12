@@ -6,7 +6,7 @@ export const getProducts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const res = await axios.get(
-        'https://xata-magnata-server.onrender.com/api/products'
+        'https://xata-magnata-server.onrender.com/products'
       );
       return res.data.data.result;
     } catch (error: any) {
