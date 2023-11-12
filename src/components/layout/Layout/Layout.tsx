@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import Addresses from '../Addresses/Addresses';
+import Addresses from '../../Addresses/Addresses';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import css from './Layout.module.scss';
