@@ -6,7 +6,7 @@ export const getProducts = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const res = await axios.get(
-        'https://xata-magnata-server.onrender.com/products'
+        'https://api-pizza.blaize.technology/products'
       );
       return res.data.data.result;
     } catch (error: any) {

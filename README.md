@@ -1,9 +1,7 @@
 ## PIZZA
 
-It's a front-end part of a full-stack single page application. Please wait
-during the first launch until a spinner will disappear. This problem is only
-about free server on Render [https://render.com](https://render.com). Also visit
-a back-end part of the app:
+It's a front-end part of a full-stack single page application. Also visit a
+back-end part of the app:
 [https://github.com/YevhennsOrganization/pizza_backend.git](https://github.com/YevhennsOrganization/pizza_backend.git)
 
 To install and run the project:
