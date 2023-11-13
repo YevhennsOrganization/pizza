@@ -11,6 +11,7 @@ import {
 import { useAppDispatch } from '@/redux/hooks';
 import { toast } from 'react-toastify';
 import css from './ProductsListItem.module.scss';
+import Icon from '../basic/Icon/Icon';
 
 interface Props {
   item: TChosenProduct;
@@ -118,7 +119,8 @@ const ProductsListItem: FC<Props> = ({
             addToCart(_id, totalQuantity, promotion, totalPrice, totalPromPrice)
           }
         >
-          <RiShoppingBasketLine />
+          <Icon width={16} height={16} icon="basket" />
+          {/* <RiShoppingBasketLine /> */}
           {'В кошик'}
         </Button>
       </div>

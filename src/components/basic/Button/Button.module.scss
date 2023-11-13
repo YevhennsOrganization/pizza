@@ -6,14 +6,12 @@
   border-radius: 12px;
   background: linear-gradient(95deg, #f94c25 4.78%, #ffd465 112.49%);
   border: none;
-  align-items: center;
-  justify-content: center;
   transition: var(--transition);
   cursor: pointer;
   font-size: 18px;
   font-family: var(--main-font);
   svg {
-    font-size: 16px;
+    fill: var(--white-color);
   }
   &:hover {
     background: linear-gradient(276deg, #eb3535 -3.09%, #ffd163 95.38%);
