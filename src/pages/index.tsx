@@ -32,9 +32,9 @@ export const Home: FC = () => {
         <Container>
           <Heading>Новинки</Heading>
           <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
-          <CarouselComponent />
           {!isLoading && (
             <>
+              <CarouselComponent />
               <h2 className={css.heading}>Найпопулярніші позиції</h2>
               <ProductsList data={promotionProducts} />
             </>
