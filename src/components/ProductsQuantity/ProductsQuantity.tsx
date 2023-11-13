@@ -1,7 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
-import IconButton from '@mui/material/IconButton';
-import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
-import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import RoundButton from '../basic/RoundButton/RoundButton';
+import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 import css from './ProductsQuantity.module.scss';
 
 interface Props {
@@ -24,18 +23,17 @@ const ProductsQuantity: FC<Props> = ({ getTotalQuantity }) => {
 
   return (
     <div className={css.wrapper}>
-      <IconButton
+      <RoundButton
         onClick={decrement}
         disabled={quantity === 1}
-        color="primary"
         aria-label="minus"
       >
-        <RemoveCircleOutlineIcon />
-      </IconButton>
+        <AiFillCaretLeft />
+      </RoundButton>
       <p>{quantity} шт.</p>
-      <IconButton onClick={increment} color="primary" aria-label="plus">
-        <AddCircleOutlineIcon />
-      </IconButton>
+      <RoundButton onClick={increment} aria-label="plus">
+        <AiFillCaretRight />
+      </RoundButton>
     </div>
   );
 };
