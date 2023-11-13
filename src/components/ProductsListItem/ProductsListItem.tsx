@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import Image from 'next/image';
-import { RiShoppingBasket2Line } from 'react-icons/ri';
+import { RiShoppingBasketLine } from 'react-icons/ri';
 import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import Button from '@/components/basic/Button/Button';
@@ -118,7 +118,7 @@ const ProductsListItem: FC<Props> = ({
             addToCart(_id, totalQuantity, promotion, totalPrice, totalPromPrice)
           }
         >
-          <RiShoppingBasket2Line />
+          <RiShoppingBasketLine />
           {'В кошик'}
         </Button>
       </div>
