@@ -1,6 +1,9 @@
 .fieldset {
     font-family: var(--secondary-font);
     border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     textarea {
         width: 100%;
         padding: 12px;
@@ -9,6 +12,7 @@
         transition: var(--transition);
         border: 1px solid var(--accent-color);
         outline: none;
+        font-family: var(--main-font);
         &:hover {
             box-shadow: var(--box-shadow);
         }
