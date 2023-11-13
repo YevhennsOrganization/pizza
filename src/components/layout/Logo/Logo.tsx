@@ -7,7 +7,7 @@ const Logo: FC = () => {
   return (
     <Link href={'/'} className={css.logo}>
       <Image
-        src={'/mainLogo.svg'}
+        src={'/logo.svg'}
         alt="logo"
         width={274}
         height={95}
