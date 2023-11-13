@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
-import IconButton from '@mui/material/IconButton';
-import CancelIcon from '@mui/icons-material/Cancel';
+import RoundButton from '../basic/RoundButton/RoundButton';
+import { AiFillDelete } from 'react-icons/ai';
 import css from './CartListItem.module.scss';
 
 interface Props {
@@ -18,14 +18,9 @@ const CartListItem: FC<Props> = ({ data, deleteCartItem }) => {
       <p>{title}</p>
       <p>{quantity}</p>
       <p>{totalPrice} грн</p>
-      <IconButton
-        style={{ marginLeft: 'auto' }}
-        onClick={() => deleteCartItem(id)}
-        color="error"
-        aria-label="delete"
-      >
-        <CancelIcon />
-      </IconButton>
+      <RoundButton onClick={() => deleteCartItem(id)}>
+        <AiFillDelete />
+      </RoundButton>
     </div>
   );
 };
