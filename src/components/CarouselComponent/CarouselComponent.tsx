@@ -14,7 +14,7 @@ const CarouselComponent = () => {
     >
       <div className={css.item}>
         <Image
-          src="/carousel/action_1.png"
+          src="https://res.cloudinary.com/dyka4vajb/image/upload/f_auto,q_auto/v1/hatamagnata/carousel/g6kopv5fswwrxi0vys6a"
           alt="Action 1"
           width={1062}
           height={401}
@@ -22,7 +22,7 @@ const CarouselComponent = () => {
       </div>
       <div className={css.item}>
         <Image
-          src="/carousel/action_2.png"
+          src="https://res.cloudinary.com/dyka4vajb/image/upload/f_auto,q_auto/v1/hatamagnata/carousel/swejyzvcyuwcpeqip4sy"
           alt="Action 2"
           width={1062}
           height={401}
@@ -30,7 +30,7 @@ const CarouselComponent = () => {
       </div>
       <div className={css.item}>
         <Image
-          src="/carousel/action_3.png"
+          src="https://res.cloudinary.com/dyka4vajb/image/upload/f_auto,q_auto/v1/hatamagnata/carousel/ti0wittkvf5su8nhfbdy"
           alt="Action 3"
           width={1062}
           height={401}
