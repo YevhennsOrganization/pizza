@@ -1,1 +1,1 @@
-type TypeIcon = 'basket' | 'logo' | 'user';
+type TypeIcon = 'basket' | 'logo' | 'user' | 'facebook' | 'instagram';
