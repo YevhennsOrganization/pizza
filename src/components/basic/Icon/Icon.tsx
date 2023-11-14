@@ -6,7 +6,7 @@ interface Props {
   iconWidth: number | undefined;
   iconHeight: number | undefined;
   svg: TypeIcon | undefined;
-  color?: 'main' | 'white';
+  color?: 'main' | 'white' | 'accent';
 }
 
 const Icon: FC<Props> = ({ iconWidth, iconHeight, svg, color = 'main' }) => {

@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import ProductQuantity from '@/components/products/ProductQuantity/ProductQuantity';
-import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import {
   addToFavoriteAction,
   removeFromFavoriteAction,
@@ -10,6 +9,7 @@ import { toast } from 'react-toastify';
 import ProductFooter from '../ProductFooter/ProductFooter';
 import css from './ProductListItem.module.scss';
 import ProductDescription from '../ProductDescription/ProductDescription';
+import Icon from '@/components/basic/Icon/Icon';
 
 interface Props {
   item: TChosenProduct;
@@ -84,9 +84,14 @@ const ProductListItem: FC<Props> = ({
         onClick={addToFavorite}
       >
         {isFavorite ? (
-          <AiFillHeart className={css.filled} />
+          <Icon
+            svg="heart-filled"
+            iconWidth={34}
+            iconHeight={34}
+            color="accent"
+          />
         ) : (
-          <AiOutlineHeart />
+          <Icon svg="heart" iconWidth={34} iconHeight={34} />
         )}
       </button>
       <ProductDescription

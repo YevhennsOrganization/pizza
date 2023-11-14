@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import RoundButton from '../../basic/RoundButton/RoundButton';
-import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 import css from './ProductQuantity.module.scss';
+import Icon from '@/components/basic/Icon/Icon';
 
 interface Props {
   getTotalQuantity: (quantity: number) => void;
@@ -28,11 +28,11 @@ const ProductQuantity: FC<Props> = ({ getTotalQuantity }) => {
         disabled={quantity === 1}
         aria-label="minus"
       >
-        <AiFillCaretLeft />
+        <Icon svg="left" iconWidth={24} iconHeight={24} />
       </RoundButton>
       <p>{quantity} шт.</p>
       <RoundButton onClick={increment} aria-label="plus">
-        <AiFillCaretRight />
+        <Icon svg="right" iconWidth={24} iconHeight={24} />
       </RoundButton>
     </div>
   );
