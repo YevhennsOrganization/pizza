@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import GoogleMapReact from 'google-map-react';
-import { BiMap } from 'react-icons/bi';
 import css from './GoogleMap.module.scss';
+import Icon from '@/components/basic/Icon/Icon';
 
 interface Props {
   lat: number;
@@ -10,7 +10,7 @@ interface Props {
 
 const Point: FC<Props> = () => (
   <div>
-    <BiMap style={{ color: 'red', fontSize: '32px' }} />
+    <Icon svg="point" iconWidth={31} iconHeight={41} />
   </div>
 );
 

@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
 import RoundButton from '../../basic/RoundButton/RoundButton';
-import { AiFillDelete } from 'react-icons/ai';
 import css from './CartListItem.module.scss';
+import Icon from '@/components/basic/Icon/Icon';
 
 interface Props {
   data: TCartItem;
@@ -19,7 +19,7 @@ const CartListItem: FC<Props> = ({ data, deleteCartItem }) => {
       <p>{quantity}</p>
       <p>{totalPrice} грн</p>
       <RoundButton onClick={() => deleteCartItem(id)}>
-        <AiFillDelete />
+        <Icon svg="remove" iconWidth={24} iconHeight={24} />
       </RoundButton>
     </div>
   );
