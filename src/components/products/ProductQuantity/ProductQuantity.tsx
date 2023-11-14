@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
 import RoundButton from '../../basic/RoundButton/RoundButton';
-import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
 import css from './ProductQuantity.module.scss';
 import Icon from '@/components/basic/Icon/Icon';
 
