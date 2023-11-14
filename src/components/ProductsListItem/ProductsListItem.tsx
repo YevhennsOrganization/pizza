@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 import Image from 'next/image';
-import { RiShoppingBasketLine } from 'react-icons/ri';
 import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import Button from '@/components/basic/Button/Button';
@@ -11,7 +10,6 @@ import {
 import { useAppDispatch } from '@/redux/hooks';
 import { toast } from 'react-toastify';
 import css from './ProductsListItem.module.scss';
-import Icon from '../basic/Icon/Icon';
 
 interface Props {
   item: TChosenProduct;
@@ -114,13 +112,16 @@ const ProductsListItem: FC<Props> = ({
           <p className={css.price}>{totalPrice} грн</p>
         )}
         <Button
+          icon
+          color="white"
+          iconWidth={16}
+          iconHeight={16}
+          svg="basket"
           type="button"
           onClick={() =>
             addToCart(_id, totalQuantity, promotion, totalPrice, totalPromPrice)
           }
         >
-          <Icon width={16} height={16} icon="basket" />
-          {/* <RiShoppingBasketLine /> */}
           {'В кошик'}
         </Button>
       </div>

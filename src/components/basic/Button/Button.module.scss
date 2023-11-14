@@ -1,6 +1,8 @@
 .button {
   padding: 12px 24px;
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
   color: var(--white-color);
   border-radius: 12px;
@@ -10,9 +12,6 @@
   cursor: pointer;
   font-size: 18px;
   font-family: var(--main-font);
-  svg {
-    fill: var(--white-color);
-  }
   &:hover {
     background: linear-gradient(276deg, #eb3535 -3.09%, #ffd163 95.38%);
     box-shadow: var(--box-shadow);

@@ -1,16 +1,22 @@
 import React, { FC } from 'react';
 import css from './Icon.module.scss';
+import { cn } from '../../../helpers/combineClasses';
 
 interface Props {
-  width: number;
-  height: number;
-  icon: TypeIcon;
+  iconWidth: number | undefined;
+  iconHeight: number | undefined;
+  svg: TypeIcon | undefined;
+  color?: 'main' | 'white';
 }
 
-const Icon: FC<Props> = ({ width, height, icon }) => {
+const Icon: FC<Props> = ({ iconWidth, iconHeight, svg, color = 'main' }) => {
   return (
-    <svg className={css.svg} width={width} height={height}>
-      <use href={`/sprite.svg#${icon}`} />
+    <svg
+      className={cn(css.svg, css[color])}
+      width={iconWidth}
+      height={iconHeight}
+    >
+      <use href={`/sprite.svg#${svg}`} />
     </svg>
   );
 };
