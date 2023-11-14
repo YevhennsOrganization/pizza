@@ -1,13 +1,13 @@
 import React, { FC, useState, useEffect } from 'react';
-import RoundButton from '../basic/RoundButton/RoundButton';
+import RoundButton from '../../basic/RoundButton/RoundButton';
 import { AiFillCaretLeft, AiFillCaretRight } from 'react-icons/ai';
-import css from './ProductsQuantity.module.scss';
+import css from './ProductQuantity.module.scss';
 
 interface Props {
   getTotalQuantity: (quantity: number) => void;
 }
 
-const ProductsQuantity: FC<Props> = ({ getTotalQuantity }) => {
+const ProductQuantity: FC<Props> = ({ getTotalQuantity }) => {
   const [quantity, setQuantity] = useState(1);
 
   const increment = () => {
@@ -38,4 +38,4 @@ const ProductsQuantity: FC<Props> = ({ getTotalQuantity }) => {
   );
 };
 
-export default ProductsQuantity;
+export default ProductQuantity;

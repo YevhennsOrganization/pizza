@@ -1,17 +1,17 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
-import { IconType } from 'react-icons';
 import css from './HeaderNavLink.module.scss';
+import Icon from '@/components/basic/Icon/Icon';
 
 interface Props {
   hrefProp: string;
-  Icon: IconType;
   text: string | number;
+  svg: TypeIcon;
 }
-const HeaderNavLink: FC<Props> = ({ hrefProp, Icon, text }) => {
+const HeaderNavLink: FC<Props> = ({ hrefProp, text, svg }) => {
   return (
     <Link className={css.navLink} href={hrefProp}>
-      <Icon className={css.navLinkIcon} />
+      <Icon svg={svg} iconWidth={34} iconHeight={34} />
       <p>{text}</p>
     </Link>
   );

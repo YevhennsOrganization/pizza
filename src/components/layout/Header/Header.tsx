@@ -1,7 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
 import Logo from '../Logo/Logo';
-import { RiShoppingBasketLine } from 'react-icons/ri';
-// import { BiUser } from 'react-icons/bi';
 import Container from '@/components/common/Container/Container';
 import PhoneNumbersSet from '../PhoneNumbersSet/PhoneNumbersSet';
 import HeaderNavLink from '../HeaderNavLink/HeaderNavLink';
@@ -26,12 +24,8 @@ const Header: FC = () => {
           <Logo />
           <div className={css.headerLinks}>
             <PhoneNumbersSet />
-            {/* <HeaderNavLink hrefProp={'#'} Icon={BiUser} text={'Увійти'} /> */}
-            <HeaderNavLink
-              hrefProp={'/cart'}
-              Icon={RiShoppingBasketLine}
-              text={itemsInCart}
-            />
+            <HeaderNavLink hrefProp={'#'} svg="user" text={'Увійти'} />
+            <HeaderNavLink hrefProp={'/cart'} svg="basket" text={itemsInCart} />
           </div>
         </div>
       </Container>

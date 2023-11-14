@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import ProductsListItem from '../ProductsListItem/ProductsListItem';
+import ProductListItem from '../ProductListItem/ProductListItem';
 import { addItem } from '@/redux/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getFavorites } from '@/redux/products/productsSlice';
@@ -63,7 +63,7 @@ const ProductsList: FC<Props> = ({ data }) => {
     <div className={css.list}>
       {data.map(item => {
         return (
-          <ProductsListItem
+          <ProductListItem
             key={item._id}
             item={item}
             addToCart={addToCart}

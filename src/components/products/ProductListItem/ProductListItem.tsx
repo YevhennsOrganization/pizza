@@ -1,15 +1,15 @@
 import React, { FC, useState } from 'react';
-import Image from 'next/image';
-import ProductsQuantity from '@/components/ProductsQuantity/ProductsQuantity';
+import ProductQuantity from '@/components/products/ProductQuantity/ProductQuantity';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
-import Button from '@/components/basic/Button/Button';
 import {
   addToFavoriteAction,
   removeFromFavoriteAction,
 } from '@/redux/products/productsSlice';
 import { useAppDispatch } from '@/redux/hooks';
 import { toast } from 'react-toastify';
-import css from './ProductsListItem.module.scss';
+import ProductFooter from '../ProductFooter/ProductFooter';
+import css from './ProductListItem.module.scss';
+import ProductDescription from '../ProductDescription/ProductDescription';
 
 interface Props {
   item: TChosenProduct;
@@ -24,7 +24,7 @@ interface Props {
   favoriteProducts: TChosenProductsArr;
 }
 
-const ProductsListItem: FC<Props> = ({
+const ProductListItem: FC<Props> = ({
   item,
   addToCart,
   setFavoriteProducts,
@@ -89,44 +89,23 @@ const ProductsListItem: FC<Props> = ({
           <AiOutlineHeart />
         )}
       </button>
-      <Image
-        src={photo}
-        alt="item photo"
-        width={200}
-        height={200}
-        priority={true}
+      <ProductDescription
+        photo={photo}
+        title={title}
+        description={description}
+        dimension={dimension}
       />
-      <div className={css.info}>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <p>{dimension}</p>
-      </div>
-      <ProductsQuantity getTotalQuantity={getTotalQuantity} />
-      <div className={css.footerItem}>
-        {promotion ? (
-          <div className={css.priceWrapper}>
-            <p className={css.oldPrice}>{totalPrice} грн</p>
-            <p className={css.promPrice}>{totalPromPrice} грн</p>
-          </div>
-        ) : (
-          <p className={css.price}>{totalPrice} грн</p>
-        )}
-        <Button
-          icon
-          color="white"
-          iconWidth={16}
-          iconHeight={16}
-          svg="basket"
-          type="button"
-          onClick={() =>
-            addToCart(_id, totalQuantity, promotion, totalPrice, totalPromPrice)
-          }
-        >
-          {'В кошик'}
-        </Button>
-      </div>
+      <ProductQuantity getTotalQuantity={getTotalQuantity} />
+      <ProductFooter
+        _id={_id}
+        totalQuantity={totalQuantity}
+        promotion={promotion}
+        totalPrice={totalPrice}
+        totalPromPrice={totalPromPrice}
+        addToCart={addToCart}
+      />
     </div>
   );
 };
 
-export default ProductsListItem;
+export default ProductListItem;
