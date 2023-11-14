@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Image from 'next/image';
-import RoundButton from '../basic/RoundButton/RoundButton';
+import RoundButton from '../../basic/RoundButton/RoundButton';
 import { AiFillDelete } from 'react-icons/ai';
 import css from './CartListItem.module.scss';
 

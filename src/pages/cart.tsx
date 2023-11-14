@@ -1,11 +1,11 @@
 import React, { FC, useState } from 'react';
 import Head from 'next/head';
 import Heading from '@/components/basic/Heading/Heading';
-import CartForm from '@/components/CartForm/CartForm';
+import CartForm from '@/components/cart/CartForm/CartForm';
 import FinalModal from '@/components/FinalModal/FinalModal';
 import Container from '@/components/common/Container/Container';
 import Section from '@/components/common/Section/Section';
-import CartList from '@/components/CartList/CartList';
+import CartList from '@/components/cart/CartList/CartList';
 import Empty from '@/components/Empty/Empty';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
