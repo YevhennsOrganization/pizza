@@ -2,7 +2,7 @@
 
 .logo {
   display: block;
-  img {
+  svg {
     @include mobile {
       width: 150px;
       height: auto;

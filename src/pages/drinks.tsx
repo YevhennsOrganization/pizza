@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Heading from '@/components/basic/Heading/Heading';
 import Container from '@/components/common/Container/Container';
 import Section from '@/components/common/Section/Section';
-import ProductsList from '@/components/ProductsList/ProductsList';
+import ProductsList from '@/components/products/ProductsList/ProductsList';
 import Loader from '@/components/common/Loader/Loader';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getProductsAll, getIsLoading } from '@/redux/products/productsSlice';

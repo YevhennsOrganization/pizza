@@ -1,0 +1,8 @@
+.svg {
+    &.main {
+        fill: var(--main-color);
+    }
+    &.white {
+        fill: var(--white-color);
+    }
+}

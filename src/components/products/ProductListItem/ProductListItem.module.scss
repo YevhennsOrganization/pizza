@@ -1,0 +1,43 @@
+.listItem {
+    box-shadow: 4px 4px 14px 0px rgba(59, 50, 50, 0.25);
+    background-color: #fff;
+    color: black;
+    padding: 24px;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 350px;
+    gap: 10px;
+
+    .promotion {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        background-color: var(--accent-color);
+        padding: 6px 12px;
+        border-radius: 12px;
+        color: var(--white-color);
+        font-family: var(--main-font);
+    }
+    .favorite {
+        position: absolute;
+        right: 24px;
+        top: 24px;
+        background-color: transparent;
+        border: none;
+        transition: all 250ms linear;
+        cursor: pointer;
+        svg {
+            color: var(--main-color);
+            font-size: 34px;
+        }
+        .filled {
+            color: var(--accent-color);
+        }
+        &:hover {
+            scale: 1.2;
+        }
+    }
+}

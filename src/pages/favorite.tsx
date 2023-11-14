@@ -7,7 +7,7 @@ import Loader from '@/components/common/Loader/Loader';
 import Empty from '@/components/Empty/Empty';
 import { getFavorites, getIsLoading } from '@/redux/products/productsSlice';
 import { useAppSelector } from '@/redux/hooks';
-import ProductsList from '@/components/ProductsList/ProductsList';
+import ProductsList from '@/components/products/ProductsList/ProductsList';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
