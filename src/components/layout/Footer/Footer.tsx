@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { BsFacebook, BsInstagram } from 'react-icons/bs';
 import Container from '@/components/common/Container/Container';
 import FooterNavigation from '../FooterNavigation/FooterNavigation';
 import css from './Footer.module.scss';
+import Icon from '@/components/basic/Icon/Icon';
 
 const Footer: FC = () => {
   return (
@@ -18,7 +18,7 @@ const Footer: FC = () => {
               rel="noreferrer noopener"
               aria-label="facebook"
             >
-              <BsFacebook />
+              <Icon svg="facebook" iconWidth={30} iconHeight={30} />
             </a>
             <a
               className={css.socialLink}
@@ -27,7 +27,7 @@ const Footer: FC = () => {
               rel="noreferrer noopener"
               aria-label="instagram"
             >
-              <BsInstagram />
+              <Icon svg="instagram" iconWidth={30} iconHeight={30} />
             </a>
           </div>
         </div>

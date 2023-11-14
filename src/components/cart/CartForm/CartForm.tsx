@@ -6,7 +6,7 @@ import { sendOrder } from '@/redux/cart/cartOperations';
 import Button from '@/components/basic/Button/Button';
 import Input from '@/components/basic/Input/Input';
 import TextArea from '@/components/basic/TextArea/TextArea';
-import Checkbox from '../basic/Checkbox/Checkbox';
+import Checkbox from '../../basic/Checkbox/Checkbox';
 import css from './CartForm.module.scss';
 
 interface Props extends HTMLProps<HTMLFormElement> {
