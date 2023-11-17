@@ -59,5 +59,6 @@ export const productsReducer = productsSlice.reducer;
 
 export const getProductsAll = (state: RootState) => state.products.productsAll;
 export const getPromotions = (state: RootState) => state.products.promotions;
-export const getIsLoading = (state: RootState) => state.products.isLoading;
 export const getFavorites = (state: RootState) => state.products.favorites;
+export const getIsLoading = (state: RootState) => state.products.isLoading;
+export const getError = (state: RootState) => state.products.error;
