@@ -5,7 +5,7 @@ import { useAppSelector } from '@/redux/hooks';
 import { getIsLoading, getPromotions } from '@/redux/products/productsSlice';
 import CarouselComponent from '@/components/CarouselComponent/CarouselComponent';
 import ProductsList from '@/components/products/ProductsList/ProductsList';
-import ProductsPageWrapper from '@/components/ProductsPageWrapper/ProductsPageWrapper';
+import PagesWrapper from '@/components/PagesWrapper/PagesWrapper';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import css from '../styles/Index.module.scss';
@@ -15,7 +15,7 @@ export const Home: FC = () => {
   const isLoading = useAppSelector(getIsLoading);
 
   return (
-    <ProductsPageWrapper title="Nostra pizza - Новинки">
+    <PagesWrapper title="Nostra pizza - Новинки">
       <>
         <Heading>Новинки</Heading>
         <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
@@ -28,7 +28,7 @@ export const Home: FC = () => {
         )}
         <ToastContainer />
       </>
-    </ProductsPageWrapper>
+    </PagesWrapper>
   );
 };
 

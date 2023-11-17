@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Heading from '@/components/basic/Heading/Heading';
 import ProductsList from '@/components/products/ProductsList/ProductsList';
 import Loader from '@/components/common/Loader/Loader';
-import ProductsPageWrapper from '@/components/ProductsPageWrapper/ProductsPageWrapper';
+import PagesWrapper from '@/components/PagesWrapper/PagesWrapper';
 import { useAppSelector } from '@/redux/hooks';
 import { getIsLoading, getProductsAll } from '@/redux/products/productsSlice';
 import { filterByCategory } from '@/helpers/filterByCategory';
@@ -15,14 +15,14 @@ const Pizzas: FC = () => {
   const pizzas = filterByCategory(products, 'pizzas');
 
   return (
-    <ProductsPageWrapper title="Nostra pizza - Піца">
+    <PagesWrapper title="Nostra pizza - Піца">
       <>
         <Heading>Піца</Heading>
         <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
         <ProductsList data={pizzas} />
         <ToastContainer />
       </>
-    </ProductsPageWrapper>
+    </PagesWrapper>
   );
 };
 export default Pizzas;

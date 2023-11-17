@@ -10,7 +10,7 @@ interface Props {
   title: string;
   children: ReactNode;
 }
-export const ProductsPageWrapper: FC<Props> = ({ title, children }) => {
+export const PagesWrapper: FC<Props> = ({ title, children }) => {
   const is500Error = useFetchProducts();
 
   return (
@@ -25,4 +25,4 @@ export const ProductsPageWrapper: FC<Props> = ({ title, children }) => {
   );
 };
 
-export default ProductsPageWrapper;
+export default PagesWrapper;
