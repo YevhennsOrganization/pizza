@@ -12,7 +12,7 @@ import ProductDescription from '../ProductDescription/ProductDescription';
 import Icon from '@/components/basic/Icon/Icon';
 
 interface Props {
-  item: TChosenProduct;
+  item: TProduct;
   addToCart: (
     _id: string,
     totalQuantity: number,
@@ -21,7 +21,7 @@ interface Props {
     TotalPromPrice: number
   ) => void;
   setFavoriteProducts: (_id: string) => boolean;
-  favoriteProducts: TChosenProductsArr;
+  favoriteProducts: TProductsArr;
 }
 
 const ProductListItem: FC<Props> = ({
