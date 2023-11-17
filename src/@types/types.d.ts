@@ -37,3 +37,19 @@ type TSummary = {
   customerInfo: TInfo;
   payment: TCart;
 };
+
+type TProductItem = {
+  _id: string;
+  totalQuantity: number;
+  promotion: boolean;
+  totalPrice: number;
+  totalPromPrice: number;
+};
+
+type TAddToCart = (
+  _id: string,
+  totalQuantity: number,
+  promotion: boolean,
+  totalPrice: number,
+  TotalPromPrice: number
+) => void;
