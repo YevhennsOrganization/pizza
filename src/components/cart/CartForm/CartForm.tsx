@@ -107,7 +107,7 @@ const CartForm: FC<Props> = ({ openModal }) => {
         htmlFor="comment"
       />
       <p className={css.totalPayment}>До оплати {totalPayment} грн</p>
-      <Button type="submit">{'Підтвердити'}</Button>
+      <Button type="submit">Підтвердити</Button>
     </form>
   );
 };

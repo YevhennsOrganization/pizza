@@ -1,51 +1,15 @@
 import React, { FC, ReactNode } from 'react';
 import css from './Button.module.scss';
-import Icon from '../Icon/Icon';
 
-interface Base {
+interface Props {
   type: 'submit' | 'button';
   children: ReactNode;
   onClick?: () => void;
 }
 
-interface WithIcon {
-  icon?: true;
-  svg: TypeIcon;
-  iconWidth: number;
-  iconHeight: number;
-  color?: 'main' | 'white';
-}
-
-interface WithoutIcon {
-  icon?: false;
-  svg?: never;
-  iconWidth?: never;
-  iconHeight?: never;
-  color?: never;
-}
-
-type TSummary = Base & (WithIcon | WithoutIcon);
-
-const Button: FC<TSummary> = ({
-  children,
-  onClick,
-  type,
-  icon = false,
-  svg,
-  iconWidth,
-  iconHeight,
-  color = 'main',
-}) => {
+const Button: FC<Props> = ({ children, onClick, type }) => {
   return (
     <button type={type} className={css.button} onClick={onClick}>
-      {icon && (
-        <Icon
-          svg={svg}
-          iconWidth={iconWidth}
-          iconHeight={iconHeight}
-          color={color}
-        />
-      )}
       {children}
     </button>
   );

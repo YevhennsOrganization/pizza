@@ -53,7 +53,7 @@ const FinalModal: FC<Props> = ({ open, finalAction }) => {
                 </ul>
                 <p>Загальна сума: {sum} грн.</p>
                 <Button type="button" onClick={finalAction}>
-                  {'Вийти'}
+                  Вийти
                 </Button>
               </>
             )}
