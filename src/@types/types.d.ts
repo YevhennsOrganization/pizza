@@ -1,4 +1,4 @@
-type TChosenProduct = {
+type TProduct = {
   _id: string;
   title: string;
   description: string;
@@ -10,9 +10,9 @@ type TChosenProduct = {
   promPrice: number;
 };
 
-type TChosenProductsArr = TChosenProduct[];
+type TProductsArr = TProduct[];
 
-type TFavoritesArr = Pick<TChosenProduct, '_id' | 'category'>[];
+type TFavoritesArr = Pick<TProduct, '_id' | 'category'>[];
 
 type TInfo = {
   address?: string | undefined;

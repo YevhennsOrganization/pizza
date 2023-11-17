@@ -3,9 +3,9 @@ import { getProducts } from './productsOperations';
 import { RootState } from '../store';
 
 const initialState = {
-  productsAll: [] as TChosenProductsArr,
-  promotions: [] as TChosenProductsArr,
-  favorites: [] as TChosenProductsArr,
+  productsAll: [] as TProductsArr,
+  promotions: [] as TProductsArr,
+  favorites: [] as TProductsArr,
   error: false as boolean | string | unknown,
   isLoading: false,
 };
@@ -38,7 +38,7 @@ const productsSlice = createSlice({
         if (action.payload) {
           const getByPromotion = () => {
             return action.payload.filter(
-              (item: TChosenProduct) => item.promotion === true
+              (item: TProduct) => item.promotion === true
             );
           };
           state.productsAll = action.payload;
@@ -59,5 +59,6 @@ export const productsReducer = productsSlice.reducer;
 
 export const getProductsAll = (state: RootState) => state.products.productsAll;
 export const getPromotions = (state: RootState) => state.products.promotions;
-export const getIsLoading = (state: RootState) => state.products.isLoading;
 export const getFavorites = (state: RootState) => state.products.favorites;
+export const getIsLoading = (state: RootState) => state.products.isLoading;
+export const getError = (state: RootState) => state.products.error;
