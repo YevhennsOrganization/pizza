@@ -2,19 +2,8 @@ import React, { FC } from 'react';
 import Button from '@/components/basic/Button/Button';
 import css from './ProductFooter.module.scss';
 
-interface Props {
-  _id: string;
-  totalQuantity: number;
-  promotion: boolean;
-  totalPrice: number;
-  totalPromPrice: number;
-  addToCart: (
-    _id: string,
-    totalQuantity: number,
-    promotion: boolean,
-    totalPrice: number,
-    TotalPromPrice: number
-  ) => void;
+interface Props extends TProductItem {
+  addToCart: TAddToCart;
 }
 
 const ProductFooter: FC<Props> = ({

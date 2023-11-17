@@ -13,13 +13,7 @@ import Icon from '@/components/basic/Icon/Icon';
 
 interface Props {
   item: TProduct;
-  addToCart: (
-    _id: string,
-    totalQuantity: number,
-    promotion: boolean,
-    totalPrice: number,
-    TotalPromPrice: number
-  ) => void;
+  addToCart: TAddToCart;
   setFavoriteProducts: (_id: string) => boolean;
   favoriteProducts: TProductsArr;
 }
