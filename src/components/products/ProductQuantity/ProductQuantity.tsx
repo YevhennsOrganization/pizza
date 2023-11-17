@@ -28,11 +28,11 @@ const ProductQuantity: FC<Props> = ({ getTotalQuantity }) => {
         disabled={quantity === 1}
         aria-label="minus"
       >
-        <Icon svg="left" iconWidth={24} iconHeight={24} />
+        <Icon svg="left" iconWidth={24} iconHeight={24} color="accent" />
       </RoundButton>
       <p>{quantity} шт.</p>
       <RoundButton onClick={increment} aria-label="plus">
-        <Icon svg="right" iconWidth={24} iconHeight={24} />
+        <Icon svg="right" iconWidth={24} iconHeight={24} color="accent" />
       </RoundButton>
     </div>
   );

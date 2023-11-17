@@ -14,12 +14,18 @@ const CartListItem: FC<Props> = ({ data, deleteCartItem }) => {
 
   return (
     <div className={css.cartListItem}>
-      <Image src={photo} alt="item photo" width={50} height={50} />
+      <Image
+        src={photo}
+        alt="item photo"
+        width={50}
+        height={50}
+        priority={true}
+      />
       <p>{title}</p>
       <p>{quantity}</p>
       <p>{totalPrice} грн</p>
       <RoundButton onClick={() => deleteCartItem(id)}>
-        <Icon svg="remove" iconWidth={24} iconHeight={24} />
+        <Icon svg="remove" iconWidth={24} iconHeight={24} color="accent" />
       </RoundButton>
     </div>
   );
