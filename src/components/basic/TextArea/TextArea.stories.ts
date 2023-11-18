@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import '../../../styles/globals.scss';
-
 import TextArea from './TextArea';
+import '../../../styles/globals.scss';
 
 const meta: Meta<typeof TextArea> = {
   title: 'TextArea',
@@ -9,21 +8,10 @@ const meta: Meta<typeof TextArea> = {
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    label: {
-      description: 'label',
-    },
-    placeholder: {
-      description: 'placeholder',
-    },
-    error: {
-      description: 'Текст помилки',
-    },
-  },
 };
-export default meta;
 
-type Story = StoryObj<typeof meta>;
+export default meta;
+type Story = StoryObj<typeof TextArea>;
 
 export const Primary: Story = {
   args: {

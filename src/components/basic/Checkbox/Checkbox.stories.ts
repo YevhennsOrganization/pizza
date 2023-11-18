@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import '../../../styles/globals.scss';
-
 import Checkbox from './Checkbox';
+import '../../../styles/globals.scss';
 
 const meta: Meta<typeof Checkbox> = {
   title: 'Checkbox',
@@ -9,15 +8,10 @@ const meta: Meta<typeof Checkbox> = {
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    label: {
-      description: 'label',
-    },
-  },
 };
-export default meta;
 
-type Story = StoryObj<typeof meta>;
+export default meta;
+type Story = StoryObj<typeof Checkbox>;
 
 export const Primary: Story = {
   args: {

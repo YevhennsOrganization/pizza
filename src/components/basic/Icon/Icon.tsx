@@ -9,12 +9,19 @@ interface Props {
   color?: 'main' | 'white' | 'accent';
 }
 
-const Icon: FC<Props> = ({ iconWidth, iconHeight, svg, color = 'main' }) => {
+const Icon: FC<Props> = ({
+  iconWidth,
+  iconHeight,
+  svg,
+  color = 'main',
+  ...props
+}) => {
   return (
     <svg
       className={cn(css.svg, css[color])}
       width={iconWidth}
       height={iconHeight}
+      {...props}
     >
       <use href={`/sprite.svg#${svg}`} />
     </svg>

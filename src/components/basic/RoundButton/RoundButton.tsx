@@ -7,7 +7,7 @@ interface Props {
   disabled?: boolean;
 }
 
-const RoundButton: FC<Props> = ({ children, onClick, disabled }, props) => {
+const RoundButton: FC<Props> = ({ children, onClick, disabled, ...props }) => {
   return (
     <button
       className={css.button}

@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import '../../../styles/globals.scss';
-
 import Icon from './Icon';
-// import TypeIcons from './TypeIcon'
+import '../../../styles/globals.scss';
 
 const meta: Meta<typeof Icon> = {
   title: 'Icon',
@@ -31,11 +29,11 @@ const meta: Meta<typeof Icon> = {
     },
   },
 };
+
 export default meta;
+type Story = StoryObj<typeof Icon>;
 
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = {
+export const Basket: Story = {
   args: {
     svg: 'basket',
     color: 'main',
