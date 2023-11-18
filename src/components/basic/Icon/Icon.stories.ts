@@ -33,7 +33,7 @@ const meta: Meta<typeof Icon> = {
 export default meta;
 type Story = StoryObj<typeof Icon>;
 
-export const Primary1: Story = {
+export const Basket: Story = {
   args: {
     svg: 'basket',
     color: 'main',

@@ -7,9 +7,9 @@ interface Props extends HTMLProps<HTMLButtonElement> {
   onClick?: () => void;
 }
 
-const Button: FC<Props> = ({ children, onClick, type }) => {
+const Button: FC<Props> = ({ children, onClick, type, ...props }) => {
   return (
-    <button type={type} className={css.button} onClick={onClick}>
+    <button type={type} className={css.button} onClick={onClick} {...props}>
       {children}
     </button>
   );
