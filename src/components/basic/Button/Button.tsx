@@ -1,7 +1,7 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, HTMLProps, ReactNode } from 'react';
 import css from './Button.module.scss';
 
-interface Props {
+interface Props extends HTMLProps<HTMLButtonElement> {
   type: 'submit' | 'button';
   children: ReactNode;
   onClick?: () => void;

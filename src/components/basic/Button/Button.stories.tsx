@@ -1,10 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import '../../../styles/globals.scss';
-
 import Button from './Button';
 import Icon from '../Icon/Icon';
-import Icon1 from '../Icon/Icon.stories';
-import { type } from 'os';
+import '../../../styles/globals.scss';
 
 const meta: Meta<typeof Button> = {
   title: 'Button',
@@ -12,18 +9,24 @@ const meta: Meta<typeof Button> = {
   parameters: {
     layout: 'centered',
   },
-  argTypes: {
-    children: { options: [typeof Icon1, 'ds'] },
-  },
 };
+
 export default meta;
+type Story = StoryObj<typeof Button>;
 
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = {
+export const Primary1: Story = {
   args: {
     type: 'button',
-    children: 'Кніпочка',
+    children: [
+      <Icon
+        key={1}
+        svg="basket"
+        iconWidth={16}
+        iconHeight={16}
+        color="white"
+      />,
+      'Кніпочка',
+    ],
   },
 };
 
