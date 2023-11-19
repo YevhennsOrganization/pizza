@@ -5,7 +5,7 @@ import { RootState } from '../store';
 const initialState = {
   filledCart: [] as TCart,
   customerInfo: {} as TInfo,
-  error: false as any,
+  error: null as any,
   isLoading: false,
 };
 
@@ -36,6 +36,8 @@ const cartSlice = createSlice({
         state.error = false;
       })
       .addCase(sendOrder.fulfilled, (state, action) => {
+        console.log(action.payload);
+
         if (!action.payload) {
           state.error = true;
           state.isLoading = false;
@@ -57,6 +59,7 @@ export const cartReducer = cartSlice.reducer;
 export const getFilledCart = (state: RootState) => state.cart.filledCart;
 export const getCustomerInfo = (state: RootState) => state.cart.customerInfo;
 export const getIsLoading = (state: RootState) => state.cart.isLoading;
+export const getError = (state: RootState) => state.cart.error;
 
 export const { addItem } = cartSlice.actions;
 export const { deleteItem } = cartSlice.actions;

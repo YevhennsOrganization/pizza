@@ -26,6 +26,7 @@ const Cart: FC = () => {
   const openModal = () => {
     setOpen(true);
   };
+
   const deleteAllProducts = () => {
     dispatch(deleteAllItems());
     setOpen(false);
@@ -47,7 +48,7 @@ const Cart: FC = () => {
         ) : (
           <Empty text={'Кошик порожній!'} />
         )}
-        {open && <FinalModal open={open} finalAction={deleteAllProducts} />}
+        {open && <FinalModal finalAction={deleteAllProducts} />}
       </div>
     </PagesWrapper>
   );
