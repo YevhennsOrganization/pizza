@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import Heading from '@/components/basic/Heading/Heading';
 import ProductsList from '@/components/products/ProductsList/ProductsList';
-import Loader from '@/components/common/Loader/Loader';
 import PagesWrapper from '@/components/PagesWrapper/PagesWrapper';
+import LoaderModal from '@/components/common/LoaderModal/LoaderModal';
 import { useAppSelector } from '@/redux/hooks';
 import { getProductsAll, getIsLoading } from '@/redux/products/productsSlice';
 import { filterByCategory } from '@/helpers/filterByCategory';
@@ -18,7 +18,7 @@ const Drinks: FC = () => {
     <PagesWrapper title="Nostra pizza - Напої">
       <>
         <Heading>Напої</Heading>
-        <div style={{ height: '50px' }}>{isLoading && <Loader />}</div>
+        {isLoading && <LoaderModal />}
         <ProductsList data={drinks} />
         <ToastContainer />
       </>

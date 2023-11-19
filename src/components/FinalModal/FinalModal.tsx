@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { FC } from 'react';
 import { nanoid } from 'nanoid';
-import Loader from '@/components/common/Loader/Loader';
 import Button from '@/components/basic/Button/Button';
+import LoaderModal from '../common/LoaderModal/LoaderModal';
 import { useAppSelector } from '@/redux/hooks';
 import {
   getCustomerInfo,
@@ -24,13 +24,13 @@ const FinalModal: FC<Props> = ({ open, finalAction }) => {
   const { sum } = info;
 
   return (
-    <div>
+    <>
       {open && (
         <div className={css.modalWrapper}>
-          <div className={css.modal}>
-            {isLoading ? (
-              <Loader />
-            ) : (
+          {isLoading ? (
+            <LoaderModal />
+          ) : (
+            <div className={css.modal}>
               <>
                 <p className={css.resultText}>
                   Дякуємо!
@@ -56,11 +56,11 @@ const FinalModal: FC<Props> = ({ open, finalAction }) => {
                   Вийти
                 </Button>
               </>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       )}
-    </div>
+    </>
   );
 };
 

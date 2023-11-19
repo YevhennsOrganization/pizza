@@ -1,0 +1,21 @@
+@import "../../../styles/media.mixin.scss";
+
+.modalWrapper {
+    position: fixed;
+    box-sizing: border-box;
+    z-index: 9;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba($color: #3d3838, $alpha: 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 0;
+    overflow: scroll;
+
+    .loaderWrapper {
+        margin: auto;
+    }
+}
