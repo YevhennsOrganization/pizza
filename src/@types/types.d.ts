@@ -25,7 +25,7 @@ type TInfo = {
 
 type TOrdered = Pick<TCartItem, 'title' | 'quantity'>[];
 
-type TSummary = {
+type TSummaryOrder = {
   customerInfo: TInfo;
   order: TOrdered;
 };

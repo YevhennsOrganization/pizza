@@ -18,7 +18,6 @@ const CartForm: FC<Props> = ({ openModal }) => {
     register,
     handleSubmit,
     formState: { errors },
-    // reset,
     watch,
   } = useForm<TInfo>({ mode: 'onChange' });
 
@@ -52,9 +51,8 @@ const CartForm: FC<Props> = ({ openModal }) => {
       sum: totalPayment,
     };
     dispatch(addInfo(customerInfo));
-    const reqBody: TSummary = { customerInfo, order };
+    const reqBody: TSummaryOrder = { customerInfo, order };
     dispatch(sendOrder(reqBody));
-    // reset();
   };
 
   const delivery = watch('delivery');

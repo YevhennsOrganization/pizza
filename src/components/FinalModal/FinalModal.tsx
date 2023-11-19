@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { nanoid } from 'nanoid';
 import Button from '@/components/basic/Button/Button';
 import LoaderModal from '../common/LoaderModal/LoaderModal';
+import Error500 from '../errors/Error500/Error500';
 import { useAppSelector } from '@/redux/hooks';
 import {
   getCustomerInfo,
@@ -11,7 +12,6 @@ import {
   getIsLoading,
 } from '@/redux/cart/cartSlice';
 import css from './FinalModal.module.scss';
-import Error500 from '../errors/Error500/Error500';
 
 interface Props {
   finalAction: () => void;
@@ -24,7 +24,6 @@ const FinalModal: FC<Props> = ({ finalAction }) => {
 
   const { sum } = info;
   const err = useAppSelector(getError);
-  console.log(err);
 
   if (err) {
     return <Error500 />;

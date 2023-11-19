@@ -36,8 +36,6 @@ const cartSlice = createSlice({
         state.error = false;
       })
       .addCase(sendOrder.fulfilled, (state, action) => {
-        console.log(action.payload);
-
         if (!action.payload) {
           state.error = true;
           state.isLoading = false;
