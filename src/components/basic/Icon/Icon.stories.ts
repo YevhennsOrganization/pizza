@@ -41,3 +41,93 @@ export const Basket: Story = {
     iconHeight: 100,
   },
 };
+
+export const Facebook: Story = {
+  args: {
+    svg: 'facebook',
+    color: 'main',
+    iconWidth: 100,
+    iconHeight: 100,
+  },
+};
+
+export const Heart: Story = {
+  args: {
+    svg: 'heart',
+    color: 'main',
+    iconWidth: 100,
+    iconHeight: 100,
+  },
+};
+
+export const HeartFilled: Story = {
+  args: {
+    svg: 'heart-filled',
+    color: 'main',
+    iconWidth: 100,
+    iconHeight: 100,
+  },
+};
+
+export const Instagram: Story = {
+  args: {
+    svg: 'instagram',
+    color: 'main',
+    iconWidth: 100,
+    iconHeight: 100,
+  },
+};
+
+export const Left: Story = {
+  args: {
+    svg: 'left',
+    color: 'main',
+    iconWidth: 100,
+    iconHeight: 100,
+  },
+};
+
+export const Logo: Story = {
+  args: {
+    svg: 'logo',
+    color: 'main',
+    iconWidth: 100,
+    iconHeight: 100,
+  },
+};
+
+export const Point: Story = {
+  args: {
+    svg: 'point',
+    color: 'main',
+    iconWidth: 100,
+    iconHeight: 100,
+  },
+};
+
+export const Remove: Story = {
+  args: {
+    svg: 'remove',
+    color: 'main',
+    iconWidth: 100,
+    iconHeight: 100,
+  },
+};
+
+export const Right: Story = {
+  args: {
+    svg: 'right',
+    color: 'main',
+    iconWidth: 100,
+    iconHeight: 100,
+  },
+};
+
+export const User: Story = {
+  args: {
+    svg: 'user',
+    color: 'main',
+    iconWidth: 100,
+    iconHeight: 100,
+  },
+};
