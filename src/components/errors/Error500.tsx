@@ -8,7 +8,7 @@ const Error500: FC = () => {
         <div className={css.modal}>
           <>
             <p className={css.resultText}>
-              Помилка сервера!
+              Щось пішло не так
               <br />
               Перезавантажте сторінку,
               <br />
