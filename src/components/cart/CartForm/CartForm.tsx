@@ -18,21 +18,27 @@ const CartForm: FC<Props> = ({ openModal }) => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
     watch,
   } = useForm<TInfo>({ mode: 'onChange' });
 
   const [totalPayment, setTotalPayment] = useState(0);
 
-  const payment = useAppSelector(getFilledCart);
+  const filledCart = useAppSelector(getFilledCart);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const result = payment
+    const result = filledCart
       .map((element: { totalPrice: number }) => element.totalPrice)
       .reduce((acc: number, val: number) => acc + val, 0);
     setTotalPayment(result);
-  }, [payment]);
+  }, [filledCart]);
+
+  const order: TOrdered = filledCart.map(item => {
+    return {
+      title: item.title,
+      quantity: item.quantity,
+    };
+  });
 
   const onSubmit: SubmitHandler<TInfo> = data => {
     openModal();
@@ -45,9 +51,8 @@ const CartForm: FC<Props> = ({ openModal }) => {
       sum: totalPayment,
     };
     dispatch(addInfo(customerInfo));
-    const reqBody: TSummary = { customerInfo, payment };
+    const reqBody: TSummaryOrder = { customerInfo, order };
     dispatch(sendOrder(reqBody));
-    reset();
   };
 
   const delivery = watch('delivery');

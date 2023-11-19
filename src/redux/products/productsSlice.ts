@@ -6,7 +6,7 @@ const initialState = {
   productsAll: [] as TProductsArr,
   promotions: [] as TProductsArr,
   favorites: [] as TProductsArr,
-  error: false as boolean | string | unknown,
+  error: null as any,
   isLoading: false,
 };
 

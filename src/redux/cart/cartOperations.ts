@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const sendOrder = createAsyncThunk<
-  any,
-  any,
+  number,
+  TSummaryOrder,
   {
-    rejectValue: any;
+    rejectValue: string;
   }
 >('cart/sendOrder', async (order, { rejectWithValue }) => {
   try {
@@ -17,6 +17,6 @@ export const sendOrder = createAsyncThunk<
     );
     return res.status;
   } catch (error: any) {
-    return rejectWithValue(error.message);
+    return rejectWithValue(error.message as string);
   }
 });

@@ -23,6 +23,13 @@ type TInfo = {
   sum: number;
 };
 
+type TOrdered = Pick<TCartItem, 'title' | 'quantity'>[];
+
+type TSummaryOrder = {
+  customerInfo: TInfo;
+  order: TOrdered;
+};
+
 type TCartItem = {
   id: string;
   photo: string;
@@ -32,11 +39,6 @@ type TCartItem = {
 };
 
 type TCart = CartItem[];
-
-type TSummary = {
-  customerInfo: TInfo;
-  payment: TCart;
-};
 
 type TProductItem = {
   _id: string;
