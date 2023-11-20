@@ -46,7 +46,7 @@ const CartForm: FC<Props> = ({ openModal, totalPayment, order }) => {
     <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
       <Input
         {...register('name', { required: "Це обов'язкове поле!" })}
-        placeholder="Введіть м'я"
+        placeholder="Введіть ім'я"
         id="customer-name"
         label="Ім'я"
         htmlFor="customer-name"
