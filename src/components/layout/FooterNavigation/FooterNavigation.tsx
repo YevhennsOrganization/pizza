@@ -7,16 +7,16 @@ const FooterNavigation: FC = () => {
   return (
     <div className={css.wrapper}>
       <div className={css.item}>
-        <Link href="#">Про нас</Link>
+        <Link href="/underDevelopment">Про нас</Link>
         <p>Працюємо з 10:00 до 22:00</p>
       </div>
       <div className={css.item}>
-        <Link href="#">Оплата онлайн</Link>
-        <Link href="#">Власна доставка</Link>
+        <Link href="/underDevelopment">Оплата онлайн</Link>
+        <Link href="/underDevelopment">Власна доставка</Link>
       </div>
       <div className={css.item}>
-        <Link href="#">Конфіденційність</Link>
-        <Link href="#">Оферта</Link>
+        <Link href="/underDevelopment">Конфіденційність</Link>
+        <Link href="/underDevelopment">Оферта</Link>
       </div>
       <PhoneNumbersSet />
     </div>

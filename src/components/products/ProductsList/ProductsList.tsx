@@ -3,6 +3,7 @@ import ProductListItem from '../ProductListItem/ProductListItem';
 import { addItem } from '@/redux/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getFavorites } from '@/redux/products/productsSlice';
+import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import css from './ProductsList.module.scss';
 
@@ -23,16 +24,16 @@ const ProductsList: FC<Props> = ({ data }) => {
   ) => {
     const chosenProduct = data.find(item => item._id === _id);
     if (chosenProduct) {
-      const { _id, photo, title } = chosenProduct;
+      const { photo, title } = chosenProduct;
       const cartItem = {
-        id: _id,
+        id: nanoid(),
         photo: photo,
         title: title,
         quantity: totalQuantity,
         totalPrice: totalPrice,
       };
       const cartPromItem = {
-        id: _id,
+        id: nanoid(),
         photo: photo,
         title: title,
         quantity: totalQuantity,
