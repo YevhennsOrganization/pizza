@@ -24,7 +24,11 @@ const Header: FC = () => {
           <Logo />
           <div className={css.headerLinks}>
             <PhoneNumbersSet />
-            <HeaderNavLink hrefProp={'#'} svg="user" text={'Увійти'} />
+            <HeaderNavLink
+              hrefProp={'/underDevelopment'}
+              svg="user"
+              text={'Увійти'}
+            />
             <HeaderNavLink hrefProp={'/cart'} svg="basket" text={itemsInCart} />
           </div>
         </div>

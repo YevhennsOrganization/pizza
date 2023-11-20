@@ -1,7 +1,7 @@
-import React, { FC, HTMLProps, useEffect, useState } from 'react';
+import React, { FC, HTMLProps } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { addInfo, getFilledCart } from '@/redux/cart/cartSlice';
+import { useAppDispatch } from '@/redux/hooks';
+import { addInfo } from '@/redux/cart/cartSlice';
 import { sendOrder } from '@/redux/cart/cartOperations';
 import Button from '@/components/basic/Button/Button';
 import Input from '@/components/basic/Input/Input';
@@ -11,9 +11,11 @@ import css from './CartForm.module.scss';
 
 interface Props extends HTMLProps<HTMLFormElement> {
   openModal: () => void;
+  totalPayment: number;
+  order: TOrdered;
 }
 
-const CartForm: FC<Props> = ({ openModal }) => {
+const CartForm: FC<Props> = ({ openModal, totalPayment, order }) => {
   const {
     register,
     handleSubmit,
@@ -21,24 +23,7 @@ const CartForm: FC<Props> = ({ openModal }) => {
     watch,
   } = useForm<TInfo>({ mode: 'onChange' });
 
-  const [totalPayment, setTotalPayment] = useState(0);
-
-  const filledCart = useAppSelector(getFilledCart);
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    const result = filledCart
-      .map((element: { totalPrice: number }) => element.totalPrice)
-      .reduce((acc: number, val: number) => acc + val, 0);
-    setTotalPayment(result);
-  }, [filledCart]);
-
-  const order: TOrdered = filledCart.map(item => {
-    return {
-      title: item.title,
-      quantity: item.quantity,
-    };
-  });
 
   const onSubmit: SubmitHandler<TInfo> = data => {
     openModal();

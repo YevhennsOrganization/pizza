@@ -8,7 +8,7 @@ import PagesWrapper from '@/components/PagesWrapper/PagesWrapper';
 import LoaderModal from '@/components/common/LoaderModal/LoaderModal';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import css from '../styles/Index.module.scss';
+import css from '../styles/pages/Index.module.scss';
 
 export const Home: FC = () => {
   const promotionProducts = useAppSelector(getPromotions);
