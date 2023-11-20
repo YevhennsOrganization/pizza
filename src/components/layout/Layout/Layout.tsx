@@ -1,12 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import Addresses from '../Addresses/Addresses';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import css from './Layout.module.scss';
 
-interface Props {
-  children: JSX.Element;
-}
+interface Props extends PropsWithChildren {}
 
 const Layout: FC<Props> = ({ children }) => {
   return (
