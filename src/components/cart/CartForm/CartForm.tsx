@@ -72,7 +72,6 @@ const CartForm: FC<Props> = ({ openModal, totalPayment, order }) => {
         error={errors?.number?.message}
         inputMode="tel"
       />
-
       <Checkbox
         {...register('delivery')}
         id="delivery"

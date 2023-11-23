@@ -15,16 +15,14 @@ const Favorite: FC = () => {
 
   return (
     <PagesWrapper title="Nostra pizza - Улюблене">
-      <>
-        <Heading>Улюблене</Heading>
-        {isLoading && <LoaderModal />}
-        {favoriteProducts.length > 0 ? (
-          <ProductsList data={favoriteProducts} />
-        ) : (
-          <Empty text={'Тут нічого немає!'} />
-        )}
-        <ToastContainer />
-      </>
+      <Heading>Улюблене</Heading>
+      {isLoading && <LoaderModal />}
+      {favoriteProducts.length > 0 ? (
+        <ProductsList data={favoriteProducts} />
+      ) : (
+        <Empty text={'Тут нічого немає!'} />
+      )}
+      <ToastContainer />
     </PagesWrapper>
   );
 };

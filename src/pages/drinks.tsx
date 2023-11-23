@@ -16,12 +16,10 @@ const Drinks: FC = () => {
 
   return (
     <PagesWrapper title="Nostra pizza - Напої">
-      <>
-        <Heading>Напої</Heading>
-        {isLoading && <LoaderModal />}
-        <ProductsList data={drinks} />
-        <ToastContainer />
-      </>
+      <Heading>Напої</Heading>
+      {isLoading && <LoaderModal />}
+      <ProductsList data={drinks} />
+      <ToastContainer />
     </PagesWrapper>
   );
 };
