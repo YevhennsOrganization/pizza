@@ -16,18 +16,12 @@ export const Home: FC = () => {
 
   return (
     <PagesWrapper title="Nostra pizza - Новинки">
-      <>
-        <Heading>Новинки</Heading>
-        {isLoading && <LoaderModal />}
-        {!isLoading && (
-          <>
-            <CarouselComponent />
-            <h2 className={css.heading}>Найпопулярніші позиції</h2>
-            <ProductsList data={promotionProducts} />
-          </>
-        )}
-        <ToastContainer />
-      </>
+      <Heading>Новинки</Heading>
+      {isLoading && <LoaderModal />}
+      <CarouselComponent />
+      <h2 className={css.heading}>Найпопулярніші позиції</h2>
+      <ProductsList data={promotionProducts} />
+      <ToastContainer />
     </PagesWrapper>
   );
 };

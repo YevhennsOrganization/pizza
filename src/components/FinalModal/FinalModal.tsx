@@ -4,26 +4,24 @@ import { nanoid } from 'nanoid';
 import Button from '@/components/basic/Button/Button';
 import LoaderModal from '../common/LoaderModal/LoaderModal';
 import Error500 from '../errors/Error500/Error500';
-import { useAppSelector } from '@/redux/hooks';
-import {
-  getCustomerInfo,
-  getError,
-  getFilledCart,
-  getIsLoading,
-} from '@/redux/cart/cartSlice';
 import css from './FinalModal.module.scss';
 
 interface Props {
   finalAction: () => void;
+  filledCart: TCart;
+  info: TInfo;
+  isLoading: boolean;
+  err: any;
 }
 
-const FinalModal: FC<Props> = ({ finalAction }) => {
-  const filledCart = useAppSelector(getFilledCart);
-  const info = useAppSelector(getCustomerInfo);
-  const isLoading = useAppSelector(getIsLoading);
-
+const FinalModal: FC<Props> = ({
+  finalAction,
+  filledCart,
+  info,
+  isLoading,
+  err,
+}) => {
   const { sum } = info;
-  const err = useAppSelector(getError);
 
   if (err) {
     return <Error500 />;

@@ -10,6 +10,9 @@ import {
   getFilledCart,
   deleteItem,
   deleteAllItems,
+  getCustomerInfo,
+  getIsLoading,
+  getError,
 } from '@/redux/cart/cartSlice';
 import css from '../styles/pages/Cart.module.scss';
 
@@ -19,6 +22,9 @@ const Cart: FC = () => {
 
   const dispatch = useAppDispatch();
   const filledCart = useAppSelector(getFilledCart);
+  const info = useAppSelector(getCustomerInfo);
+  const isLoading = useAppSelector(getIsLoading);
+  const err = useAppSelector(getError);
 
   const deleteCartItem = (id: string) => {
     dispatch(deleteItem(id));
@@ -33,19 +39,19 @@ const Cart: FC = () => {
     setOpen(false);
   };
 
-  useEffect(() => {
-    const result = filledCart
-      .map((element: { totalPrice: number }) => element.totalPrice)
-      .reduce((acc: number, val: number) => acc + val, 0);
-    setTotalPayment(result);
-  }, [filledCart]);
-
   const order: TOrdered = filledCart.map(item => {
     return {
       title: item.title,
       quantity: item.quantity,
     };
   });
+
+  useEffect(() => {
+    const result = filledCart
+      .map((element: { totalPrice: number }) => element.totalPrice)
+      .reduce((acc: number, val: number) => acc + val, 0);
+    setTotalPayment(result);
+  }, [filledCart]);
 
   return (
     <PagesWrapper title="Nostra pizza - Кошик">
@@ -67,7 +73,15 @@ const Cart: FC = () => {
         ) : (
           <Empty text={'Кошик порожній!'} />
         )}
-        {open && <FinalModal finalAction={deleteAllProducts} />}
+        {open && (
+          <FinalModal
+            finalAction={deleteAllProducts}
+            filledCart={filledCart}
+            info={info}
+            isLoading={isLoading}
+            err={err}
+          />
+        )}
       </div>
     </PagesWrapper>
   );
