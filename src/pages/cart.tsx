@@ -1,9 +1,7 @@
-import React, { FC, useEffect, useState } from 'react';
-import Heading from '@/components/basic/Heading/Heading';
-import CartForm from '@/components/cart/CartForm/CartForm';
+import React, { FC, useState } from 'react';
+import Heading from '@/UI/basic/Heading/Heading';
+import CartContent from '@/modules/CartContent/CartContent';
 import FinalModal from '@/components/FinalModal/FinalModal';
-import CartList from '@/components/cart/CartList/CartList';
-import Empty from '@/components/Empty/Empty';
 import PagesWrapper from '@/components/PagesWrapper/PagesWrapper';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import {
@@ -18,7 +16,6 @@ import css from '../styles/pages/Cart.module.scss';
 
 const Cart: FC = () => {
   const [open, setOpen] = useState(false);
-  const [totalPayment, setTotalPayment] = useState(0);
 
   const dispatch = useAppDispatch();
   const filledCart = useAppSelector(getFilledCart);
@@ -39,40 +36,16 @@ const Cart: FC = () => {
     setOpen(false);
   };
 
-  const order: TOrdered = filledCart.map(item => {
-    return {
-      title: item.title,
-      quantity: item.quantity,
-    };
-  });
-
-  useEffect(() => {
-    const result = filledCart
-      .map((element: { totalPrice: number }) => element.totalPrice)
-      .reduce((acc: number, val: number) => acc + val, 0);
-    setTotalPayment(result);
-  }, [filledCart]);
-
   return (
     <PagesWrapper title="Nostra pizza - Кошик">
       <div className={css.cartWrapper}>
         <Heading>Кошик</Heading>
-        {filledCart.length > 0 ? (
-          <>
-            <CartList
-              filledCart={filledCart}
-              deleteCartItem={deleteCartItem}
-              deleteAllProducts={deleteAllProducts}
-            />
-            <CartForm
-              openModal={openModal}
-              totalPayment={totalPayment}
-              order={order}
-            />
-          </>
-        ) : (
-          <Empty text={'Кошик порожній!'} />
-        )}
+        <CartContent
+          filledCart={filledCart}
+          deleteCartItem={deleteCartItem}
+          deleteAllProducts={deleteAllProducts}
+          openModal={openModal}
+        />
         {open && (
           <FinalModal
             finalAction={deleteAllProducts}

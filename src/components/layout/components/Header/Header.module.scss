@@ -1,0 +1,16 @@
+@import "../../../../styles/media.mixin.scss";
+
+.wrapper {
+  .headerItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .headerLinks {
+    display: flex;
+    gap: 70px;
+    @include mobile {
+      gap: 20px;
+    }
+  }
+}

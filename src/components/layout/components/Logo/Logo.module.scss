@@ -1,0 +1,11 @@
+@import "../../../../styles/media.mixin.scss";
+
+.logo {
+  display: block;
+  svg {
+    @include mobile {
+      width: 150px;
+      height: auto;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+@import "../../../../styles/media.mixin.scss";
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  flex-wrap: wrap;
+  background: linear-gradient(90deg, #f94c25 -0.8%, #ffd465 99.28%);
+  @include mobile {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding-left: 16px;
+    padding-right: 16px;
+    overflow: scroll;
+    gap: 30px;
+  }
+  @include tablet {
+    gap: 40px;
+  }
+
+  .link {
+    font-family: var(--main-font);
+    font-weight: 600;
+    color: #422f2f;
+    font-size: 24px;
+    padding: 24px 0;
+    transition: all 250ms linear;
+    display: flex;
+    align-items: center;
+    @include mobile {
+      padding: 12px 0;
+      font-size: 20px;
+    }
+
+    &:hover {
+      color: var(--main-hover-color);
+    }
+  }
+  .active {
+    color: var(--main-hover-color);
+  }
+}

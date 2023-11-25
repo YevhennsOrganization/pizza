@@ -1,8 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { FC } from 'react';
 import { nanoid } from 'nanoid';
-import Button from '@/components/basic/Button/Button';
-import LoaderModal from '../common/LoaderModal/LoaderModal';
+import Button from '@/UI/basic/Button/Button';
+import LoaderModal from '../../UI/common/LoaderModal/LoaderModal';
 import Error500 from '../errors/Error500/Error500';
 import css from './FinalModal.module.scss';
 
