@@ -1,0 +1,18 @@
+@import "../../../../styles/media.mixin.scss";
+
+.navLink {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 250ms linear;
+    color: var(--main-color);
+    @include mobile {
+        gap: 5px;
+    }
+    p {
+        font-family: var(--secondary-font);
+    }
+    &:hover {
+        transform: scale(1.1);
+    }
+}

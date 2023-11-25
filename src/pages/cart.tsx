@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
-import Heading from '@/components/basic/Heading/Heading';
-import CartForm from '@/components/cart/CartForm/CartForm';
+import Heading from '@/UI/basic/Heading/Heading';
+import CartForm from '@/components/CartForm/CartForm';
 import FinalModal from '@/components/FinalModal/FinalModal';
 import CartList from '@/components/cart/CartList/CartList';
 import Empty from '@/components/Empty/Empty';
@@ -15,6 +15,7 @@ import {
   getError,
 } from '@/redux/cart/cartSlice';
 import css from '../styles/pages/Cart.module.scss';
+import CartContent from '@/modules/CartContent/CartContent';
 
 const Cart: FC = () => {
   const [open, setOpen] = useState(false);
@@ -57,22 +58,14 @@ const Cart: FC = () => {
     <PagesWrapper title="Nostra pizza - Кошик">
       <div className={css.cartWrapper}>
         <Heading>Кошик</Heading>
-        {filledCart.length > 0 ? (
-          <>
-            <CartList
-              filledCart={filledCart}
-              deleteCartItem={deleteCartItem}
-              deleteAllProducts={deleteAllProducts}
-            />
-            <CartForm
-              openModal={openModal}
-              totalPayment={totalPayment}
-              order={order}
-            />
-          </>
-        ) : (
-          <Empty text={'Кошик порожній!'} />
-        )}
+        <CartContent
+          filledCart={filledCart}
+          deleteCartItem={deleteCartItem}
+          deleteAllProducts={deleteAllProducts}
+          openModal={openModal}
+          totalPayment={totalPayment}
+          order={order}
+        />
         {open && (
           <FinalModal
             finalAction={deleteAllProducts}

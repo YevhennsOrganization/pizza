@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import Heading from '@/components/basic/Heading/Heading';
-import ProductsList from '@/components/products/ProductsList/ProductsList';
+import Heading from '@/UI/basic/Heading/Heading';
+import ProductsList from '@/modules/ProductsList/ProductsList';
 import PagesWrapper from '@/components/PagesWrapper/PagesWrapper';
-import LoaderModal from '@/components/common/LoaderModal/LoaderModal';
+import LoaderModal from '@/UI/common/LoaderModal/LoaderModal';
 import { useAppSelector } from '@/redux/hooks';
 import { getIsLoading, getProductsAll } from '@/redux/products/productsSlice';
 import { filterByCategory } from '@/helpers/filterByCategory';
