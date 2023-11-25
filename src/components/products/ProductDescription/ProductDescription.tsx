@@ -24,11 +24,11 @@ const ProductDescription: FC<Props> = ({
         height={200}
         priority={true}
       />
-      <div className={css.info}>
+      <hgroup className={css.info}>
         <h2>{title}</h2>
         <p>{description}</p>
         <p>{dimension}</p>
-      </div>
+      </hgroup>
     </div>
   );
 };
