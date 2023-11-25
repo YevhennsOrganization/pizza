@@ -15,13 +15,17 @@ export const PagesWrapper: FC<Props> = ({ title, children }) => {
   return (
     <>
       <Head>
-        <meta name="description" content="Найсмачніша піца в Дніпрі" />
+        <meta
+          name="description"
+          content="Найсмачніша піца в Дніпрі!"
+          key="desc"
+        />
         <meta name="og:description" content="Найсмачніша піца в Дніпрі" />
-        <meta content="Nostra Pizza, Дніпро" property="og:title"></meta>
+        <meta content="Nostra Pizza, Дніпро" property="og:title" />
         <meta
           content="де з'їсти піцу, закуски, напої, смачна піца, Nostra Pizza, Дніпропетровська область, Дніпро"
           name="keywords"
-        ></meta>
+        />
         <title>{title}</title>
       </Head>
       <Section>
