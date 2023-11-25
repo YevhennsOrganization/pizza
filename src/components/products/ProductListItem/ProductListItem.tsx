@@ -69,7 +69,7 @@ const ProductListItem: FC<Props> = ({
   };
 
   return (
-    <div className={css.listItem}>
+    <article className={css.listItem}>
       {promotion && <div className={css.promotion}>Акція</div>}
       <button
         type="button"
@@ -103,7 +103,7 @@ const ProductListItem: FC<Props> = ({
         totalPromPrice={totalPromPrice}
         addToCart={addToCart}
       />
-    </div>
+    </article>
   );
 };
 
