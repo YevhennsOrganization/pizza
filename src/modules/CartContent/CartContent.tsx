@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import Empty from '@/components/Empty/Empty';
 import CartForm from '@/components/CartForm/CartForm';
 import CartList from '@/components/CartList/CartList';
@@ -8,8 +8,6 @@ interface Props {
   deleteCartItem: (id: string) => void;
   deleteAllProducts: () => void;
   openModal: () => void;
-  totalPayment: number;
-  order: TOrdered;
 }
 
 const CartContent: FC<Props> = ({
@@ -17,9 +15,23 @@ const CartContent: FC<Props> = ({
   deleteCartItem,
   deleteAllProducts,
   openModal,
-  totalPayment,
-  order,
 }) => {
+  const [totalPayment, setTotalPayment] = useState(0);
+
+  const order: TOrdered = filledCart.map(item => {
+    return {
+      title: item.title,
+      quantity: item.quantity,
+    };
+  });
+
+  useEffect(() => {
+    const result = filledCart
+      .map((element: { totalPrice: number }) => element.totalPrice)
+      .reduce((acc: number, val: number) => acc + val, 0);
+    setTotalPayment(result);
+  }, [filledCart]);
+
   return (
     <>
       {filledCart.length > 0 ? (
