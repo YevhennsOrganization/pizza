@@ -8,7 +8,7 @@ import css from './FinalModal.module.scss';
 interface Props {
   finalAction: () => void;
   filledCart: TCart;
-  info: TInfo;
+  sum: number;
   isLoading: boolean;
   err: any;
 }
@@ -16,12 +16,10 @@ interface Props {
 const FinalModal: FC<Props> = ({
   finalAction,
   filledCart,
-  info,
+  sum,
   isLoading,
   err,
 }) => {
-  const { sum } = info;
-
   if (err) {
     return <Error500 />;
   }

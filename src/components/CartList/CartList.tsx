@@ -1,7 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import CartListItem from './components/CartListItem/CartListItem';
 import Button from '@/UI/basic/Button/Button';
 import css from './CartList.module.scss';
+import { useAppDispatch } from '@/redux/hooks';
+import { addOrderSum } from '@/redux/cart/cartSlice';
 
 interface Props {
   filledCart: TCart;
@@ -14,6 +16,15 @@ const CartList: FC<Props> = ({
   deleteCartItem,
   deleteAllProducts,
 }) => {
+  let sum = 0;
+  filledCart.forEach(item => (sum += item.totalPrice));
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(addOrderSum(sum));
+  }, [dispatch, sum]);
+
   return (
     <div className={css.cartList}>
       {filledCart.map(data => {
@@ -25,6 +36,7 @@ const CartList: FC<Props> = ({
           />
         );
       })}
+      <p className={css.totalPayment}>До оплати {sum} грн</p>
       <Button onClick={deleteAllProducts} type="button">
         Очистити кошик
       </Button>

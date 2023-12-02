@@ -10,6 +10,7 @@ import ProductFooter from './components/ProductFooter/ProductFooter';
 import css from './ProductListItem.module.scss';
 import ProductDescription from './components/ProductDescription/ProductDescription';
 import Icon from '@/UI/basic/Icon/Icon';
+import RoundButton from '@/UI/basic/RoundButton/RoundButton';
 
 interface Props {
   item: TProduct;
@@ -73,23 +74,20 @@ const ProductListItem: FC<Props> = ({
   return (
     <article className={css.listItem}>
       {promotion && <div className={css.promotion}>Акція</div>}
-      <button
-        type="button"
-        className={css.favorite}
-        aria-label="add to favorite"
-        onClick={addToFavorite}
-      >
-        {isFavorite ? (
-          <Icon
-            svg="heart-filled"
-            iconWidth={34}
-            iconHeight={34}
-            color="accent"
-          />
-        ) : (
-          <Icon svg="heart" iconWidth={34} iconHeight={34} />
-        )}
-      </button>
+      <div className={css.favorite}>
+        <RoundButton aria-label="add to favorite" onClick={addToFavorite}>
+          {isFavorite ? (
+            <Icon
+              svg="heart-filled"
+              iconWidth={34}
+              iconHeight={34}
+              color="accent"
+            />
+          ) : (
+            <Icon svg="heart" iconWidth={34} iconHeight={34} />
+          )}
+        </RoundButton>
+      </div>
       <ProductDescription
         photo={photo}
         title={title}

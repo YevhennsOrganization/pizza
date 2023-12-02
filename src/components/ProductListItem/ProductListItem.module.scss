@@ -21,23 +21,10 @@
         color: var(--white-color);
         font-family: var(--main-font);
     }
+
     .favorite {
         position: absolute;
         right: 24px;
         top: 24px;
-        background-color: transparent;
-        border: none;
-        transition: all 250ms linear;
-        cursor: pointer;
-        // svg {
-        //     color: var(--main-color);
-        //     font-size: 34px;
-        // }
-        .filled {
-            color: var(--accent-color);
-        }
-        &:hover {
-            scale: 1.2;
-        }
     }
 }

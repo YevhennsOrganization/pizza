@@ -1,7 +1,7 @@
 import React, { FC, HTMLProps } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { useAppDispatch } from '@/redux/hooks';
-import { addInfo } from '@/redux/cart/cartSlice';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { addInfo, getOrderSum } from '@/redux/cart/cartSlice';
 import { sendOrder } from '@/redux/cart/cartOperations';
 import Button from '@/UI/basic/Button/Button';
 import Input from '@/UI/basic/Input/Input';
@@ -11,11 +11,10 @@ import css from './CartForm.module.scss';
 
 interface Props extends HTMLProps<HTMLFormElement> {
   openModal: () => void;
-  totalPayment: number;
   order: TOrdered;
 }
 
-const CartForm: FC<Props> = ({ openModal, totalPayment, order }) => {
+const CartForm: FC<Props> = ({ openModal, order }) => {
   const {
     register,
     handleSubmit,
@@ -23,6 +22,7 @@ const CartForm: FC<Props> = ({ openModal, totalPayment, order }) => {
     watch,
   } = useForm<TInfo>({ mode: 'onChange' });
 
+  const orderSum = useAppSelector(getOrderSum);
   const dispatch = useAppDispatch();
 
   const onSubmit: SubmitHandler<TInfo> = data => {
@@ -33,10 +33,9 @@ const CartForm: FC<Props> = ({ openModal, totalPayment, order }) => {
       delivery: data.delivery,
       name: data.name,
       number: data.number,
-      sum: totalPayment,
     };
     dispatch(addInfo(customerInfo));
-    const reqBody: TSummaryOrder = { customerInfo, order };
+    const reqBody: TSummaryOrder = { customerInfo, order, orderSum };
     dispatch(sendOrder(reqBody));
   };
 
@@ -95,7 +94,6 @@ const CartForm: FC<Props> = ({ openModal, totalPayment, order }) => {
         label="Коментар"
         htmlFor="comment"
       />
-      <p className={css.totalPayment}>До оплати {totalPayment} грн</p>
       <Button type="submit">Підтвердити</Button>
     </form>
   );
