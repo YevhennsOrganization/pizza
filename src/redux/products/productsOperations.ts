@@ -9,7 +9,9 @@ export const getProducts = createAsyncThunk<
   }
 >('products/getProductsAll', async (_, { rejectWithValue }) => {
   try {
-    const res = await axios.get('https://api-pizza.blaize.technology/products');
+    const res = await axios.get(
+      'https://api-pizza.blaize.technology/api/products'
+    );
     return res.data.data.result as TProductsArr;
   } catch (error: any) {
     return rejectWithValue(error.message as string);

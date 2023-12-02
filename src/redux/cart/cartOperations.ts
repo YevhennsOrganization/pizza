@@ -10,7 +10,7 @@ export const sendOrder = createAsyncThunk<
 >('cart/sendOrder', async (order, { rejectWithValue }) => {
   try {
     const res = await axios.post(
-      'https://api-pizza.blaize.technology/send_order',
+      'https://api-pizza.blaize.technology/api/send_email',
       {
         body: JSON.stringify(order),
       }
