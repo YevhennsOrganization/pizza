@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import React, { FC } from 'react';
-import { nanoid } from 'nanoid';
 import Button from '@/UI/basic/Button/Button';
 import LoaderModal from '../../UI/common/LoaderModal/LoaderModal';
 import Error500 from '../errors/Error500/Error500';
@@ -43,9 +42,9 @@ const FinalModal: FC<Props> = ({
             </p>
             <p>Інформація про замовлення</p>
             <ul>
-              {filledCart.map(({ title, quantity, totalPrice }) => {
+              {filledCart.map(({ _id, title, quantity, totalPrice }) => {
                 return (
-                  <li key={nanoid()}>
+                  <li key={_id}>
                     <p>
                       {title} - {quantity} шт. - {totalPrice} грн.
                     </p>

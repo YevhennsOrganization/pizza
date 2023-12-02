@@ -3,7 +3,6 @@ import ProductListItem from '../../components/ProductListItem/ProductListItem';
 import { addItem, getFilledCart } from '@/redux/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getFavorites } from '@/redux/products/productsSlice';
-import { nanoid } from 'nanoid';
 import { toast } from 'react-toastify';
 import css from './ProductsList.module.scss';
 

@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { nanoid } from 'nanoid';
 import CartListItem from './components/CartListItem/CartListItem';
 import Button from '@/UI/basic/Button/Button';
 import css from './CartList.module.scss';
@@ -20,7 +19,7 @@ const CartList: FC<Props> = ({
       {filledCart.map(data => {
         return (
           <CartListItem
-            key={nanoid()}
+            key={data._id}
             deleteCartItem={deleteCartItem}
             data={data}
           />
