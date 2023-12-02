@@ -16,6 +16,7 @@ interface Props {
   addToCart: TAddToCart;
   setFavoriteProducts: (_id: string) => boolean;
   favoriteProducts: TProductsArr;
+  isInCart: (_id: string) => boolean;
 }
 
 const ProductListItem: FC<Props> = ({
@@ -23,6 +24,7 @@ const ProductListItem: FC<Props> = ({
   addToCart,
   setFavoriteProducts,
   favoriteProducts,
+  isInCart,
 }) => {
   const {
     _id,
@@ -102,6 +104,7 @@ const ProductListItem: FC<Props> = ({
         totalPrice={totalPrice}
         totalPromPrice={totalPromPrice}
         addToCart={addToCart}
+        isInCart={isInCart}
       />
     </article>
   );

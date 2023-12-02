@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import ProductListItem from '../../components/ProductListItem/ProductListItem';
-import { addItem } from '@/redux/cart/cartSlice';
+import { addItem, getFilledCart } from '@/redux/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getFavorites } from '@/redux/products/productsSlice';
 import { nanoid } from 'nanoid';
@@ -14,6 +14,9 @@ interface Props {
 const ProductsList: FC<Props> = ({ data }) => {
   const dispatch = useAppDispatch();
   const favoriteProducts = useAppSelector(getFavorites);
+  const filledCart = useAppSelector(getFilledCart);
+
+  const isInCart = (_id: string) => filledCart.some(item => item._id === _id);
 
   const addToCart = (
     _id: string,
@@ -24,16 +27,16 @@ const ProductsList: FC<Props> = ({ data }) => {
   ) => {
     const chosenProduct = data.find(item => item._id === _id);
     if (chosenProduct) {
-      const { photo, title } = chosenProduct;
+      const { photo, title, _id } = chosenProduct;
       const cartItem = {
-        id: nanoid(),
+        _id: _id,
         photo: photo,
         title: title,
         quantity: totalQuantity,
         totalPrice: totalPrice,
       };
       const cartPromItem = {
-        id: nanoid(),
+        _id: _id,
         photo: photo,
         title: title,
         quantity: totalQuantity,
@@ -70,6 +73,7 @@ const ProductsList: FC<Props> = ({ data }) => {
             addToCart={addToCart}
             setFavoriteProducts={setFavoriteProducts}
             favoriteProducts={favoriteProducts}
+            isInCart={isInCart}
           />
         );
       })}

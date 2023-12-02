@@ -6,11 +6,11 @@ import Icon from '@/UI/basic/Icon/Icon';
 
 interface Props {
   data: TCartItem;
-  deleteCartItem: (id: string) => void;
+  deleteCartItem: (_id: string) => void;
 }
 
 const CartListItem: FC<Props> = ({ data, deleteCartItem }) => {
-  const { id, photo, title, quantity, totalPrice } = data;
+  const { _id, photo, title, quantity, totalPrice } = data;
 
   return (
     <div className={css.cartListItem}>
@@ -24,7 +24,7 @@ const CartListItem: FC<Props> = ({ data, deleteCartItem }) => {
       <p>{title}</p>
       <p>{quantity}</p>
       <p>{totalPrice} грн</p>
-      <RoundButton onClick={() => deleteCartItem(id)}>
+      <RoundButton onClick={() => deleteCartItem(_id)}>
         <Icon svg="remove" iconWidth={24} iconHeight={24} color="accent" />
       </RoundButton>
     </div>

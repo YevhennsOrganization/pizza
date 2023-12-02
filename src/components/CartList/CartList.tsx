@@ -6,7 +6,7 @@ import css from './CartList.module.scss';
 
 interface Props {
   filledCart: TCart;
-  deleteCartItem: (id: string) => void;
+  deleteCartItem: (_id: string) => void;
   deleteAllProducts: () => void;
 }
 

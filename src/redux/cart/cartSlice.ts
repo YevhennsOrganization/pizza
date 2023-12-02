@@ -18,7 +18,7 @@ const cartSlice = createSlice({
     },
     deleteItem(state, action: { payload: string }) {
       state.filledCart = state.filledCart.filter(
-        item => item.id !== action.payload
+        item => item._id !== action.payload
       );
     },
     addInfo(state, action: { payload: TInfo }) {

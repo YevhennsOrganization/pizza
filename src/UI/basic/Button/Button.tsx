@@ -4,11 +4,24 @@ import css from './Button.module.scss';
 interface Props extends HTMLProps<PropsWithChildren<HTMLButtonElement>> {
   type: 'submit' | 'button';
   onClick?: () => void;
+  disabled?: boolean;
 }
 
-const Button: FC<Props> = ({ children, onClick, type, ...props }) => {
+const Button: FC<Props> = ({
+  disabled = false,
+  children,
+  onClick,
+  type,
+  ...props
+}) => {
   return (
-    <button type={type} className={css.button} onClick={onClick} {...props}>
+    <button
+      disabled={disabled}
+      type={type}
+      className={css.button}
+      onClick={onClick}
+      {...props}
+    >
       {children}
     </button>
   );
