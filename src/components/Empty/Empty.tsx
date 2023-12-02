@@ -5,6 +5,7 @@ import css from './Empty.module.scss';
 interface Props {
   text: string;
 }
+
 const Empty: FC<Props> = ({ text }) => {
   return (
     <div className={css.emptyCart}>

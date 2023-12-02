@@ -8,9 +8,9 @@ import {
   getFilledCart,
   deleteItem,
   deleteAllItems,
-  getCustomerInfo,
   getIsLoading,
   getError,
+  getOrderSum,
 } from '@/redux/cart/cartSlice';
 import css from '../styles/pages/Cart.module.scss';
 
@@ -19,7 +19,7 @@ const Cart: FC = () => {
 
   const dispatch = useAppDispatch();
   const filledCart = useAppSelector(getFilledCart);
-  const info = useAppSelector(getCustomerInfo);
+  const sum = useAppSelector(getOrderSum);
   const isLoading = useAppSelector(getIsLoading);
   const err = useAppSelector(getError);
 
@@ -50,7 +50,7 @@ const Cart: FC = () => {
           <FinalModal
             finalAction={deleteAllProducts}
             filledCart={filledCart}
-            info={info}
+            sum={sum}
             isLoading={isLoading}
             err={err}
           />

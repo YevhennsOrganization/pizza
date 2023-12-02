@@ -20,7 +20,6 @@ type TInfo = {
   delivery: boolean;
   name: string;
   number: string;
-  sum: number;
 };
 
 type TOrdered = Pick<TCartItem, 'title' | 'quantity'>[];
@@ -28,6 +27,7 @@ type TOrdered = Pick<TCartItem, 'title' | 'quantity'>[];
 type TSummaryOrder = {
   customerInfo: TInfo;
   order: TOrdered;
+  orderSum: number;
 };
 
 type TCartItem = {
