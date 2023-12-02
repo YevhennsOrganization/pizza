@@ -31,7 +31,7 @@ type TSummaryOrder = {
 };
 
 type TCartItem = {
-  id: string;
+  _id: string;
   photo: string;
   quantity: number;
   title: string;

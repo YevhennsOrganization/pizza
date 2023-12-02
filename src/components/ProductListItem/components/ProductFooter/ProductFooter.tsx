@@ -5,6 +5,7 @@ import Icon from '@/UI/basic/Icon/Icon';
 
 interface Props extends TProductItem {
   addToCart: TAddToCart;
+  isInCart: (_id: string) => boolean;
 }
 
 const ProductFooter: FC<Props> = ({
@@ -14,7 +15,10 @@ const ProductFooter: FC<Props> = ({
   totalPrice,
   totalPromPrice,
   addToCart,
+  isInCart,
 }) => {
+  const isInCartBoolean = isInCart(_id);
+
   return (
     <div className={css.productFooter}>
       {promotion ? (
@@ -26,13 +30,20 @@ const ProductFooter: FC<Props> = ({
         <p className={css.price}>{totalPrice} грн</p>
       )}
       <Button
+        disabled={isInCartBoolean}
         type="button"
         onClick={() =>
           addToCart(_id, totalQuantity, promotion, totalPrice, totalPromPrice)
         }
       >
-        <Icon svg="basket" iconWidth={16} iconHeight={16} color="white" />В
-        кошик
+        {isInCartBoolean ? (
+          <>
+            <Icon svg="basket" iconWidth={16} iconHeight={16} color="white" />В
+            кошику
+          </>
+        ) : (
+          <>В кошик</>
+        )}
       </Button>
     </div>
   );
