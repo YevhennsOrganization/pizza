@@ -5,12 +5,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include before-mobile {
+      justify-content: center;
+    }
   }
   .headerLinks {
     display: flex;
     gap: 70px;
-    @include mobile {
-      gap: 20px;
-    }
   }
 }

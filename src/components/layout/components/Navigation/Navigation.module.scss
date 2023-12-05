@@ -7,11 +7,8 @@
   flex-wrap: wrap;
   background: linear-gradient(90deg, #f94c25 -0.8%, #ffd465 99.28%);
   @include mobile {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
     padding-left: 16px;
     padding-right: 16px;
-    overflow: scroll;
     gap: 30px;
   }
   @include tablet {
@@ -38,5 +35,11 @@
   }
   .active {
     color: var(--main-hover-color);
+  }
+
+  .hideOnMobile {
+    @include before-mobile {
+      display: none;
+    }
   }
 }

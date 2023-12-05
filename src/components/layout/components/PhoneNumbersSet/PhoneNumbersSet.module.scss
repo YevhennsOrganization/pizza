@@ -5,7 +5,7 @@
     flex-direction: column;
     gap: 10px;
     font-family: var(--secondary-font);
-    @include mobile {
+    @include before-mobile {
         display: none;
     }
     a {
