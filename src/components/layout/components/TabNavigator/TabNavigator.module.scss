@@ -1,0 +1,19 @@
+@import "../../../../styles/media.mixin.scss";
+
+.wrapper {
+    position: fixed;
+    bottom: 0;
+    background: linear-gradient(90deg, #f94c25 -0.8%, #ffd465 99.28%);
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    @include not-mobile {
+        display: none;
+    }
+    .link {
+        padding: 15px;
+    }
+    .active svg {
+        fill: var(--main-hover-color);
+    }
+}

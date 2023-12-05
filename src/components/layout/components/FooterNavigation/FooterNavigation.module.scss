@@ -8,6 +8,10 @@
         flex-direction: column;
         gap: 12px;
     }
+    @include sm-tablet {
+        flex-direction: column;
+        gap: 12px;
+    }
     .item {
         display: flex;
         flex-direction: column;
@@ -17,6 +21,9 @@
         font-size: 18px;
         text-align: left;
         @include mobile {
+            text-align: center;
+        }
+        @include sm-tablet {
             text-align: center;
         }
         @include tablet {

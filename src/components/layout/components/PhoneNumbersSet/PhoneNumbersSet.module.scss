@@ -5,9 +5,6 @@
     flex-direction: column;
     gap: 10px;
     font-family: var(--secondary-font);
-    @include mobile {
-        display: none;
-    }
     a {
         transition: transform 250ms linear;
         &:hover {

@@ -7,7 +7,7 @@
     transition: transform 250ms linear;
     color: var(--main-color);
     @include mobile {
-        gap: 5px;
+        display: none;
     }
     p {
         font-family: var(--secondary-font);

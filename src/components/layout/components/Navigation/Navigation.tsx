@@ -10,7 +10,11 @@ const Navigation: FC = () => {
   return (
     <nav className={css.nav}>
       <Link
-        className={cn(css.link, pathname === '/' ? css.active : '')}
+        className={cn(
+          css.link,
+          pathname === '/' ? css.active : '',
+          css.hideOnMobile
+        )}
         href={'/'}
       >
         Новинки
@@ -34,7 +38,11 @@ const Navigation: FC = () => {
         Напої
       </Link>
       <Link
-        className={cn(css.link, pathname === '/favorite' ? css.active : '')}
+        className={cn(
+          css.link,
+          pathname === '/favorite' ? css.active : '',
+          css.hideOnMobile
+        )}
         href={'/favorite'}
       >
         Улюблене

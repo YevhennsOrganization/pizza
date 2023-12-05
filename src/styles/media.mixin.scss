@@ -1,11 +1,29 @@
 @mixin mobile() {
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin not-mobile() {
+    @media only screen and (min-width: 577px) {
+        @content;
+    }
+}
+
+@mixin sm-tablet() {
+    @media only screen and (min-width: 577px) and (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin lg-tablet() {
+    @media only screen and (min-width: 769px) and (max-width: 1279px) {
         @content;
     }
 }
 
 @mixin tablet() {
-    @media only screen and (min-width: 769px) and (max-width: 1279px) {
+    @media only screen and (min-width: 577px) and (max-width: 1279px) {
         @content;
     }
 }
