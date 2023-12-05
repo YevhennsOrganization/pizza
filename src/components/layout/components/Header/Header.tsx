@@ -23,7 +23,9 @@ const Header: FC = () => {
         <div className={css.headerItem}>
           <Logo />
           <div className={css.headerLinks}>
-            <PhoneNumbersSet />
+            <div className={css.phoneNumberSet}>
+              <PhoneNumbersSet />
+            </div>
             <HeaderNavLink
               hrefProp={'/underDevelopment'}
               svg="user"

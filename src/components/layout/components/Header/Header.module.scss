@@ -5,12 +5,20 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @include before-mobile {
+    @include mobile {
       justify-content: center;
     }
   }
   .headerLinks {
     display: flex;
     gap: 70px;
+    .phoneNumberSet {
+      @include mobile {
+        display: none;
+      }
+      @include sm-tablet {
+        display: none;
+      }
+    }
   }
 }

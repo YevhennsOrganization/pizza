@@ -6,7 +6,7 @@
     gap: 10px;
     transition: transform 250ms linear;
     color: var(--main-color);
-    @include before-mobile {
+    @include mobile {
         display: none;
     }
     p {

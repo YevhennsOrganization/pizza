@@ -5,7 +5,7 @@
   padding-bottom: 40px;
   color: var(--main-color);
   border-top: 1px solid #989898;
-  @include before-mobile {
+  @include mobile {
     padding-bottom: 80px;
   }
   .contactsWrapper {

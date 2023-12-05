@@ -3,16 +3,15 @@
 .nav {
   display: flex;
   justify-content: center;
-  gap: 80px;
   flex-wrap: wrap;
   background: linear-gradient(90deg, #f94c25 -0.8%, #ffd465 99.28%);
+  gap: 30px;
   @include mobile {
     padding-left: 16px;
     padding-right: 16px;
-    gap: 30px;
   }
-  @include tablet {
-    gap: 40px;
+  @include desktop {
+    gap: 80px;
   }
 
   .link {
@@ -26,6 +25,8 @@
     align-items: center;
     @include mobile {
       padding: 12px 0;
+    }
+    @include before-desktop {
       font-size: 20px;
     }
 
@@ -38,7 +39,7 @@
   }
 
   .hideOnMobile {
-    @include before-mobile {
+    @include mobile {
       display: none;
     }
   }
