@@ -3,7 +3,7 @@ import Heading from '@/UI/basic/Heading/Heading';
 import Empty from '@/components/Empty/Empty';
 import { getFavorites, getIsLoading } from '@/redux/products/productsSlice';
 import { useAppSelector } from '@/redux/hooks';
-import ProductsList from '@/modules/ProductsList/ProductsList';
+import ProductsList from '@/modules/Products/ProductsList';
 import LoaderModal from '@/UI/common/LoaderModal/LoaderModal';
 import PagesWrapper from '@/components/PagesWrapper/PagesWrapper';
 import { ToastContainer } from 'react-toastify';

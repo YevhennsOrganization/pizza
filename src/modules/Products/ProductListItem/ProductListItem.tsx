@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import ProductQuantity from '@/components/ProductListItem/components/ProductQuantity/ProductQuantity';
+import ProductQuantity from './components/ProductQuantity/ProductQuantity';
 import {
   addToFavoriteAction,
   removeFromFavoriteAction,

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import Empty from '@/components/Empty/Empty';
-import CartForm from '@/components/CartForm/CartForm';
-import CartList from '@/components/CartList/CartList';
+import CartForm from './CartForm/CartForm';
+import CartList from './CartList/CartList';
 
 interface Props {
   filledCart: TCart;

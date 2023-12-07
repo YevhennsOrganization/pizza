@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import ProductListItem from '../../components/ProductListItem/ProductListItem';
+import ProductListItem from './ProductListItem/ProductListItem';
 import { addItem, getFilledCart } from '@/redux/cart/cartSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { getFavorites } from '@/redux/products/productsSlice';
