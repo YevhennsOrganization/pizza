@@ -14,10 +14,10 @@ const productsSlice = createSlice({
   name: 'products',
   initialState,
   reducers: {
-    addToFavoriteAction(state, action) {
+    addToFavoriteAction(state, action: { payload: TProduct }) {
       state.favorites = [...state.favorites, action.payload];
     },
-    removeFromFavoriteAction(state, action) {
+    removeFromFavoriteAction(state, action: { payload: string }) {
       state.favorites = state.favorites.filter(
         item => item._id !== action.payload
       );
