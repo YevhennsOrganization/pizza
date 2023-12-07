@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import Heading from '@/UI/basic/Heading/Heading';
-import CartContent from '@/modules/CartContent/CartContent';
+import CartContent from '@/modules/Cart/CartContent';
 import FinalModal from '@/components/FinalModal/FinalModal';
 import PagesWrapper from '@/components/PagesWrapper/PagesWrapper';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';

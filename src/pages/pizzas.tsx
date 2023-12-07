@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import Heading from '@/UI/basic/Heading/Heading';
-import ProductsList from '@/modules/ProductsList/ProductsList';
+import ProductsList from '@/modules/Products/ProductsList';
 import PagesWrapper from '@/components/PagesWrapper/PagesWrapper';
 import LoaderModal from '@/UI/common/LoaderModal/LoaderModal';
 import { useAppSelector } from '@/redux/hooks';
