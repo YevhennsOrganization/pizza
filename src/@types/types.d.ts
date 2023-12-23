@@ -55,3 +55,11 @@ type TAddToCart = (
   totalPrice: number,
   TotalPromPrice: number
 ) => void;
+
+type TResponse = {
+  code: number;
+  status: string;
+  data: {
+    result: TProductsArr;
+  };
+};
