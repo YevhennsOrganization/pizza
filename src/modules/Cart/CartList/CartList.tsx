@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import CartListItem from './components/CartListItem/CartListItem';
+import CartListItem from './CartListItem/CartListItem';
 import Button from '@/UI/basic/Button/Button';
 import css from './CartList.module.scss';
 import { useAppDispatch } from '@/redux/hooks';

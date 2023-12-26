@@ -1,14 +1,14 @@
 import React, { FC, useState } from 'react';
-import ProductQuantity from './components/ProductQuantity/ProductQuantity';
+import ProductQuantity from './ProductQuantity/ProductQuantity';
 import {
   addToFavoriteAction,
   removeFromFavoriteAction,
 } from '@/redux/products/productsSlice';
 import { useAppDispatch } from '@/redux/hooks';
 import { toast } from 'react-toastify';
-import ProductFooter from './components/ProductFooter/ProductFooter';
+import ProductFooter from './ProductFooter/ProductFooter';
 import css from './ProductListItem.module.scss';
-import ProductDescription from './components/ProductDescription/ProductDescription';
+import ProductDescription from './ProductDescription/ProductDescription';
 import Icon from '@/UI/basic/Icon/Icon';
 import RoundButton from '@/UI/basic/RoundButton/RoundButton';
 
