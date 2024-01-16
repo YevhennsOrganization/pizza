@@ -4,22 +4,24 @@ import Button from '@/UI/basic/Button/Button';
 import LoaderModal from '../../UI/common/LoaderModal/LoaderModal';
 import Error500 from '../errors/Error500/Error500';
 import css from './FinalModal.module.scss';
+import { useAppSelector } from '@/redux/hooks';
+import {
+  getError,
+  getFilledCart,
+  getIsLoading,
+  getOrderSum,
+} from '@/redux/cart/cartSlice';
 
 interface Props {
   finalAction: () => void;
-  filledCart: TCart;
-  sum: number;
-  isLoading: boolean;
-  err: any;
 }
 
-const FinalModal: FC<Props> = ({
-  finalAction,
-  filledCart,
-  sum,
-  isLoading,
-  err,
-}) => {
+const FinalModal: FC<Props> = ({ finalAction }) => {
+  const filledCart = useAppSelector(getFilledCart);
+  const sum = useAppSelector(getOrderSum);
+  const isLoading = useAppSelector(getIsLoading);
+  const err = useAppSelector(getError);
+
   if (err) {
     return <Error500 />;
   }
