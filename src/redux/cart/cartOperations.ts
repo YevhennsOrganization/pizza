@@ -12,7 +12,7 @@ export const sendOrder = createAsyncThunk<
   }
 >('cart/sendOrder', async (order, { rejectWithValue }) => {
   try {
-    const res = await axios.post('/send_email', {
+    const res = await axios.post('api/send_email', {
       body: JSON.stringify(order),
     });
     return res.status;
