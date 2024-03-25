@@ -10,7 +10,7 @@ export const getProducts = createAsyncThunk<
   }
 >('products/getProductsAll', async (_, { rejectWithValue }) => {
   try {
-    const res = await fetch(`${BASE_URL}api/products`);
+    const res = await fetch(`${BASE_URL}/api/products`);
     const data: TResponse = await res.json();
     return data.data.result;
   } catch (error: any) {
