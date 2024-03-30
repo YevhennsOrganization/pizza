@@ -7,6 +7,7 @@ import ProductsList from '@/modules/Products/ProductsList';
 import PagesWrapper from '@/components/PagesWrapper/PagesWrapper';
 import LoaderModal from '@/UI/common/LoaderModal/LoaderModal';
 import { ToastContainer } from 'react-toastify';
+import { Weather } from '@/components/Weather/Weather';
 import 'react-toastify/dist/ReactToastify.css';
 import css from '../styles/pages/Index.module.scss';
 
@@ -18,6 +19,7 @@ export const Home: FC = () => {
     <PagesWrapper title="Nostra pizza - Новинки">
       <Heading>Новинки</Heading>
       {isLoading && <LoaderModal />}
+      <Weather />
       <CarouselComponent />
       <h2 className={css.heading}>Найпопулярніші позиції</h2>
       <ProductsList data={promotionProducts} />
